@@ -32,7 +32,7 @@ export function Preloader() {
               transition={{ duration: 0.5 }}
               className="text-4xl font-bold gradient-text"
             >
-              YourName
+              Lin1er
             </motion.div>
 
             {/* Loading bar */}
