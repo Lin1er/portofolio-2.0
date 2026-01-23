@@ -10,6 +10,7 @@ import {
   Notebook,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { experiences as experienceData, siteConfig } from "@/data";
 
 // Map icon strings to actual icons
@@ -75,25 +76,39 @@ export function ExperienceSection() {
                   className={`ml-8 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pl-8" : "md:pr-8 md:text-right"}`}
                 >
                   <BentoCard delay={index * 0.1}>
-                    <div
-                      className={`flex items-start gap-4 ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center shrink-0">
-                        <exp.icon className="w-6 h-6 text-(--accent)" />
-                      </div>
-                      <div className={index % 2 === 0 ? "" : "md:text-right"}>
-                        <span className="text-sm text-(--accent) font-medium">
-                          {exp.period}
-                        </span>
-                        <h3 className="text-lg font-semibold mt-1">
-                          {exp.title}
-                        </h3>
-                        <p className="text-(--muted) text-sm">
-                          {exp.organization}
-                        </p>
-                        <p className="text-(--muted) text-sm mt-2">
-                          {exp.description}
-                        </p>
+                    <div className="flex flex-col gap-4">
+                      {/* Image if available */}
+                      {exp.image && (
+                        <div className="relative w-full h-40 rounded-xl overflow-hidden">
+                          <Image
+                            src={exp.image}
+                            alt={exp.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+
+                      <div
+                        className={`flex items-start gap-4 ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}
+                      >
+                        <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center shrink-0">
+                          <exp.icon className="w-6 h-6 text-(--accent)" />
+                        </div>
+                        <div className={index % 2 === 0 ? "" : "md:text-right"}>
+                          <span className="text-sm text-(--accent) font-medium">
+                            {exp.period}
+                          </span>
+                          <h3 className="text-lg font-semibold mt-1">
+                            {exp.title}
+                          </h3>
+                          <p className="text-(--muted) text-sm">
+                            {exp.organization}
+                          </p>
+                          <p className="text-(--muted) text-sm mt-2">
+                            {exp.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </BentoCard>

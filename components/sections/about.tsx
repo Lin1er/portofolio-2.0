@@ -120,7 +120,7 @@ export function AboutSection() {
               <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center shrink-0">
                 <Rocket className="w-6 h-6 text-(--accent)" />
               </div>
-              <div>
+              <div className="sm:mt-5">
                 <h3 className="font-semibold mb-2">Current Focus</h3>
                 <p className="text-(--muted) leading-relaxed">
                   {personalInfo.aboutMe.currentFocus}
@@ -130,7 +130,7 @@ export function AboutSection() {
           </BentoCard>
 
           {/* Stats Section */}
-          <BentoCard colSpan={3} delay={0.5}>
+          {/* <BentoCard colSpan={3} delay={0.5}>
             <h3 className="font-semibold mb-6">By The Numbers</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
@@ -153,7 +153,7 @@ export function AboutSection() {
                 </motion.div>
               ))}
             </div>
-          </BentoCard>
+          </BentoCard> */}
 
           {/* Fun facts */}
           <BentoCard colSpan={3} delay={0.6}>

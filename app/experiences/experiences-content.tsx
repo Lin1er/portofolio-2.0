@@ -11,6 +11,7 @@ import {
   Filter,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { experiences as experienceData } from "@/data";
 import { useState } from "react";
 import { Navbar } from "@/components/layout/navbar";
@@ -126,35 +127,49 @@ export function ExperiencesPageContent() {
                   </div>
 
                   <BentoCard delay={0}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-(--accent)/10 flex items-center justify-center shrink-0">
-                        <exp.icon className="w-7 h-7 text-(--accent)" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-3 mb-2">
-                          <span
-                            className={`text-xs px-2 py-1 rounded-full font-medium ${
-                              exp.type === "education"
-                                ? "bg-blue-500/10 text-blue-500"
-                                : exp.type === "work"
-                                  ? "bg-green-500/10 text-green-500"
-                                  : "bg-yellow-500/10 text-yellow-500"
-                            }`}
-                          >
-                            {exp.type.charAt(0).toUpperCase() +
-                              exp.type.slice(1)}
-                          </span>
-                          <span className="text-sm text-(--accent) font-medium">
-                            {exp.period}
-                          </span>
+                    <div className="flex flex-col gap-4">
+                      {/* Image if available */}
+                      {exp.image && (
+                        <div className="relative w-full h-48 rounded-xl overflow-hidden">
+                          <Image
+                            src={exp.image}
+                            alt={exp.title}
+                            fill
+                            className="object-cover"
+                          />
                         </div>
-                        <h3 className="text-xl font-semibold">{exp.title}</h3>
-                        <p className="text-(--muted) font-medium">
-                          {exp.organization}
-                        </p>
-                        <p className="text-(--muted) mt-3 leading-relaxed">
-                          {exp.description}
-                        </p>
+                      )}
+
+                      <div className="flex items-start gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-(--accent)/10 flex items-center justify-center shrink-0">
+                          <exp.icon className="w-7 h-7 text-(--accent)" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex flex-wrap items-center gap-3 mb-2">
+                            <span
+                              className={`text-xs px-2 py-1 rounded-full font-medium ${
+                                exp.type === "education"
+                                  ? "bg-blue-500/10 text-blue-500"
+                                  : exp.type === "work"
+                                    ? "bg-green-500/10 text-green-500"
+                                    : "bg-yellow-500/10 text-yellow-500"
+                              }`}
+                            >
+                              {exp.type.charAt(0).toUpperCase() +
+                                exp.type.slice(1)}
+                            </span>
+                            <span className="text-sm text-(--accent) font-medium">
+                              {exp.period}
+                            </span>
+                          </div>
+                          <h3 className="text-xl font-semibold">{exp.title}</h3>
+                          <p className="text-(--muted) font-medium">
+                            {exp.organization}
+                          </p>
+                          <p className="text-(--muted) mt-3 leading-relaxed">
+                            {exp.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </BentoCard>

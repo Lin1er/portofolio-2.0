@@ -47,7 +47,7 @@ export const projects: Project[] = [
 {
   title: "eLibrary",
   description: "Digital library management system for efficient book cataloging, borrowing, and returns. Includes advanced search, overdue notifications, and multi-user support with role-based permissions for admins, staff, and members.",
-  image: "/projects/elibrary.png",
+  image: "https://github.com/Lin1er/metadata/blob/master/pictures/screenshoot-Elibrary.png?raw=true",
   tags: ["Laravel 11", "MySQL", "TailwindCSS", "JavaScript", "Vite"],
   github: "https://github.com/Lin1er/Elibrary",
   featured: false,
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "This very website you're looking at! Built with modern technologies.",
-    image: "/projects/portfolio.png",
+    image: "/assets/screenshoot.png",
     tags: ["Next.js", "Framer Motion", "TailwindCSS"],
     github: "https://github.com/yourusername/portfolio",
     live: "#",

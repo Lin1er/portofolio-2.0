@@ -5,6 +5,7 @@ export interface Experience {
   period: string;
   description: string;
   icon: "graduation" | "briefcase" | "award" | "calendar";
+  image?: string; // Optional image URL
 }
 
 export const experiences: Experience[] = [
@@ -16,15 +17,17 @@ export const experiences: Experience[] = [
     description:
       "Currently in my first year, majoring in Information Technology at Department of Electrical Engineering and Information Technology. Focusing on software engineering while actively participating in tech communities.",
     icon: "graduation",
+    // image: "/experiences/ugm.jpg", // Uncomment and add your image
   },
   {
-    type: "work",
+    type: "achievement",
     title: "Workshop Instructor - SUI Move",
     organization: "Tech Community",
     period: "2025",
     description:
       "Conducted a workshop teaching the fundamentals of SUI Move programming language and blockchain development on the SUI network.",
     icon: "award",
+    image: "/experiences/WorkShop-SUI.JPG", // Uncomment and add your image
   },
   {
     type: "work",

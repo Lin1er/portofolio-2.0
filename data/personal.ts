@@ -63,7 +63,7 @@ export const stats = [
 // Fun Facts
 export const funFacts = [
   { emoji: "☕", label: "Coffee Lover" },
-  { emoji: "🎮", label: "Gamer" },
+  { emoji: "🏍️", label: "Traveler" },
   { emoji: "📚", label: "Lifelong Learner" },
   { emoji: "🌙", label: "Night Owl" },
 ];
