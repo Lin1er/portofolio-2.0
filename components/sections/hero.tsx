@@ -152,17 +152,15 @@ export function HeroSection() {
               {/* Avatar container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-(--card) shadow-2xl">
                 <div className="w-full h-full bg-linear-to-br from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center">
-                  {/* Placeholder - replace with your image */}
-                  <span className="text-6xl">👨‍💻</span>
+                  {/* <span className="text-6xl">👨‍💻</span> */}
                 </div>
-                {/* Uncomment and use when you have an image */}
-                {/* <Image
-                  src="/your-photo.jpg"
+                <Image
+                  src="/assets/hero.png"
                   alt={personalInfo.name}
                   fill
                   className="object-cover"
                   priority
-                /> */}
+                />
               </div>
 
               {/* Floating badges */}
