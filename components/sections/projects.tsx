@@ -2,12 +2,40 @@
 
 import { motion } from "framer-motion";
 import { BentoCard } from "@/components/ui/bento-card";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  ArrowUpRight,
+  Clock,
+  CheckCircle2,
+  PauseCircle,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { projects, type Project, socialLinks } from "@/data";
 
+const statusConfig = {
+  completed: {
+    label: "Completed",
+    icon: CheckCircle2,
+    className: "bg-green-500/80 text-white border-green-500/20",
+  },
+  "in-progress": {
+    label: "In Progress",
+    icon: Clock,
+    className: "bg-yellow-500/80 text-white border-yellow-500/20",
+  },
+  "on-hold": {
+    label: "On Hold",
+    icon: PauseCircle,
+    className: "bg-gray-500/80 text-white border-gray-500/20",
+  },
+};
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const status = statusConfig[project.status];
+  const StatusIcon = status.icon;
+
   return (
     <BentoCard colSpan={1} rowSpan={1} delay={index * 0.1}>
       <div className="flex flex-col h-full">
@@ -23,6 +51,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
+
+          {/* Status Badge */}
+          <div
+            className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium border flex items-center gap-1 ${status.className}`}
+          >
+            <StatusIcon className="w-3 h-3" />
+            {status.label}
+          </div>
 
           {/* Overlay on hover */}
           <div className="absolute inset-0 bg-(--background)/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -106,7 +142,9 @@ export function ProjectsSection() {
           className="mt-8 text-center"
         >
           <Link
-            href={socialLinks.find(link => link.name === "GitHub")?.href || "#"}
+            href={
+              socialLinks.find((link) => link.name === "GitHub")?.href || "#"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-(--card) border border-(--border) rounded-full hover:border-(--accent) transition-colors"

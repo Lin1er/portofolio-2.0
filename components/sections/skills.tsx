@@ -125,12 +125,12 @@ export function SkillsSection() {
             ))}
           </BentoCard>
 
-          {/* Tools */}
+          {/* Other Skills */}
           <BentoCard delay={0.4}>
             <h3 className="font-semibold mb-4 flex items-center gap-2">
-              <span className="text-xl">🛠️</span> Tools
+              <span className="text-xl">🛠️</span> Other
             </h3>
-            {skills.tools.map((skill, index) => (
+            {skills.other.map((skill, index) => (
               <SkillBar
                 key={skill.name}
                 name={skill.name}

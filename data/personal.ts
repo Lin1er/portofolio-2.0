@@ -1,20 +1,21 @@
 // Personal Information
 export const personalInfo = {
-  name: "Ulinuha",
+  name: "M. Ulinuha As Shiddiqy",
   role: "Fullstack Developer & Web3 Enthusiast",
   email: "m.ulinasidiki@gmail.com",
-  location: "Yogyakarta, Indonesia",
+  phone: "+62 821-1539-4126",
+  location: "East Lampung, Indonesia",
   university: "Universitas Gadjah Mada",
   major: "Information Technology",
   yearsOfExperience: 3,
-  bio: "A passionate developer with 3+ years of experience building modern web applications. Currently exploring the world of Web3 and blockchain technology.",
+  bio: "Currently pursuing a Bachelor's degree in Information Technology with a deep interest in software development and Web3 ecosystems. Dedicated to transforming ideas into digital solutions, with hands-on experience in full-stack technologies like Laravel and React.",
   aboutMe: {
     intro:
-      "I'm a first-year student majoring in Information Technology at Department of Electrical Engineering and Information Technology (DTETI), Universitas Gadjah Mada. Despite being in my second semester, I've been coding for 3+ years.",
+      "I'm a first-year student majoring in Information Technology at Universitas Gadjah Mada. A proactive learner committed to mastering backend systems, IoT, and decentralized technologies.",
     passion:
-      "I'm passionate about building things that live on the internet. Currently, I'm diving deep into the world of Web3 and blockchain technology, exploring how decentralized systems can reshape the future of the web.",
+      "I'm passionate about transforming ideas into digital solutions. Actively exploring blockchain development and recently contributed to the community as a workshop speaker. Experienced in full-stack technologies like Laravel, React, and Node.js.",
     currentFocus:
-      "Exploring Web3 development with a focus on SUI Move blockchain. Recently gave a workshop on SUI Move, sharing knowledge about building on the SUI network.",
+      "Exploring Web3 development with a focus on SUI Move blockchain. Also diving into IoT development and Machine Learning while building full-stack applications.",
   },
   availability: "Available for opportunities",
 };
@@ -31,11 +32,6 @@ export const socialLinks = [
     href: "https://linkedin.com/in/ulinuha",
     username: "ulinuha",
   },
-  // {
-  //   name: "Twitter",
-  //   href: "https://twitter.com/yourusername",
-  //   username: "@yourusername",
-  // },
   {
     name: "Instagram",
     href: "https://instagram.com/ulinuha.a_",

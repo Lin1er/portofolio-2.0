@@ -9,6 +9,7 @@ import {
   Calendar,
   ArrowLeft,
   Filter,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,6 +24,7 @@ const iconMap: Record<string, typeof Briefcase> = {
   briefcase: Briefcase,
   award: Award,
   calendar: Calendar,
+  users: Users,
 };
 
 const experiences = experienceData.map((exp) => ({
@@ -35,6 +37,7 @@ const filterOptions = [
   { value: "education", label: "Education" },
   { value: "work", label: "Work" },
   { value: "achievement", label: "Achievement" },
+  { value: "organization", label: "Organization" },
 ];
 
 export function ExperiencesPageContent() {
@@ -121,7 +124,9 @@ export function ExperiencesPageContent() {
                           ? "bg-blue-500"
                           : exp.type === "work"
                             ? "bg-green-500"
-                            : "bg-yellow-500"
+                            : exp.type === "organization"
+                              ? "bg-purple-500"
+                              : "bg-yellow-500"
                       }`}
                     />
                   </div>
@@ -152,7 +157,9 @@ export function ExperiencesPageContent() {
                                   ? "bg-blue-500/10 text-blue-500"
                                   : exp.type === "work"
                                     ? "bg-green-500/10 text-green-500"
-                                    : "bg-yellow-500/10 text-yellow-500"
+                                    : exp.type === "organization"
+                                      ? "bg-purple-500/10 text-purple-500"
+                                      : "bg-yellow-500/10 text-yellow-500"
                               }`}
                             >
                               {exp.type.charAt(0).toUpperCase() +
@@ -196,25 +203,31 @@ export function ExperiencesPageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-16 grid grid-cols-3 gap-4"
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
-              <div className="text-3xl font-bold gradient-text">
+              <div className="text-3xl font-bold text-blue-500">
                 {experiences.filter((e) => e.type === "education").length}
               </div>
               <div className="text-sm text-(--muted) mt-1">Education</div>
             </div>
             <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
-              <div className="text-3xl font-bold gradient-text">
+              <div className="text-3xl font-bold text-green-500">
                 {experiences.filter((e) => e.type === "work").length}
               </div>
               <div className="text-sm text-(--muted) mt-1">Work</div>
             </div>
             <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
-              <div className="text-3xl font-bold gradient-text">
+              <div className="text-3xl font-bold text-yellow-500">
                 {experiences.filter((e) => e.type === "achievement").length}
               </div>
               <div className="text-sm text-(--muted) mt-1">Achievements</div>
+            </div>
+            <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
+              <div className="text-3xl font-bold text-purple-500">
+                {experiences.filter((e) => e.type === "organization").length}
+              </div>
+              <div className="text-sm text-(--muted) mt-1">Organization</div>
             </div>
           </motion.div>
         </div>

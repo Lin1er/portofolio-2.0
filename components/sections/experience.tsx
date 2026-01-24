@@ -8,6 +8,7 @@ import {
   Award,
   Calendar,
   Notebook,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,6 +20,7 @@ const iconMap: Record<string, typeof Briefcase> = {
   briefcase: Briefcase,
   award: Award,
   calendar: Calendar,
+  users: Users,
 };
 
 const experiences = experienceData.map((exp) => ({
@@ -127,7 +129,7 @@ export function ExperienceSection() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-(--card) border border-(--border) rounded-full hover:border-(--accent) transition-colors"
               >
                 <Notebook className="w-5 h-5" />
-                View More My Experiences
+                View More My Experiences Journey
               </Link>
             </motion.div>
           </div>

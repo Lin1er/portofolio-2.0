@@ -11,6 +11,7 @@ import {
   Linkedin,
   Twitter,
   Instagram,
+  Loader2,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -35,15 +36,35 @@ export function ContactSection() {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - you can integrate with an email service
-    console.log(formData);
-    alert("Thanks for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-  };
+    setIsLoading(true);
+    setStatus("idle");
 
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <section id="contact" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -179,13 +200,36 @@ export function ContactSection() {
                   required
                 />
               </div>
-                <button
-                  type="submit"
-                  className="w-full md:w-auto px-8 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-                >
-                  Send Message
-                  <Send className="w-4 h-4" />
-                </button>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full md:w-auto px-8 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+
+              {/* Status Messages */}
+              {status === "success" && (
+                <p className="text-green-500 text-sm mt-2">
+                  ✓ Message sent successfully! I&apos;ll get back to you soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-500 text-sm mt-2">
+                  ✗ Failed to send message. Please try again or email me
+                  directly.
+                </p>
+              )}
             </form>
           </BentoCard>
 

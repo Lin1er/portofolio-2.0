@@ -1,9 +1,9 @@
 // Site Configuration
 export const siteConfig = {
-  name: "M. Ulinuha As Shidiqy",
-  title: "M. Ulinuha As Shidiqy | Fullstack Developer & Web3 Enthusiast",
+  name: "M. Ulinuha As Shiddiqy",
+  title: "M. Ulinuha As Shiddiqy | Fullstack Developer & Web3 Enthusiast",
   description:
-    "A passionate fullstack developer with 3+ years of experience building modern web applications. Currently exploring Web3 and blockchain technology. Based in Yogyakarta, Indonesia.",
+    "Currently pursuing a Bachelor's degree in Information Technology with a deep interest in software development and Web3 ecosystems. Dedicated to transforming ideas into digital solutions with hands-on experience in Laravel, React, and blockchain development.",
   url: "https://ulinuha.dev", // Change to your actual domain
   ogImage: "/og-image.png",
   keywords: [
@@ -12,17 +12,21 @@ export const siteConfig = {
     "web3 developer",
     "blockchain",
     "react developer",
+    "laravel developer",
     "nextjs",
     "portfolio",
     "software engineer",
     "frontend developer",
     "backend developer",
-    "yogyakarta",
+    "iot developer",
+    "machine learning",
     "indonesia",
     "sui move",
+    "ugm",
+    "gadjah mada",
   ],
   author: {
-    name: "M. Ulinuha As Shidiqy",
+    name: "M. Ulinuha As Shiddiqy",
     twitter: "@ulinuha",
     github: "Lin1er",
   },
