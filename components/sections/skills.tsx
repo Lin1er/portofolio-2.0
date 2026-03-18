@@ -79,8 +79,8 @@ export function SkillsSection() {
           </Marquee>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Frontend */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Frontend 
           <BentoCard delay={0.1}>
             <h3 className="font-semibold mb-4 flex items-center gap-2">
               <span className="text-xl">🎨</span> Frontend
@@ -95,7 +95,7 @@ export function SkillsSection() {
             ))}
           </BentoCard>
 
-          {/* Backend */}
+          {/* Backend 
           <BentoCard delay={0.2}>
             <h3 className="font-semibold mb-4 flex items-center gap-2">
               <span className="text-xl">⚙️</span> Backend
@@ -110,7 +110,7 @@ export function SkillsSection() {
             ))}
           </BentoCard>
 
-          {/* Web3 */}
+          {/* Web3 
           <BentoCard delay={0.3}>
             <h3 className="font-semibold mb-4 flex items-center gap-2">
               <span className="text-xl">⛓️</span> Web3
@@ -125,7 +125,7 @@ export function SkillsSection() {
             ))}
           </BentoCard>
 
-          {/* Other Skills */}
+          {/* Other Skills 
           <BentoCard delay={0.4}>
             <h3 className="font-semibold mb-4 flex items-center gap-2">
               <span className="text-xl">🛠️</span> Other
@@ -139,7 +139,7 @@ export function SkillsSection() {
               />
             ))}
           </BentoCard>
-        </div>
+        </div> */}
       </div>
     </section>
   );
