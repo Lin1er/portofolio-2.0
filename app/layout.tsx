@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Preloader } from "@/components/ui/preloader";
-import { DevBanner } from "@/components/ui/dev-banner";
+// import { DevBanner } from "@/components/ui/dev-banner";
 import { siteConfig } from "@/data";
 
 const geistSans = Geist({
@@ -82,7 +82,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <DevBanner />
+          {/* <DevBanner /> */}
           <Preloader />
           {children}
         </ThemeProvider>
