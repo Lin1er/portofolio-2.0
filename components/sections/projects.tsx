@@ -37,7 +37,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const StatusIcon = status.icon;
 
   return (
-    <BentoCard colSpan={1} rowSpan={1} delay={index * 0.1}>
+    // Tambahkan !overflow-visible agar popup tidak terpotong oleh ujung card,
+    // dan hover:z-50 agar card yang di-hover selalu berada di tumpukan paling atas (tidak tertutup card di bawahnya)
+    <BentoCard colSpan={1} rowSpan={1} delay={index * 0.1} className="!overflow-visible hover:z-50 transition-all duration-300">
       <div className="flex flex-col h-full">
         {/* Project Image */}
         <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-(--background)">
@@ -91,9 +93,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.title}
             <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
           </h3>
-          <p className="text-(--muted) text-sm mb-4 flex-1 md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-300">
-            {project.description}
-          </p>
+          <div className="relative mb-4 flex-1">
+            {/* Teks statis untuk mempertahankan ukuran layout aslinya, 2 baris pada desktop */}
+            <p className="text-(--muted) text-sm line-clamp-none md:line-clamp-2 transition-opacity duration-300 md:group-hover:opacity-0">
+              {project.description}
+            </p>
+
+            {/* Popup Deskripsi Lengkap */}
+            <div className="hidden md:block absolute top-0 left-0 w-[calc(100%+1.5rem)] z-[99999] opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out origin-top border border-(--border) bg-(--background)/95 backdrop-blur-md p-3 flex flex-col rounded-lg shadow-2xl drop-shadow-2xl -ml-3 -mt-2">
+              <p className="text-(--muted) text-sm leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+          </div>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
