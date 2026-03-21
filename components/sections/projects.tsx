@@ -91,7 +91,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.title}
             <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
           </h3>
-          <p className="text-(--muted) text-sm mb-4 flex-1">
+          <p className="text-(--muted) text-sm mb-4 flex-1 md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-300">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">
