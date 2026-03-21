@@ -23,6 +23,24 @@ export const projects: Project[] = [
   //   status: "completed",
   // },
   {
+    title: "Technocorner - Backend Developer",
+    description: "Technocorner is a national technology event organized by the Department of Electrical Engineering and Information Technology, Universitas Gadjah Mada. As a Backend Developer, I built and maintained server-side systems, including APIs, database management, and authentication. I focused on developing scalable and reliable backend services to support core features such as user registration and data handling.",
+    image: "/assets/technocorner.png",
+    tags: ["Node.js", "Bun", "TypeScript", "Elysia.js", "PostgreSQL", "JWT", "REST API"],
+    live: "https://technocorner.id",
+    featured: true,
+    status: "completed",
+  },
+    {
+    title: "FindIT - Backend Developer",
+    description: "FindIT 2025 is a competition platform organized by the Department of Electrical Engineering and Information Technology, Universitas Gadjah Mada, under the theme “Innovative Retrospection: Bridging Generations of Technology to Forge IT's Future.”As a Backend Developer, I developed and maintained server-side systems, including APIs, database management, and authentication, ensuring reliable and scalable performance for competition-related features.",
+    image: "/assets/find-it.png",
+    tags: ["Node.js", "TypeScript", "Express", "PostgreSQL", "JWT", "REST API"],
+    live: "https://find-it.id",
+    featured: true,
+    status: "completed",
+  },
+  {
     title: "Owlighting Garage",
     description:
       "Modern automotive lighting service website featuring BILED retrofit, D2 laser projectors, and custom CNC headlight modifications. Built with interactive galleries, before/after comparison sliders, and booking system for car enthusiasts.",
