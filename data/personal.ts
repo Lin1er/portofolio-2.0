@@ -18,7 +18,32 @@ export const personalInfo = {
       "Exploring Web3 development with a focus on SUI Move blockchain. Also diving into IoT development and Machine Learning while building full-stack applications.",
   },
   availability: "Available for opportunities",
+  resumeUrl: "/resume/CV_M_Ulinuha_As_Shiddiqy.pdf", // Place your CV in public/resume/
 };
+
+// Why Hire Me - Unique Selling Points
+export const whyHireMe = [
+  {
+    icon: "rocket",
+    title: "Fast Learner",
+    description: "Quickly adapt to new technologies and frameworks. Went from zero to teaching SUI Move workshops in 3 months.",
+  },
+  {
+    icon: "code",
+    title: "Full-Stack Capable",
+    description: "End-to-end development from database design to responsive UIs. Experienced with Laravel, React, Node.js, and more.",
+  },
+  {
+    icon: "users",
+    title: "Leadership Experience",
+    description: "Led 75+ classmates as Batch Leader and coordinated tech events. Strong communication and team collaboration skills.",
+  },
+  {
+    icon: "trophy",
+    title: "Proven Results",
+    description: "Silver medal in NASFIA Research Competition. Built production systems serving 1000+ users with 99.9% uptime.",
+  },
+];
 
 // Social Links
 export const socialLinks = [

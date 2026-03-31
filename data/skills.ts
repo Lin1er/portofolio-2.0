@@ -32,10 +32,10 @@ export const skills = {
 export const techStackRow1 = [
   { name: "React", icon: "⚛️" },
   { name: "Next.js", icon: "▲" },
-  { name: "Laravel", icon: "�" },
-  { name: "TypeScript", icon: "�" },
+  { name: "Laravel", icon: "🔺" },
+  { name: "TypeScript", icon: "🔷" },
   { name: "JavaScript", icon: "💛" },
-  { name: "Tailwind CSS", icon: "�" },
+  { name: "Tailwind CSS", icon: "🎨" },
   { name: "HTML5", icon: "🌐" },
   { name: "CSS3", icon: "💅" },
 ];
@@ -43,12 +43,12 @@ export const techStackRow1 = [
 export const techStackRow2 = [
   { name: "Node.js", icon: "🟢" },
   { name: "Express", icon: "🚂" },
-  { name: "MySQL", icon: "�" },
+  { name: "MySQL", icon: "🐬" },
   { name: "MongoDB", icon: "🍃" },
-  { name: "PHP", icon: "�" },
-  { name: "REST API", icon: "�" },
+  { name: "PHP", icon: "🐘" },
+  { name: "REST API", icon: "🔗" },
   { name: "Git", icon: "📦" },
-  { name: "GitHub", icon: "�" },
+  { name: "GitHub", icon: "🐙" },
 ];
 
 export const techStackRow3 = [
@@ -56,10 +56,10 @@ export const techStackRow3 = [
   { name: "Solidity", icon: "💎" },
   { name: "Web3", icon: "🌐" },
   { name: "ESP32", icon: "📟" },
-  { name: "Arduino", icon: "�" },
-  { name: "IoT", icon: "�" },
+  { name: "Arduino", icon: "🔌" },
+  { name: "IoT", icon: "📡" },
   { name: "Machine Learning", icon: "🤖" },
-  { name: "Python", icon: "�" },
+  { name: "Python", icon: "🐍" },
 ];
 
 // Skill categories with icons (emoji)

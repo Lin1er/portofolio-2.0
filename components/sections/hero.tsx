@@ -8,6 +8,7 @@ import {
   Linkedin,
   Twitter,
   Instagram,
+  Download,
 } from "lucide-react";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
@@ -102,6 +103,16 @@ export function HeroSection() {
                 >
                   Get In Touch
                 </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href={personalInfo.resumeUrl}
+                  download
+                  className="px-6 py-3 bg-(--card) border border-(--border) rounded-full font-medium hover:border-(--accent) hover:bg-(--accent) hover:text-(--accent-foreground) transition-all items-center flex gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  Resume
+                </a>
               </MagneticButton>
             </motion.div>
 

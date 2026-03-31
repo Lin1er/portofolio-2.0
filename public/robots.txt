@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourname.dev/sitemap.xml
+Sitemap: https://ulinuha.dev/sitemap.xml

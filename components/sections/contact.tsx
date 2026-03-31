@@ -13,7 +13,6 @@ import {
   Instagram,
   Loader2,
 } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 import { personalInfo, socialLinks as socialData } from "@/data";
 
@@ -35,12 +34,20 @@ export function ContactSection() {
     name: "",
     email: "",
     message: "",
+    honeypot: "", // Spam protection - hidden field
   });
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Spam check - if honeypot is filled, silently reject
+    if (formData.honeypot) {
+      setStatus("success"); // Pretend success to fool bots
+      return;
+    }
+    
     setIsLoading(true);
     setStatus("idle");
 
@@ -55,11 +62,11 @@ export function ContactSection() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     } finally {
       setIsLoading(false);
@@ -141,6 +148,19 @@ export function ContactSection() {
           {/* Contact Form */}
           <BentoCard colSpan={2} delay={0.2}>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot field - hidden from users, visible to bots */}
+              <input
+                type="text"
+                name="website"
+                value={formData.honeypot}
+                onChange={(e) =>
+                  setFormData({ ...formData, honeypot: e.target.value })
+                }
+                className="absolute -left-[9999px] opacity-0 h-0 w-0"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -253,7 +273,7 @@ export function ContactSection() {
               </div>
               <MagneticButton>
                 <a
-                  href="mailto:your@email.com"
+                  href={`mailto:${personalInfo.email}`}
                   className="px-6 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
                 >
                   Let&apos;s Work Together

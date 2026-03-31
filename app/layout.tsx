@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Preloader } from "@/components/ui/preloader";
 // import { DevBanner } from "@/components/ui/dev-banner";
-import { siteConfig } from "@/data";
+import { siteConfig, personalInfo } from "@/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,14 +61,50 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    icon: [{ url: "/favicon.ico" }],
   },
   manifest: "/site.webmanifest",
+};
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: personalInfo.name,
+  url: siteConfig.url,
+  image: `${siteConfig.url}/assets/hero.png`,
+  sameAs: [
+    "https://github.com/Lin1er",
+    "https://linkedin.com/in/ulinuha",
+    "https://instagram.com/ulinuha.a_",
+  ],
+  jobTitle: personalInfo.role,
+  worksFor: {
+    "@type": "Organization",
+    name: personalInfo.university,
+  },
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: personalInfo.university,
+  },
+  knowsAbout: [
+    "Full-Stack Development",
+    "Web3",
+    "Blockchain",
+    "React",
+    "Next.js",
+    "Laravel",
+    "Node.js",
+    "TypeScript",
+    "SUI Move",
+  ],
+  description: personalInfo.bio,
+  email: personalInfo.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "East Lampung",
+    addressCountry: "Indonesia",
+  },
 };
 
 export default function RootLayout({
@@ -78,6 +114,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

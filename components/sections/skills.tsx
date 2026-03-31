@@ -1,43 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BentoCard } from "@/components/ui/bento-card";
 import { Marquee } from "@/components/ui/marquee";
-import { skills, techStackRow1, techStackRow2, techStackRow3 } from "@/data";
+import { techStackRow1, techStackRow2, techStackRow3 } from "@/data";
 
 function TechBadge({ name, icon }: { name: string; icon: string }) {
   return (
     <div className="flex items-center gap-2 px-4 py-2 bg-(--card) border border-(--border) rounded-full hover:border-(--accent) transition-colors">
       <span className="text-lg">{icon}</span>
       <span className="text-sm font-medium whitespace-nowrap">{name}</span>
-    </div>
-  );
-}
-
-function SkillBar({
-  name,
-  level,
-  delay,
-}: {
-  name: string;
-  level: number;
-  delay: number;
-}) {
-  return (
-    <div className="mb-3">
-      <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium">{name}</span>
-        <span className="text-sm text-(--muted)">{level}%</span>
-      </div>
-      <div className="h-2 bg-(--background) rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay, ease: "easeOut" }}
-          className="h-full bg-linear-to-r from-(--accent) to-pink-500 rounded-full"
-        />
-      </div>
     </div>
   );
 }

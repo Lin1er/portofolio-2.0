@@ -16,7 +16,7 @@ export function ClientEmail({ clientName, clientEmail, message }: ClientEmailPro
       <p>{message}</p>
       <hr />
       <p style={{ fontSize: '0.9em', color: '#666' }}>
-        This email was sent from your portfolio website's contact form.
+        This email was sent from your portfolio website&apos;s contact form.
       </p>
     </div>
   );
