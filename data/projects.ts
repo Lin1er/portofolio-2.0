@@ -34,6 +34,27 @@ export const projects: Project[] = [
   //   category: "web3",
   // },
   {
+    title: "RoastWager - Full-Stack Web3 Developer",
+    description:
+      "Opinion + betting dApp built on Monad with a full on-chain/off-chain pipeline. Implemented smart contract flows (create, vote, resolve, claim), event-driven backend indexer, and a fast Next.js frontend with optimistic UI and wallet integration.",
+    image: "/assets/hero.png",
+    tags: [
+      "Solidity",
+      "Foundry",
+      "Next.js",
+      "TypeScript",
+      "Hono",
+      "Supabase",
+      "wagmi",
+      "RainbowKit",
+      "viem",
+    ],
+    github: "https://github.com/Lin1er/RoastWager",
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+  {
     title: "ClearContract - Full-Stack Developer",
     description: "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",
     image: "/assets/clearcontract.png", // Nanti sesuaikan sama nama file screenshot lo
