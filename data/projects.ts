@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "RoastWager - Full-Stack Web3 Developer",
     description:
       "Opinion + betting dApp built on Monad with a full on-chain/off-chain pipeline. Implemented smart contract flows (create, vote, resolve, claim), event-driven backend indexer, and a fast Next.js frontend with optimistic UI and wallet integration.",
-    image: "/assets/hero.png",
+    image: "/assets/roastwager.jpeg",
     tags: [
       "Solidity",
       "Foundry",
@@ -56,9 +56,17 @@ export const projects: Project[] = [
   },
   {
     title: "ClearContract - Full-Stack Developer",
-    description: "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",
+    description:
+      "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",
     image: "/assets/clearcontract.png", // Nanti sesuaikan sama nama file screenshot lo
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini API", "shadcn/ui", "PDF.js"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google Gemini API",
+      "shadcn/ui",
+      "PDF.js",
+    ],
     live: "https://clearcontract-safety.vercel.app", // Ganti pake link Vercel/Netlify lo
     featured: true,
     status: "completed",
@@ -66,17 +74,27 @@ export const projects: Project[] = [
   },
   {
     title: "Technocorner - Backend Developer",
-    description: "National technology event platform serving 1000+ participants. Built scalable REST APIs handling user registration, team management, and competition data. Achieved 99.9% uptime during peak registration periods with optimized database queries.",
+    description:
+      "National technology event platform serving 1000+ participants. Built scalable REST APIs handling user registration, team management, and competition data. Achieved 99.9% uptime during peak registration periods with optimized database queries.",
     image: "/assets/technocorner.png",
-    tags: ["Node.js", "Bun", "TypeScript", "Elysia.js", "PostgreSQL", "JWT", "REST API"],
+    tags: [
+      "Node.js",
+      "Bun",
+      "TypeScript",
+      "Elysia.js",
+      "PostgreSQL",
+      "JWT",
+      "REST API",
+    ],
     live: "https://technocorner.id",
     featured: true,
     status: "completed",
     category: "backend",
   },
-    {
+  {
     title: "FindIT - Backend Developer",
-    description: "Competition platform for UGM's flagship IT event. Developed secure authentication system, submission handling for 500+ teams, and real-time judging dashboard. Reduced API response time by 40% through query optimization.",
+    description:
+      "Competition platform for UGM's flagship IT event. Developed secure authentication system, submission handling for 500+ teams, and real-time judging dashboard. Reduced API response time by 40% through query optimization.",
     image: "/assets/find-it.png",
     tags: ["Node.js", "TypeScript", "Express", "PostgreSQL", "JWT", "REST API"],
     live: "https://find-it.id",
