@@ -166,7 +166,7 @@ export function HeroSection() {
                   {/* <span className="text-6xl">👨‍💻</span> */}
                 </div>
                 <Image
-                  src="/assets/hero.png"
+                  src="/assets/herog.jpg"
                   alt={personalInfo.name}
                   fill
                   className="object-cover"

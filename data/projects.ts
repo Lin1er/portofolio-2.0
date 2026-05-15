@@ -50,6 +50,7 @@ export const projects: Project[] = [
       "viem",
     ],
     github: "https://github.com/Lin1er/RoastWager",
+    live: "https://roast-wager.vercel.app",
     featured: true,
     status: "completed",
     category: "web3",
