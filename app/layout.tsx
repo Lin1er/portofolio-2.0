@@ -24,8 +24,19 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  applicationName: `${siteConfig.name} Portfolio`,
   authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
   creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -33,20 +44,11 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.title,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
     creator: siteConfig.author.twitter,
   },
   robots: {
@@ -60,51 +62,87 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [{ url: "/favicon.ico" }],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: siteConfig.name,
   },
-  manifest: "/site.webmanifest",
+  verification: {
+    google: "jJHGCMuoy94jnBqTSb921m99iNlXYSH5YDjl1YJnpxI",
+  },
+  manifest: "/manifest.webmanifest",
 };
 
-// JSON-LD Structured Data
+// JSON-LD Structured Data (@graph: Person + WebSite + ProfilePage)
+const personId = `${siteConfig.url}/#person`;
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: personalInfo.name,
-  url: siteConfig.url,
-  image: `${siteConfig.url}/assets/hero.png`,
-  sameAs: [
-    "https://github.com/Lin1er",
-    "https://linkedin.com/in/ulinuha",
-    "https://instagram.com/ulinuha.a_",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: personalInfo.name,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/assets/hero.png`,
+      sameAs: [
+        "https://github.com/Lin1er",
+        "https://linkedin.com/in/ulinuha",
+        "https://instagram.com/ulinuha.a_",
+      ],
+      jobTitle: personalInfo.role,
+      email: `mailto:${personalInfo.email}`,
+      telephone: personalInfo.phone,
+      nationality: "Indonesian",
+      knowsLanguage: ["en", "id"],
+      worksFor: {
+        "@type": "Organization",
+        name: personalInfo.university,
+      },
+      alumniOf: {
+        "@type": "EducationalOrganization",
+        name: personalInfo.university,
+      },
+      knowsAbout: [
+        "Full-Stack Development",
+        "Web3",
+        "Blockchain",
+        "React",
+        "Next.js",
+        "Laravel",
+        "Node.js",
+        "TypeScript",
+        "SUI Move",
+        "IoT",
+        "Machine Learning",
+      ],
+      description: personalInfo.bio,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "East Lampung",
+        addressRegion: "Lampung",
+        addressCountry: "ID",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: `${siteConfig.name} Portfolio`,
+      description: siteConfig.description,
+      inLanguage: "en",
+      publisher: { "@id": personId },
+      author: { "@id": personId },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${siteConfig.url}/#webpage`,
+      url: siteConfig.url,
+      name: siteConfig.title,
+      isPartOf: { "@id": `${siteConfig.url}/#website` },
+      about: { "@id": personId },
+      inLanguage: "en",
+    },
   ],
-  jobTitle: personalInfo.role,
-  worksFor: {
-    "@type": "Organization",
-    name: personalInfo.university,
-  },
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: personalInfo.university,
-  },
-  knowsAbout: [
-    "Full-Stack Development",
-    "Web3",
-    "Blockchain",
-    "React",
-    "Next.js",
-    "Laravel",
-    "Node.js",
-    "TypeScript",
-    "SUI Move",
-  ],
-  description: personalInfo.bio,
-  email: personalInfo.email,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "East Lampung",
-    addressCountry: "Indonesia",
-  },
 };
 
 export default function RootLayout({

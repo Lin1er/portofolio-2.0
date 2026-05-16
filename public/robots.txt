@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ulinuha.dev/sitemap.xml

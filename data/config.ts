@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Currently pursuing a Bachelor's degree in Information Technology with a deep interest in software development and Web3 ecosystems. Dedicated to transforming ideas into digital solutions with hands-on experience in Laravel, React, and blockchain development.",
   url: "https://ulinuha.dev", // Change to your actual domain
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image", // generated dynamically — see app/opengraph-image.tsx
   keywords: [
     "developer",
     "fullstack developer",
