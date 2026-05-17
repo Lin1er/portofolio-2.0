@@ -4,7 +4,7 @@ export const personalInfo = {
   role: "Fullstack Developer & Web3 Enthusiast",
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
-  location: "East Lampung, Indonesia",
+  location: "Yogyakarta, Indonesia",
   university: "Universitas Gadjah Mada",
   major: "Information Technology",
   yearsOfExperience: 3,

@@ -124,9 +124,13 @@ const jsonLd = {
       description: personalInfo.bio,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "East Lampung",
-        addressRegion: "Lampung",
+        addressLocality: "Depok, Sleman",
+        addressRegion: "Daerah Istimewa Yogyakarta",
         addressCountry: "ID",
+      },
+      homeLocation: {
+        "@type": "Place",
+        name: "Yogyakarta, Indonesia",
       },
     },
     {
