@@ -1,9 +1,9 @@
 // Site Configuration
 export const siteConfig = {
   name: "M. Ulinuha As Shiddiqy",
-  title: "M. Ulinuha As Shiddiqy | Fullstack Developer & Web3 Enthusiast",
+  title: "M. Ulinuha As Shiddiqy – Fullstack Developer & Web3 Enthusiast",
   description:
-    "Currently pursuing a Bachelor's degree in Information Technology with a deep interest in software development and Web3 ecosystems. Dedicated to transforming ideas into digital solutions with hands-on experience in Laravel, React, and blockchain development.",
+    "M. Ulinuha As Shiddiqy — Fullstack Developer & Web3 enthusiast and Information Technology student at Universitas Gadjah Mada. Building web & blockchain apps with Laravel, React, Next.js, Node.js, and SUI Move.",
   url: "https://jameshub.fun", // primary canonical domain
   ogImage: "/opengraph-image", // generated dynamically — see app/opengraph-image.tsx
   keywords: [
