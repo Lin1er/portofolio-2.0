@@ -13,15 +13,22 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["portfolio", "technology", "developer"],
     icons: [
       {
-        src: "/icon",
+        src: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/android-chrome-512x512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/apple-icon",
-        sizes: "180x180",
+        src: "/android-chrome-512x512.png",
+        sizes: "512x512",
         type: "image/png",
+        purpose: "maskable",
       },
     ],
   };
