@@ -132,6 +132,24 @@ const jsonLd = {
         "@type": "Place",
         name: "Yogyakarta, Indonesia",
       },
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Fullstack & Web3 Developer",
+        occupationLocation: {
+          "@type": "Country",
+          name: "Indonesia",
+        },
+        skills:
+          "Fullstack Development, Web3, Blockchain, Smart Contracts, Go, Rust, TypeScript, Python, React, Next.js, Laravel, SUI Move, Solidity",
+      },
+      award: [
+        "Silver Medal — NASFIA Research Competition",
+        "SUI Move Workshop Speaker / Instructor",
+      ],
+      subjectOf: {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+      },
     },
     {
       "@type": "WebSite",
