@@ -139,6 +139,7 @@ const jsonLd = {
       url: siteConfig.url,
       name: siteConfig.title,
       isPartOf: { "@id": `${siteConfig.url}/#website` },
+      mainEntity: { "@id": personId },
       about: { "@id": personId },
       inLanguage: "en",
     },
