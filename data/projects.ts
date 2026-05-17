@@ -105,61 +105,6 @@ export const projects: Project[] = [
     category: "backend",
   },
   {
-    title: "Personal Finance API - Backend Engineer",
-    description:
-      "Production-grade REST API for personal finance management, built in Go with a clean layered architecture (handler / service / repository / domain). Features API-key authentication with admin middleware, PostgreSQL with versioned SQL migrations, fully Dockerized, and automated CI/CD deployment to Fly.io via GitHub Actions.",
-    image: "/assets/personal-finance-api.png", // screenshot/diagram nyusul
-    tags: [
-      "Go",
-      "PostgreSQL",
-      "REST API",
-      "Clean Architecture",
-      "Docker",
-      "Fly.io",
-      "GitHub Actions",
-    ],
-    github: "https://github.com/lin1er/Personal-Finance-Backend",
-    featured: true,
-    status: "completed",
-    category: "backend",
-  },
-  {
-    title: "SUI Move Workshop - Instructor & Smart Contract Author",
-    description:
-      "Authored the curriculum and Move smart contracts for an 'Introduction to Sui & Move' developer workshop. Built a Car NFT system featuring a randomized gacha mechanic, color customization, an upgrade system, and full unit test coverage — used to teach blockchain fundamentals, Sui's object model, and on-chain deployment hands-on.",
-    image: "/assets/sui-workshop.png", // screenshot nyusul
-    tags: [
-      "SUI Move",
-      "Move",
-      "Smart Contracts",
-      "NFT",
-      "Sui Blockchain",
-      "Unit Testing",
-    ],
-    github: "https://github.com/lin1er/Workshop-SUI-MOVE-Day-1",
-    featured: true,
-    status: "completed",
-    category: "web3",
-  },
-  {
-    title: "AI Job Matching System",
-    description:
-      "AI-powered platform that matches job seekers to openings by analyzing uploaded CVs with NLP. Computes job-relevance scores using spaCy and HuggingFace transformers, with a React frontend, REST API backend, and employer job-posting management.",
-    image: "/assets/job-matching.png", // screenshot nyusul
-    tags: [
-      "Python",
-      "NLP",
-      "spaCy",
-      "HuggingFace Transformers",
-      "React",
-      "REST API",
-    ],
-    github: "https://github.com/lin1er/job-matching-system",
-    featured: false,
-    status: "in-progress",
-    category: "other",
-  },
-  {
     title: "Owlighting Garage",
     description:
       "Modern automotive lighting service website with 50+ product showcases. Features interactive before/after comparison sliders, WhatsApp integration for bookings, and optimized for mobile-first experience with 95+ Lighthouse score.",
