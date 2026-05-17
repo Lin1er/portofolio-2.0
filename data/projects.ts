@@ -98,27 +98,6 @@ export const projects: Project[] = [
     category: "web3",
   },
   {
-    title: "Predica - Backend Developer",
-    description:
-      "Crypto prediction market on Pacifica (Solana perpetual exchange) where users predict if a token's price goes up or down within 5 minutes — Polymarket-style with a TikTok-style swipe feed. Built the backend: auto market generation from Elfa AI trending tokens, real-time price settlement, and the API, with Drizzle ORM and unit tests. Built for the Pacifica 2026 Hackathon.",
-    image: "/assets/predica.png", // screenshot nyusul
-    tags: [
-      "Node.js",
-      "TypeScript",
-      "Drizzle ORM",
-      "Solana",
-      "Pacifica",
-      "Elfa AI",
-      "Next.js",
-      "REST API",
-    ],
-    github: "https://github.com/Lexirieru/predica",
-    live: "https://predica-nine.vercel.app",
-    featured: true,
-    status: "completed",
-    category: "web3",
-  },
-  {
     title: "ClearContract - Full-Stack Developer",
     description:
       "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",

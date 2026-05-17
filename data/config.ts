@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "M. Ulinuha As Shiddiqy",
   title: "M. Ulinuha As Shiddiqy – Fullstack Developer & Web3 Enthusiast",
   description:
-    "M. Ulinuha As Shiddiqy — Fullstack & Web3 Developer building world-class web apps and blockchain dApps end-to-end. Versatile across the modern stack: TypeScript, Go, Rust, Python, React, Next.js, Laravel, Solidity & SUI Move.",
+    "M. Ulinuha As Shiddiqy — Fullstack & Web3 Backend Developer building scalable APIs, smart contracts, and dApps across Solana, EVM & 0G. Versatile across the modern stack: TypeScript, Go, Rust, Python, Node.js, Next.js, Laravel, Solidity & SUI Move.",
   url: "https://jameshub.fun", // primary canonical domain
   ogImage: "/opengraph-image", // generated dynamically — see app/opengraph-image.tsx
   keywords: [
@@ -27,6 +27,9 @@ export const siteConfig = {
     "node.js developer",
     "smart contract developer",
     "dapp developer",
+    "web3 backend developer",
+    "solana developer",
+    "blockchain backend",
     "indonesia",
     "sui move",
     "ugm",

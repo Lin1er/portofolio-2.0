@@ -104,10 +104,14 @@ const jsonLd = {
       },
       knowsAbout: [
         "Full-Stack Development",
+        "Backend Engineering",
         "Web3",
         "Blockchain",
         "Smart Contracts",
         "dApps",
+        "Solana",
+        "EVM",
+        "0G Chain",
         "React",
         "Next.js",
         "Laravel",
@@ -134,13 +138,13 @@ const jsonLd = {
       },
       hasOccupation: {
         "@type": "Occupation",
-        name: "Fullstack & Web3 Developer",
+        name: "Fullstack & Web3 Backend Developer",
         occupationLocation: {
           "@type": "Country",
           name: "Indonesia",
         },
         skills:
-          "Fullstack Development, Web3, Blockchain, Smart Contracts, Go, Rust, TypeScript, Python, React, Next.js, Laravel, SUI Move, Solidity",
+          "Backend Engineering, Fullstack Development, Web3, Blockchain, Smart Contracts, Solana, EVM, 0G, Go, Rust, TypeScript, Python, Node.js, Next.js, Laravel, SUI Move, Solidity",
       },
       award: [
         "Silver Medal — NASFIA Research Competition",
