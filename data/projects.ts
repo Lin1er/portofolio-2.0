@@ -56,6 +56,69 @@ export const projects: Project[] = [
     category: "web3",
   },
   {
+    title: "Wall of 0gents - Backend Developer & Smart Contract",
+    description:
+      "A stock exchange for AI agents on 0G Mainnet. Mint an AI agent as an ERC-7857 intelligent NFT, fractionalize it into 1M ERC-20 shares, run a fixed-price IPO, and distribute x402 pay-per-call inference revenue to shareholders pro-rata. Worked on the backend services and contributed to the Solidity smart contracts (99/99 tests passing).",
+    image: "/assets/wall-of-0gents.png", // screenshot nyusul
+    tags: [
+      "Solidity",
+      "0G Chain",
+      "ERC-7857",
+      "x402",
+      "Node.js",
+      "TypeScript",
+      "Smart Contracts",
+      "Foundry",
+    ],
+    github: "https://github.com/Lexirieru/wall-of-0gents",
+    live: "https://wall-of-0gents.vercel.app",
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+  {
+    title: "Tredie - Backend Developer",
+    description:
+      "On-chain perpetual market protocol on Solana where markets auto-spawn when a topic trends on X/Telegram (detected via Elfa AI). Built backend services: trending detection polling, auto market spawn, unsigned transaction builder, and a Helius webhook indexer decoding Anchor events into the database. Smart contract in Rust + Anchor.",
+    image: "/assets/tredie.png", // screenshot nyusul
+    tags: [
+      "Solana",
+      "Rust",
+      "Anchor",
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "Privy",
+      "Helius",
+    ],
+    github: "https://github.com/AncungAulia/tredie",
+    live: "https://tredie.vercel.app",
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+  {
+    title: "Predica - Backend Developer",
+    description:
+      "Crypto prediction market on Pacifica (Solana perpetual exchange) where users predict if a token's price goes up or down within 5 minutes — Polymarket-style with a TikTok-style swipe feed. Built the backend: auto market generation from Elfa AI trending tokens, real-time price settlement, and the API, with Drizzle ORM and unit tests. Built for the Pacifica 2026 Hackathon.",
+    image: "/assets/predica.png", // screenshot nyusul
+    tags: [
+      "Node.js",
+      "TypeScript",
+      "Drizzle ORM",
+      "Solana",
+      "Pacifica",
+      "Elfa AI",
+      "Next.js",
+      "REST API",
+    ],
+    github: "https://github.com/Lexirieru/predica",
+    live: "https://predica-nine.vercel.app",
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+  {
     title: "ClearContract - Full-Stack Developer",
     description:
       "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",
