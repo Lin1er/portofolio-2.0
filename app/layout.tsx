@@ -115,6 +115,7 @@ const jsonLd = {
         "TypeScript",
         "Go",
         "Python",
+        "Rust",
         "SUI Move",
         "Solidity",
         "IoT",

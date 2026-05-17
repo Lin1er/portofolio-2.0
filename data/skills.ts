@@ -15,11 +15,14 @@ export const skills = {
   ],
   web3: [
     { name: "SUI Move", level: 70 },
-    { name: "Solidity", level: 55 },
+    { name: "Solidity", level: 60 },
+    { name: "Rust", level: 60 },
     { name: "Web3.js", level: 60 },
     { name: "Blockchain", level: 65 },
   ],
   other: [
+    { name: "Go", level: 65 },
+    { name: "Python", level: 70 },
     { name: "Machine Learning", level: 65 },
     { name: "IoT (ESP32/Arduino)", level: 75 },
     { name: "Git/GitHub", level: 90 },
@@ -54,6 +57,8 @@ export const techStackRow2 = [
 export const techStackRow3 = [
   { name: "SUI Move", icon: "💧" },
   { name: "Solidity", icon: "💎" },
+  { name: "Rust", icon: "🦀" },
+  { name: "Go", icon: "🐹" },
   { name: "Web3", icon: "🌐" },
   { name: "ESP32", icon: "📟" },
   { name: "Arduino", icon: "🔌" },
