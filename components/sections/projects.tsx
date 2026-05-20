@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BentoCard } from "@/components/ui/bento-card";
+import { ProjectModal } from "@/components/ui/project-modal";
 import {
-  ExternalLink,
   Github,
   ArrowUpRight,
   Clock,
@@ -42,7 +42,15 @@ const categoryColors = {
   other: "bg-gray-500/20 text-gray-400 border-gray-500/30",
 };
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  onOpen,
+}: {
+  project: Project;
+  index: number;
+  onOpen: (project: Project) => void;
+}) {
   const status = statusConfig[project.status];
   const StatusIcon = status.icon;
 
@@ -53,24 +61,29 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
+      className="h-full"
     >
       <BentoCard
         colSpan={1}
         rowSpan={1}
         delay={0}
-        className="!overflow-visible hover:z-50 transition-all duration-300"
+        className="h-full cursor-pointer"
       >
-        <div className="flex flex-col h-full">
+        <button
+          type="button"
+          onClick={() => onOpen(project)}
+          aria-label={`View details for ${project.title}`}
+          className="flex flex-col h-full w-full text-left focus:outline-none"
+        >
           {/* Project Image */}
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-(--background)">
-            <div className="absolute inset-0 bg-linear-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20 flex items-center justify-center">
-              {/* <span className="text-4xl">🚀</span> */}
-            </div>
+            <div className="absolute inset-0 bg-linear-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20" />
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
             {/* Status Badge */}
@@ -87,52 +100,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             >
               {project.category}
             </div>
-
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 bg-(--background)/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-              {project.github && (
-                <Link
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-(--card) rounded-full hover:bg-(--accent) hover:text-(--accent-foreground) transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                </Link>
-              )}
-              {project.live && (
-                <Link
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-(--card) rounded-full hover:bg-(--accent) hover:text-(--accent-foreground) transition-colors"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </Link>
-              )}
-            </div>
           </div>
 
           {/* Project Info */}
           <div className="flex-1 flex flex-col">
-            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 group-hover:text-(--accent) transition-colors">
-              {project.title}
-              <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <h3 className="text-lg font-semibold mb-2 flex items-start gap-2 group-hover:text-(--accent) transition-colors">
+              <span className="line-clamp-1">{project.title}</span>
+              <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
-            <div className="relative mb-4 flex-1">
-              {/* Static text to maintain layout size, 2 lines on desktop */}
-              <p className="text-(--muted) text-sm line-clamp-none md:line-clamp-2 transition-opacity duration-300 md:group-hover:opacity-0">
-                {project.description}
-              </p>
 
-              {/* Full Description Popup */}
-              <div className="hidden md:block absolute top-0 left-0 w-[calc(100%+1.5rem)] z-[99999] opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out origin-top border border-(--border) bg-(--background)/95 backdrop-blur-md p-3 flex flex-col rounded-lg shadow-2xl drop-shadow-2xl -ml-3 -mt-2">
-                <p className="text-(--muted) text-sm leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
+            <p className="text-(--muted) text-sm line-clamp-3 mb-4">
+              {project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mt-auto">
               {project.tags.slice(0, 4).map((tag) => (
                 <span
                   key={tag}
@@ -148,7 +129,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               )}
             </div>
           </div>
-        </div>
+        </button>
       </BentoCard>
     </motion.div>
   );
@@ -156,6 +137,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects =
     activeFilter === "all"
@@ -176,7 +158,7 @@ export function ProjectsSection() {
           </h2>
           <p className="text-(--muted) max-w-2xl">
             A selection of projects I&apos;ve worked on. Each one taught me
-            something new.
+            something new. Click any card to see the full details.
           </p>
         </motion.div>
 
@@ -208,13 +190,17 @@ export function ProjectsSection() {
           ))}
         </motion.div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
+        >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={project.title}
                 project={project}
                 index={index}
+                onOpen={setSelectedProject}
               />
             ))}
           </AnimatePresence>
@@ -252,6 +238,12 @@ export function ProjectsSection() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Detail modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }
