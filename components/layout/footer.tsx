@@ -116,11 +116,6 @@ export function Footer() {
               © {new Date().getFullYear()} {personalInfo.name}. All rights
               reserved.
             </p>
-            <p className="text-(--muted) text-sm flex items-center gap-1">
-              Made with{" "}
-              <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" />{" "}
-              using Next.js & Tailwind CSS
-            </p>
           </div>
         </div>
       </div>
