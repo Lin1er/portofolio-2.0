@@ -9,76 +9,78 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
-  // Education
-    {
+  // Work Experience
+  {
+    type: "work",
+    title: "Backend AI Engineering Intern",
+    organization: "FlyRank AI",
+    period: "2026 - Present",
+    description:
+      "Selected for the Backend AI Engineering Cohort, focused on building backend AI systems, APIs, automation workflows, and real-world AI capstone projects.",
+    icon: "briefcase",
+  },
+
+  {
+    type: "work",
+    title: "Freelance Full-Stack Developer",
+    organization: "Self-employed",
+    period: "2023 - Present",
+    description:
+      "Designed and developed full-stack web applications for clients using modern web technologies including React, Laravel, Node.js, and databases. Delivered scalable systems such as dormitory management platforms and digital library solutions.",
+    icon: "briefcase",
+  },
+
+  {
     type: "work",
     title: "Workshop Instructor - SUI Move",
     organization: "Tech Community",
     period: "2025",
     description:
-      "Conducted a workshop teaching the fundamentals of SUI Move programming language and blockchain development on the SUI network.",
+      "Led a technical workshop introducing SUI Move smart contract development, covering blockchain fundamentals, on-chain programming concepts, and practical development on the SUI ecosystem.",
     icon: "briefcase",
     image: "/experiences/WorkShop-SUI.JPG",
   },
+
+  // Education
   {
     type: "education",
     title: "Bachelor of Information Technology",
     organization: "Universitas Gadjah Mada",
     period: "2025 - Present",
     description:
-      "Currently pursuing a Bachelor's degree in Information Technology with focus on software development, backend systems, IoT, and decentralized technologies.",
+      "Pursuing a Bachelor's degree in Information Technology with interests in software engineering, backend systems, AI, Web3, and distributed technologies.",
     icon: "graduation",
   },
-    {
-    type: "achievement",
-    title: "Silver Medal - NASFIA Research Competition",
-    organization: "Indonesian Scientific Society",
-    period: "2024",
-    description:
-      "Received a silver medal for innovative research demonstrating expertise in scientific research, IoT development (ESP32 & Arduino IDE), and critical thinking. 3-month competition.",
-    icon: "award",
-  },
+
   {
     type: "education",
     title: "Senior High School",
     organization: "MAN Insan Cendekia East Lampung",
     period: "2022 - 2025",
     description:
-      "Graduated from one of Indonesia's top Islamic boarding schools with excellent academic achievements and active participation in various competitions and organizations.",
-    icon: "graduation",
-  },
-  {
-    type: "education",
-    title: "Junior High School",
-    organization: "Muhammadiyah Ahmad Dahlan Metro",
-    period: "2019 - 2022",
-    description:
-      "Completed junior high school education while developing early interest in technology and programming.",
+      "Graduated from one of Indonesia’s selective boarding schools, actively participating in leadership, research, and technology competitions.",
     icon: "graduation",
   },
 
   // Achievements
-
   {
     type: "achievement",
-    title: "Second Champion - Computer Science",
-    organization: "MIPA Expo - University of Lampung",
-    period: "2023",
+    title: "Silver Medal - NASFIA Research Competition",
+    organization: "Indonesian Scientific Society",
+    period: "2024",
     description:
-      "Won second place in a provincial-scale computer science competition, testing theoretical and practical understanding through problem-solving and critical thinking.",
+      "Awarded a silver medal for an applied research project involving IoT systems using ESP32 and Arduino, demonstrating problem-solving, research methodology, and technical implementation skills.",
     icon: "award",
   },
 
-
-  // Work Experience
   {
-    type: "work",
-    title: "Freelance Fullstack Developer",
-    organization: "Self-employed",
-    period: "2023 - Present",
+    type: "achievement",
+    title: "2nd Place - Computer Science Competition",
+    organization: "MIPA Expo, University of Lampung",
+    period: "2023",
     description:
-      "Designed and deployed full-stack web applications using Laravel, React, and Node.js. Built dormitory management system and e-library application for clients.",
-    icon: "briefcase",
+      "Achieved second place in a provincial-level computer science competition focused on analytical problem-solving, algorithms, and computational thinking.",
+    icon: "award",
   },
 
   // Organizational Experience
@@ -88,36 +90,38 @@ export const experiences: Experience[] = [
     organization: "MAN Insan Cendekia East Lampung",
     period: "2023 - 2025",
     description:
-      "Led and coordinated more than 75 classmates in academic and non-academic activities. Acted as a communication bridge between internal students and external communities.",
+      "Led and coordinated a cohort of 75+ students across academic and extracurricular activities while serving as a communication bridge between students and external stakeholders.",
     icon: "users",
   },
+
   {
     type: "organization",
     title: "Chairman of Commission A",
     organization: "Mahkamah Permusyawaratan Siswa (MPS)",
     period: "2023 - 2025",
     description:
-      "Formulated and implemented commission work programs focusing on student welfare and aspirations at MAN Insan Cendekia East Lampung.",
+      "Directed programs related to student welfare and advocacy, helping formulate initiatives and represent student aspirations institutionally.",
     icon: "users",
   },
+
   {
     type: "organization",
     title: "Vice Pradana - Scouts",
     organization: "MAN Insan Cendekia East Lampung",
     period: "2023 - 2025",
     description:
-      "Responsible for planning and implementing scouting programs, including field activities and training sessions.",
+      "Coordinated scouting activities, leadership programs, and outdoor training while supporting event planning and execution.",
     icon: "users",
   },
 
   // Milestones
   {
     type: "work",
-    title: "Started Coding Journey",
-    organization: "Self-taught",
+    title: "Started Software Development Journey",
+    organization: "Self-Taught",
     period: "2022",
     description:
-      "Began learning web development through online resources, building small projects, and contributing to open source.",
+      "Began exploring software development through self-learning, building projects, experimenting with web technologies, and contributing to practical implementations.",
     icon: "calendar",
   },
 ];

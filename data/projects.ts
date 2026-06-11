@@ -20,23 +20,10 @@ export const projectCategories = [
 ] as const;
 
 export const projects: Project[] = [
-  // Example project (uncomment and customize to add your own projects)
-  // {
-  //   title: "DeFi Dashboard",
-  //   description:
-  //     "A comprehensive dashboard for tracking DeFi positions across multiple chains. Built with React, Next.js, and Web3 integrations.",
-  //   image: "/projects/defi-dashboard.png",
-  //   tags: ["Next.js", "TypeScript", "Web3", "TailwindCSS"],
-  //   github: "https://github.com/yourusername/defi-dashboard",
-  //   live: "https://defi-dashboard.vercel.app",
-  //   featured: true,
-  //   status: "completed",
-  //   category: "web3",
-  // },
   {
-    title: "RoastWager - Full-Stack Web3 Developer",
+    title: "RoastWager",
     description:
-      "Opinion + betting dApp built on Monad with a full on-chain/off-chain pipeline. Implemented smart contract flows (create, vote, resolve, claim), event-driven backend indexer, and a fast Next.js frontend with optimistic UI and wallet integration.",
+      "Built a full-stack prediction and opinion market dApp on Monad with an end-to-end on-chain/off-chain architecture. Implemented smart contract flows (create, vote, resolve, claim), an event-driven indexer, wallet integration, and optimistic UI patterns for fast user interactions.",
     image: "/assets/roastwager.jpeg",
     tags: [
       "Solidity",
@@ -55,11 +42,12 @@ export const projects: Project[] = [
     status: "completed",
     category: "web3",
   },
+
   {
-    title: "Wall of 0gents - Backend Developer & Smart Contract",
+    title: "Wall of 0gents",
     description:
-      "A stock exchange for AI agents on 0G Mainnet. Mint an AI agent as an ERC-7857 intelligent NFT, fractionalize it into 1M ERC-20 shares, run a fixed-price IPO, and distribute x402 pay-per-call inference revenue to shareholders pro-rata. Worked on the backend services and contributed to the Solidity smart contracts (99/99 tests passing).",
-    image: "/assets/wall-of-0gents.png", // screenshot nyusul
+      "Contributed to an AI-agent financialization platform on 0G Mainnet where intelligent NFTs can be fractionalized into ERC-20 shares and generate inference revenue. Worked on backend services and Solidity smart contracts, achieving 99/99 passing test cases.",
+    image: "/assets/wall-of-0gents.png",
     tags: [
       "Solidity",
       "0G Chain",
@@ -76,11 +64,12 @@ export const projects: Project[] = [
     status: "completed",
     category: "web3",
   },
+
   {
-    title: "Tredie - Backend Developer",
+    title: "Tredie",
     description:
-      "On-chain perpetual market protocol on Solana where markets auto-spawn when a topic trends on X/Telegram (detected via Elfa AI). Built backend services: trending detection polling, auto market spawn, unsigned transaction builder, and a Helius webhook indexer decoding Anchor events into the database. Smart contract in Rust + Anchor.",
-    image: "/assets/tredie.png", // screenshot nyusul
+      "Built backend services for a Solana-based perpetual market protocol where new markets auto-spawn from trending topics on X and Telegram. Implemented trend polling pipelines, automated market creation, transaction builders, and webhook indexers for decoding Anchor events.",
+    image: "/assets/tredie.png",
     tags: [
       "Solana",
       "Rust",
@@ -97,11 +86,12 @@ export const projects: Project[] = [
     status: "completed",
     category: "web3",
   },
+
   {
-    title: "ClearContract - Full-Stack Developer",
+    title: "ClearContract",
     description:
-      "AI-powered legal-tech platform that simplifies complex contracts into easy-to-understand insights. Built with Next.js and Google Gemini AI to automatically detect 'red flags' and hidden clauses. Features include PDF text extraction, dynamic bilingual support (EN/ID), and a responsive SaaS-grade UI.",
-    image: "/assets/clearcontract.png", // Nanti sesuaikan sama nama file screenshot lo
+      "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
+    image: "/assets/clearcontract.png",
     tags: [
       "Next.js",
       "TypeScript",
@@ -111,15 +101,16 @@ export const projects: Project[] = [
       "PDF.js",
     ],
     github: "https://github.com/lin1er/Contract-Analyzer",
-    live: "https://clearcontract-safety.vercel.app", // Ganti pake link Vercel/Netlify lo
+    live: "https://clearcontract-safety.vercel.app",
     featured: true,
     status: "completed",
     category: "fullstack",
   },
+
   {
-    title: "Technocorner - Backend Developer",
+    title: "Technocorner",
     description:
-      "National technology event platform serving 1000+ participants. Built scalable REST APIs handling user registration, team management, and competition data. Achieved 99.9% uptime during peak registration periods with optimized database queries.",
+      "Built backend systems for a national-scale technology event platform serving 1000+ participants. Developed scalable APIs for registration, team management, and competition workflows with optimized database performance during traffic spikes.",
     image: "/assets/technocorner.png",
     tags: [
       "Node.js",
@@ -135,21 +126,30 @@ export const projects: Project[] = [
     status: "completed",
     category: "backend",
   },
+
   {
-    title: "FindIT - Backend Developer",
+    title: "FindIT",
     description:
-      "Competition platform for UGM's flagship IT event. Developed secure authentication system, submission handling for 500+ teams, and real-time judging dashboard. Reduced API response time by 40% through query optimization.",
+      "Developed backend systems for UGM’s flagship IT competition platform, including authentication, submission workflows, and judging infrastructure. Optimized database queries to improve API performance and platform responsiveness.",
     image: "/assets/find-it.png",
-    tags: ["Node.js", "TypeScript", "Express", "PostgreSQL", "JWT", "REST API"],
+    tags: [
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "PostgreSQL",
+      "JWT",
+      "REST API",
+    ],
     live: "https://find-it.id",
     featured: true,
     status: "completed",
     category: "backend",
   },
+
   {
     title: "Owlighting Garage",
     description:
-      "Modern automotive lighting service website with 50+ product showcases. Features interactive before/after comparison sliders, WhatsApp integration for bookings, and optimized for mobile-first experience with 95+ Lighthouse score.",
+      "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
     image:
       "https://github.com/Lin1er/owlighting-garage/blob/main/public/screenshoot.png?raw=true",
     tags: [
@@ -166,10 +166,11 @@ export const projects: Project[] = [
     status: "completed",
     category: "frontend",
   },
+
   {
     title: "ProdBooster",
     description:
-      "Terminal-based productivity app designed for keyboard-centric developers. Features task management, calendar sync, and quick notes with SQLite persistence. Auto-launches on TTY login for seamless workflow integration.",
+      "Building a terminal-native productivity system for keyboard-first developers, featuring task management, quick notes, calendar utilities, and SQLite persistence in a distraction-free TUI experience.",
     image:
       "https://github.com/Lin1er/Productivity-Booster/blob/main/public/screenshoot.png?raw=true",
     tags: ["Go", "Bubble Tea", "SQLite", "TUI", "CLI"],
@@ -178,10 +179,11 @@ export const projects: Project[] = [
     status: "in-progress",
     category: "other",
   },
+
   {
     title: "Boarding School Management System",
     description:
-      "Comprehensive boarding school system managing 200+ students. Features QR-based permit verification, real-time parent notifications, and role-based access for 4 user types. Reduced manual permit processing time by 80%.",
+      "Built a full-stack boarding school management platform supporting 200+ students with QR-based permissions, role-based access control, and parent-facing notifications to streamline operational workflows.",
     image:
       "https://github.com/Lin1er/metadata/blob/master/pictures/screenshoot.png?raw=true",
     tags: [
@@ -197,24 +199,37 @@ export const projects: Project[] = [
     status: "in-progress",
     category: "fullstack",
   },
+
   {
     title: "eLibrary",
     description:
-      "Digital library system with 1000+ book catalog, barcode scanning for quick checkout, and automated overdue notifications. Multi-user support with granular permissions for admins, staff, and 500+ registered members.",
+      "Built a digital library management platform featuring catalog management, barcode-based borrowing, overdue notifications, and role-based access control for administrators, staff, and members.",
     image:
       "https://github.com/Lin1er/metadata/blob/master/pictures/screenshoot-Elibrary.png?raw=true",
-    tags: ["Laravel 11", "MySQL", "TailwindCSS", "JavaScript", "Vite"],
+    tags: [
+      "Laravel 11",
+      "MySQL",
+      "TailwindCSS",
+      "JavaScript",
+      "Vite",
+    ],
     github: "https://github.com/Lin1er/Elibrary",
     featured: false,
     status: "completed",
     category: "fullstack",
   },
+
   {
     title: "Portfolio Website",
     description:
-      "This very website you're looking at! Built with modern technologies featuring smooth animations, dark/light mode, and responsive design.",
+      "Personal portfolio built with modern web technologies to showcase projects, technical experience, and engineering journey through a responsive and performance-focused interface.",
     image: "/assets/screenshoot.png",
-    tags: ["Next.js", "Framer Motion", "TailwindCSS", "TypeScript"],
+    tags: [
+      "Next.js",
+      "Framer Motion",
+      "TailwindCSS",
+      "TypeScript",
+    ],
     github: "https://github.com/Lin1er/portofolio-2.0",
     live: "https://ulinuha.vercel.app",
     featured: false,

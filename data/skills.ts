@@ -1,33 +1,51 @@
 export const skills = {
   frontend: [
-    { name: "React", level: 85 },
-    { name: "Next.js", level: 80 },
-    { name: "TypeScript", level: 75 },
-    { name: "Tailwind CSS", level: 90 },
-    { name: "HTML/CSS", level: 90 },
+    { name: "React", level: 88 },
+    { name: "Next.js", level: 90 },
+    { name: "TypeScript", level: 88 },
+    { name: "Tailwind CSS", level: 92 },
+    { name: "Framer Motion", level: 80 },
+    { name: "shadcn/ui", level: 82 },
   ],
+
   backend: [
-    { name: "Laravel", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "Express", level: 75 },
+    { name: "Node.js", level: 90 },
+    { name: "Express", level: 85 },
+    { name: "Hono", level: 82 },
+    { name: "Bun", level: 80 },
+    { name: "Laravel", level: 82 },
+    { name: "PostgreSQL", level: 85 },
     { name: "MySQL", level: 85 },
-    { name: "MongoDB", level: 70 },
+    { name: "Supabase", level: 82 },
+    { name: "REST API", level: 90 },
+    { name: "JWT/Auth", level: 85 },
   ],
+
   web3: [
-    { name: "SUI Move", level: 70 },
-    { name: "Solidity", level: 60 },
-    { name: "Rust", level: 60 },
-    { name: "Web3.js", level: 60 },
-    { name: "Blockchain", level: 65 },
+    { name: "Solidity", level: 80 },
+    { name: "Foundry", level: 78 },
+    { name: "SUI Move", level: 75 },
+    { name: "Rust", level: 72 },
+    { name: "Anchor", level: 72 },
+    { name: "wagmi", level: 82 },
+    { name: "viem", level: 80 },
+    { name: "Smart Contracts", level: 80 },
+    { name: "Blockchain Architecture", level: 78 },
   ],
+
+  ai: [
+    { name: "Python", level: 78 },
+    { name: "LLM Integration", level: 80 },
+    { name: "Google Gemini API", level: 82 },
+    { name: "OpenAI API", level: 78 },
+    { name: "Prompt Engineering", level: 75 },
+  ],
+
   other: [
-    { name: "Go", level: 65 },
-    { name: "Python", level: 70 },
-    { name: "Machine Learning", level: 65 },
-    { name: "IoT (ESP32/Arduino)", level: 75 },
+    { name: "Go", level: 72 },
+    { name: "Docker", level: 75 },
     { name: "Git/GitHub", level: 90 },
-    { name: "Problem Solving", level: 85 },
-    { name: "Team Leadership", level: 85 },
+    { name: "IoT (ESP32/Arduino)", level: 78 },
   ],
 };
 
@@ -35,42 +53,41 @@ export const skills = {
 export const techStackRow1 = [
   { name: "React", icon: "⚛️" },
   { name: "Next.js", icon: "▲" },
-  { name: "Laravel", icon: "🔺" },
-  { name: "TypeScript", icon: "🔷" },
-  { name: "JavaScript", icon: "💛" },
-  { name: "Tailwind CSS", icon: "🎨" },
-  { name: "HTML5", icon: "🌐" },
-  { name: "CSS3", icon: "💅" },
+  { name: "TypeScript", icon: "TS" },
+  { name: "Tailwind CSS", icon: "💨" },
+  { name: "Framer Motion", icon: "🎞️" },
+  { name: "shadcn/ui", icon: "🧩" },
+  { name: "JavaScript", icon: "JS" },
 ];
 
 export const techStackRow2 = [
   { name: "Node.js", icon: "🟢" },
+  { name: "Hono", icon: "🔥" },
   { name: "Express", icon: "🚂" },
-  { name: "MySQL", icon: "🐬" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "PHP", icon: "🐘" },
+  { name: "PostgreSQL", icon: "🐘" },
+  { name: "Supabase", icon: "🟩" },
+  { name: "Laravel", icon: "🔺" },
   { name: "REST API", icon: "🔗" },
-  { name: "Git", icon: "📦" },
-  { name: "GitHub", icon: "🐙" },
+  { name: "Docker", icon: "🐳" },
 ];
 
 export const techStackRow3 = [
-  { name: "SUI Move", icon: "💧" },
   { name: "Solidity", icon: "💎" },
+  { name: "Foundry", icon: "⚒️" },
+  { name: "SUI Move", icon: "🌊" },
   { name: "Rust", icon: "🦀" },
+  { name: "Anchor", icon: "⚓" },
+  { name: "wagmi", icon: "🐶" },
+  { name: "viem", icon: "🔷" },
   { name: "Go", icon: "🐹" },
-  { name: "Web3", icon: "🌐" },
-  { name: "ESP32", icon: "📟" },
-  { name: "Arduino", icon: "🔌" },
-  { name: "IoT", icon: "📡" },
-  { name: "Machine Learning", icon: "🤖" },
   { name: "Python", icon: "🐍" },
 ];
 
 // Skill categories with icons (emoji)
 export const skillCategories = [
-  { id: "frontend", name: "Frontend", icon: "🎨" },
+  { id: "frontend", name: "Frontend", icon: "🖥️" },
   { id: "backend", name: "Backend", icon: "⚙️" },
-  { id: "web3", name: "Web3", icon: "⛓️" },
-  { id: "other", name: "Other", icon: "🛠️" },
+  { id: "web3", name: "Web3 / Blockchain", icon: "⛓️" },
+  { id: "ai", name: "AI Engineering", icon: "🤖" },
+  { id: "other", name: "Tools & Systems", icon: "🛠️" },
 ];

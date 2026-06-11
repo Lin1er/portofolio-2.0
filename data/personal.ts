@@ -1,47 +1,66 @@
 // Personal Information
 export const personalInfo = {
   name: "M. Ulinuha As Shiddiqy",
-  role: "Fullstack Developer & Web3 Enthusiast",
+
+  role:
+    "Building backend systems, AI-powered applications, and multi-chain blockchain infrastructure",
+
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
+
   location: "Yogyakarta, Indonesia",
   university: "Universitas Gadjah Mada",
   major: "Information Technology",
+
   yearsOfExperience: 3,
-  bio: "Currently pursuing a Bachelor's degree in Information Technology with a deep interest in software development and Web3 ecosystems. Dedicated to transforming ideas into digital solutions, with hands-on experience in full-stack technologies like Laravel and React.",
+
+  bio:
+    "Information Technology student at Universitas Gadjah Mada with hands-on experience building backend systems, AI-powered applications, and multi-chain blockchain products. Focused on designing scalable APIs, smart contracts, and production-oriented software across modern web stacks.",
+
   aboutMe: {
     intro:
-      "I'm a first-year student majoring in Information Technology at Universitas Gadjah Mada. A proactive learner committed to mastering backend systems, IoT, and decentralized technologies.",
+      "I'm an Information Technology student at Universitas Gadjah Mada passionate about backend engineering, AI systems, and blockchain infrastructure. I enjoy solving technical problems and building products that bridge ideas into real-world applications.",
+
     passion:
-      "I'm passionate about transforming ideas into digital solutions. Actively exploring blockchain development and recently contributed to the community as a workshop speaker. Experienced in full-stack technologies like Laravel, React, and Node.js.",
+      "My experience spans full-stack development, backend services, and smart contract systems across EVM, Solana, and SUI ecosystems. I've contributed to hackathon-scale products, production-ready platforms, and developer communities — including teaching SUI Move fundamentals in workshops.",
+
     currentFocus:
-      "Exploring Web3 development with a focus on SUI Move blockchain. Also diving into IoT development and Machine Learning while building full-stack applications.",
+      "Currently focused on backend AI engineering, distributed systems, and blockchain infrastructure while continuously building full-stack products and experimenting with emerging technologies.",
   },
-  availability: "Available for opportunities",
-  resumeUrl: "/resume/CV_M_Ulinuha_As_Shiddiqy.pdf", // Place your CV in public/resume/
+
+  availability: "Open to internships, freelance, and engineering opportunities",
+
+  resumeUrl: "/resume/CV_M_Ulinuha_As_Shiddiqy.pdf",
 };
 
 // Why Hire Me - Unique Selling Points
 export const whyHireMe = [
   {
     icon: "rocket",
-    title: "Fast Learner",
-    description: "Quickly adapt to new technologies and frameworks. Went from zero to teaching SUI Move workshops in 3 months.",
+    title: "Fast Execution",
+    description:
+      "Able to quickly learn, adapt, and ship across unfamiliar technologies — from backend systems to smart contracts and AI integrations.",
   },
+
   {
     icon: "code",
-    title: "Full-Stack Capable",
-    description: "End-to-end development from database design to responsive UIs. Experienced with Laravel, React, Node.js, and more.",
+    title: "Full-Stack Engineering",
+    description:
+      "Hands-on experience building end-to-end systems, from backend APIs and databases to frontend interfaces and blockchain integrations.",
   },
+
   {
     icon: "users",
-    title: "Leadership Experience",
-    description: "Led 75+ classmates as Batch Leader and coordinated tech events. Strong communication and team collaboration skills.",
+    title: "Leadership & Communication",
+    description:
+      "Experienced leading teams, coordinating communities, and delivering technical workshops with strong collaboration and communication skills.",
   },
+
   {
     icon: "trophy",
-    title: "Proven Results",
-    description: "Silver medal in NASFIA Research Competition. Built production systems serving 1000+ users with 99.9% uptime.",
+    title: "Proven Impact",
+    description:
+      "Built systems used by 1000+ users, contributed to national-scale platforms, and recognized through research and technology competitions.",
   },
 ];
 
@@ -75,16 +94,16 @@ export const navItems = [
 
 // Stats for About Section
 export const stats = [
-  { label: "Years Coding", value: 3, suffix: "+" },
-  { label: "Projects Built", value: 20, suffix: "+" },
-  { label: "Happy Clients", value: 5, suffix: "+" },
-  { label: "Lines of Code", value: 50000, suffix: "+" },
+  { label: "Years Building", value: 3, suffix: "+" },
+  { label: "Projects Shipped", value: 20, suffix: "+" },
+  { label: "Users Served", value: 1000, suffix: "+" },
+  { label: "Hackathons & Competitions", value: 10, suffix: "+" },
 ];
 
 // Fun Facts
 export const funFacts = [
-  { emoji: "☕", label: "Coffee Lover" },
-  { emoji: "🏍️", label: "Traveler" },
-  { emoji: "📚", label: "Lifelong Learner" },
-  { emoji: "🌙", label: "Night Owl" },
+  { emoji: "☕", label: "Coffee Enjoyer" },
+  { emoji: "🏍️", label: "Road Explorer" },
+  { emoji: "📚", label: "Always Learning" },
+  { emoji: "🌙", label: "Late Night Builder" },
 ];

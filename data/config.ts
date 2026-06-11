@@ -1,59 +1,68 @@
 // Site Configuration
 export const siteConfig = {
   name: "M. Ulinuha As Shiddiqy",
-  title: "M. Ulinuha As Shiddiqy – Fullstack Developer & Web3 Enthusiast",
+
+  title:
+    "M. Ulinuha As Shiddiqy – Full-Stack Engineer, Backend & Web3 Developer",
+
   description:
-    "M. Ulinuha As Shiddiqy — Fullstack & Web3 Backend Developer building scalable APIs, smart contracts, and dApps across Solana, EVM & 0G. Versatile across the modern stack: TypeScript, Go, Rust, Python, Node.js, Next.js, Laravel, Solidity & SUI Move.",
-  url: "https://jameshub.fun", // primary canonical domain
-  ogImage: "/opengraph-image", // generated dynamically — see app/opengraph-image.tsx
+    "Full-Stack Engineer focused on backend systems, AI-powered applications, and blockchain infrastructure. Building scalable APIs, smart contracts, dApps, and event-driven systems across Solana, EVM, and modern web stacks.",
+
+  url: "https://jameshub.fun",
+
+  ogImage: "/opengraph-image",
+
   keywords: [
-    "developer",
-    "fullstack developer",
-    "web3 developer",
-    "blockchain",
-    "react developer",
-    "laravel developer",
-    "nextjs",
-    "portfolio",
-    "software engineer",
-    "frontend developer",
-    "backend developer",
-    "iot developer",
-    "machine learning",
-    "golang developer",
-    "rust developer",
-    "python developer",
-    "typescript developer",
-    "node.js developer",
-    "smart contract developer",
-    "dapp developer",
-    "web3 backend developer",
-    "solana developer",
-    "blockchain backend",
-    "indonesia",
-    "sui move",
-    "ugm",
-    "gadjah mada",
+    "M Ulinuha As Shiddiqy",
+    "Ulinuha",
+    "Full Stack Engineer",
+    "Backend Developer",
+    "Web3 Developer",
+    "Software Engineer",
+    "Blockchain Developer",
+    "Smart Contract Developer",
+    "Solana Developer",
+    "EVM Developer",
+    "dApp Developer",
+    "AI Engineer",
+    "Backend Engineer",
+    "TypeScript Developer",
+    "Node.js Developer",
+    "Next.js Developer",
+    "Rust Developer",
+    "Go Developer",
+    "Python Developer",
+    "Laravel Developer",
+    "PostgreSQL",
+    "Smart Contracts",
+    "Blockchain Infrastructure",
+    "SUI Move",
+    "Solidity",
+    "UGM",
+    "Universitas Gadjah Mada",
+    "Indonesia Developer",
   ],
+
   author: {
     name: "M. Ulinuha As Shiddiqy",
     twitter: "@ulinuha",
     github: "Lin1er",
   },
+
   theme: {
     accentColor: "#6366f1",
     defaultMode: "dark" as const,
   },
-  // Homepage limits
+
   homepage: {
-    experiencesLimit: 3,
+    experiencesLimit: 4,
     projectsLimit: 6,
   },
 };
 
 // Animation Configuration
 export const animationConfig = {
-  preloaderDuration: 2000, // ms
+  preloaderDuration: 1600,
   scrollRevealOffset: "-100px",
-  staggerDelay: 0.1,
+  staggerDelay: 0.08,
 };

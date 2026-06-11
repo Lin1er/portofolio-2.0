@@ -199,7 +199,7 @@ export function HeroSection() {
                 className="absolute bottom-10 -right-25 px-4 py-2 bg-(--card) border border-(--border) rounded-full shadow-lg"
               >
                 <span className="text-sm font-medium">
-                  ⛓️ Full Stack Developer
+                  Full Stack Developer
                 </span>
               </motion.div>
 
@@ -212,7 +212,7 @@ export function HeroSection() {
                 }}
                 className="absolute -bottom-4 -left-4 px-4 py-2 bg-(--card) border border-(--border) rounded-full shadow-lg"
               >
-                <span className="text-sm font-medium">⛓️ Web3 Explorer</span>
+                <span className="text-sm font-medium">Web3 Explorer</span>
               </motion.div>
             </div>
           </motion.div>
