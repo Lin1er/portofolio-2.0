@@ -1,8 +1,17 @@
 import { defineConfig } from "vitest/config";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { fileURLToPath } from "node:url";
+
+// Resolve the "@/..." alias explicitly (mirrors tsconfig paths) instead of via
+// vite-tsconfig-paths, which honors tsconfig `exclude` — the production build
+// excludes test files from tsconfig, and that would otherwise break their alias.
+const rootDir = fileURLToPath(new URL(".", import.meta.url)).replace(/\/$/, "");
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: {
+      "@": rootDir,
+    },
+  },
   test: {
     environment: "jsdom",
     globals: true,
@@ -10,10 +19,10 @@ export default defineConfig({
     css: false,
     coverage: {
       provider: "v8",
-      all: true,
       reporter: ["text", "text-summary", "html"],
       // Global coverage: every source file under these roots counts toward the
-      // denominator, even ones no test imports directly.
+      // denominator, even ones no test imports directly. `include` + Vitest's
+      // default `all: true` make uncovered files count.
       include: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "data/**/*.{ts,tsx}"],
       // Exclude non-source only (config, type decls, test/setup, assets, build output).
       exclude: [
