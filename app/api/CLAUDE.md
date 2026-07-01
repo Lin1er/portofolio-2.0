@@ -27,3 +27,11 @@ Server-side API endpoints (Node runtime). See root `CLAUDE.md` for global rules.
 - ✅ Read recipient/identity from `@/data`.
 - ❌ Don't expose internal errors or the API key to the client response.
 - ❌ Don't add `"use client"` — route handlers are server-only.
+
+## Testing
+
+`contact/route.test.ts` covers every validation branch (missing/empty fields,
+Resend error, malformed JSON) plus the happy path. It mocks `resend` **locally**
+via `vi.hoisted` (a shared `send` spy) so each test controls the send result —
+do the same for any new route that calls an external service. Add a `negative case`
+per new validation branch. Run `npm run test app/api`.

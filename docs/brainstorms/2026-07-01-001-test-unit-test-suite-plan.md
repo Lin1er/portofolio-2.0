@@ -104,10 +104,9 @@ The repo maintainer (solo developer) and any future AI agent editing the codebas
 
 ### Discovered Bugs
 
-_(To be populated during execution — none yet, tests not written at brainstorm time.)_
-
 | ID | File:Line | Symptom | Test (skipped) |
 |----|-----------|---------|----------------|
+| BUG-1 | `app/api/contact/route.ts:13` | Required-field guard `!field` lets whitespace-only values bypass validation (blank message still sends). | `app/api/contact/route.test.ts` → "rejects whitespace-only fields" (`it.skip`) |
 
 ### Outstanding Questions
 

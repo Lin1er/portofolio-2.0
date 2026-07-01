@@ -34,3 +34,14 @@ All UI components. Organized by role; each subfolder has its own `CLAUDE.md`.
 - ❌ Don't hardcode content that belongs in `data/`.
 - ❌ Don't use raw hex colors where a theme token exists (breaks dark mode).
 - ❌ Don't default-export components (Next.js special files excepted).
+
+## Testing
+
+Every component has a co-located `*.test.tsx` (RTL + jsdom). The shared mock
+layer in `vitest.setup.ts` already renders `framer-motion`, `next/image`,
+`next-themes`, and `next/font` inertly, so tests assert **behavior and rendered
+output**, not animation. Patterns in use: data-driven assertions (pull expected
+text from `@/data`), `fireEvent.change` for controlled form inputs (deterministic
+vs per-keystroke `userEvent.type`), `vi.useFakeTimers()` for timeout-driven UI
+(preloader, dev-banner), and `getByRole`/`getAllByText` when copy repeats. Run
+`npm run test components/`.

@@ -50,3 +50,11 @@ change the site — components read from them and update automatically. This is 
 - ❌ Don't duplicate `siteConfig` values into components or route files.
 - ❌ Don't use `Project`/`Experience` icon or category strings outside their unions.
 - ❌ Don't deep-import these files from components — go through `@/data`.
+
+## Testing
+
+Each `data/*.ts` has a co-located `*.test.ts` asserting its **contract**, not
+its values: union membership (`Project.status`/`category`, `Experience.type`/`icon`),
+`Testimonial.rating` 1–5, skill levels 0–100, URL/email shapes, positive
+homepage limits. When you add a new field or union value, extend the matching
+test's `negative case` block so invalid data fails the suite. Run `npm run test data/`.

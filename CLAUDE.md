@@ -27,14 +27,38 @@ the UI updates itself.
 ## Commands
 
 ```bash
-npm run dev     # next dev — local at http://localhost:3000
-npm run build   # next build — NOTE: needs RESEND_API_KEY set or build fails
-npm run start   # serve production build
-npm run lint    # eslint (flat config, eslint.config.mjs)
+npm run dev        # next dev — local at http://localhost:3000
+npm run build      # next build — NOTE: needs RESEND_API_KEY set or build fails
+npm run start      # serve production build
+npm run lint       # eslint (flat config, eslint.config.mjs)
+npm run test       # vitest run — unit tests (co-located *.test.ts(x))
+npm run test:watch # vitest watch mode
+npm run coverage   # vitest run --coverage — enforces the 80% gate
 ```
 
-There is **no test suite** and no CI config in-repo. Verify changes by running
-`npm run dev` / `npm run build` and eyeballing the page.
+No CI config is in-repo yet. Verify changes by running `npm run test` (and
+`npm run coverage` for the gate), plus `npm run build` for release checks.
+
+## Testing
+
+Vitest + React Testing Library, jsdom, **London/mockist** isolation. See
+`docs/plans/2026-07-01-001-test-unit-test-suite-plan.md` for the full design.
+
+- **Co-located**: every test sits beside its source (`route.test.ts` next to
+  `route.ts`, `hero.test.tsx` next to `hero.tsx`).
+- **Naming**: `describe("<unit>") → describe("positive case" | "negative case" | "edge case") → it(...)`.
+  Negative cases must cover **all** validation logic.
+- **Shared mock layer** lives in `vitest.setup.ts` — mocks `framer-motion`
+  (motion tags → plain DOM), `next/image`, `next-themes`, `next/font/google`,
+  `next/navigation`, `next/og`, and global `fetch`. `resend` is mocked locally
+  in `app/api/contact/route.test.ts` for per-test control. Extend the shared
+  layer there rather than re-mocking a boundary per file.
+- **Coverage gate** (`vitest.config.ts`): lines/statements/functions ≥ 80,
+  branches ≥ 70, measured across all of `app/`, `components/`, `data/`.
+- **BUGS protocol**: if a test exposes a real production defect, annotate it
+  `// BUG: …`, convert `it(...)` → `it.skip(...)`, and log it under
+  "Discovered Bugs" in the plan doc. **Do not fix production source in a test PR.**
+  (Known: BUG-1 — whitespace-only contact fields bypass validation.)
 
 ## Environment
 
@@ -88,7 +112,7 @@ data/*.ts  ──(barrel)──▶  data/index.ts  ──▶  components/**  ─
 - ❌ Don't hardcode text, project lists, skills, or links inside components.
 - ❌ Don't put `"use client"` in a file that exports `metadata`/`generateMetadata`.
 - ❌ Don't add a new remote image domain without updating `next.config.ts`.
-- ❌ Don't introduce a styling system, state library, or test framework without asking.
+- ❌ Don't introduce a styling system or state library without asking. (Testing is Vitest — see Testing above; use it, don't add another runner.)
 - ❌ Don't commit secrets; `RESEND_API_KEY` belongs in env, not the repo.
 
 ## Directory map (each has its own CLAUDE.md)
