@@ -13,12 +13,11 @@ describe("ExperiencesPageContent", () => {
       ).toBeGreaterThan(0);
     });
 
-    it("offers a back link to the home page", () => {
+    it("offers a Back to Home link anchored to the experience section", () => {
       render(<ExperiencesPageContent />);
-      const homeLinks = screen
-        .getAllByRole("link")
-        .filter((a) => a.getAttribute("href") === "/");
-      expect(homeLinks.length).toBeGreaterThan(0);
+      // The dedicated back link — not the navbar brand logo (href="/").
+      const back = screen.getByRole("link", { name: /Back to Home/i });
+      expect(back).toHaveAttribute("href", "/#experience");
     });
   });
 });

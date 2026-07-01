@@ -56,10 +56,15 @@ function stripMotionProps(props: Record<string, unknown>) {
 }
 
 vi.mock("framer-motion", () => {
+  // Cache one component per tag so `motion.div` is a stable type across
+  // renders (a fresh forwardRef per access would remount the subtree).
+  const motionCache = new Map<string, React.ComponentType>();
   const motion = new Proxy(
     {},
     {
       get: (_target, tag: string) => {
+        const cached = motionCache.get(tag);
+        if (cached) return cached;
         const Component = React.forwardRef(
           (
             props: Record<string, unknown> & { children?: React.ReactNode },
@@ -74,6 +79,7 @@ vi.mock("framer-motion", () => {
           },
         );
         Component.displayName = `motion.${String(tag)}`;
+        motionCache.set(tag, Component as React.ComponentType);
         return Component;
       },
     },
