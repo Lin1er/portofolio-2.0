@@ -88,6 +88,44 @@ export const projects: Project[] = [
   },
 
   {
+    title: "SuiStorage AI",
+    description:
+      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
+    image: "/assets/suistorage.jpg",
+    tags: [
+      "Sui",
+      "Move",
+      "Nautilus TEE",
+      "Walrus",
+      "Next.js",
+      "TypeScript",
+    ],
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+
+  {
+    title: "Tends",
+    description:
+      "Contributed to an AI-agent-managed real-world-asset portfolio platform on Mantle — users deposit and an autonomous agent rebalances RWA portfolios. Shipped as a live MVP with deployed contracts on Mantle Sepolia and an agent-driven trading backend.",
+    image: "/assets/tends-rwa.jpg",
+    tags: [
+      "Mantle",
+      "Solidity",
+      "AI Agents",
+      "Next.js",
+      "TypeScript",
+      "Foundry",
+    ],
+    github: "https://github.com/AncungAulia/tends",
+    live: "https://tends.fun",
+    featured: true,
+    status: "completed",
+    category: "web3",
+  },
+
+  {
     title: "ClearContract",
     description:
       "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
@@ -147,6 +185,24 @@ export const projects: Project[] = [
   },
 
   {
+    title: "GW Platform",
+    description:
+      "Building a self-hosted Google Workspace management platform: TOTP MFA, JWT auth, role-based access control, audit logging, and a pluggable directory-engine abstraction over the Google Admin API. Deployed on a homeserver with Docker Compose, Caddy, and automated backups.",
+    image: "/assets/gw-platform.jpg",
+    tags: [
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Next.js",
+      "Docker",
+      "RBAC",
+    ],
+    featured: true,
+    status: "in-progress",
+    category: "fullstack",
+  },
+
+  {
     title: "Owlighting Garage",
     description:
       "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
@@ -176,6 +232,22 @@ export const projects: Project[] = [
     tags: ["Go", "Bubble Tea", "SQLite", "TUI", "CLI"],
     github: "https://github.com/Lin1er/Productivity-Booster",
     featured: true,
+    status: "in-progress",
+    category: "other",
+  },
+
+  {
+    title: "FT-VISION",
+    description:
+      "Building a privacy-first room-occupancy detection system for co-working spaces: YOLOv8 person detection over CCTV or webcam feeds with rolling-median smoothing and per-zone occupancy classification. Privacy by design — people are blurred in every preview and raw frames are never stored.",
+    image: "/assets/ft-vision.jpg",
+    tags: [
+      "Python",
+      "YOLOv8",
+      "OpenCV",
+      "Computer Vision",
+    ],
+    featured: false,
     status: "in-progress",
     category: "other",
   },
