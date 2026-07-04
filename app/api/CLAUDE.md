@@ -5,9 +5,12 @@ Server-side API endpoints (Node runtime). See root `CLAUDE.md` for global rules.
 ## Routes
 
 - `contact/route.ts` — `POST /api/contact`. Receives `{ name, email, message }`
-  from the contact form, validates all three are present, and sends an email via
+  (plus a hidden `honeypot` field) from the contact form and sends an email via
   **Resend** to `personalInfo.email`. The email body is rendered from the React
-  component `ClientEmail` (`@/components/email-templates/client`).
+  component `ClientEmail` (`@/components/email-templates/client`). Guards, in
+  order: per-IP rate limit (5/10min → `429`), honeypot filled → fake `200`
+  success without sending, trimmed presence check, email-shape check, and
+  max-length caps (name 100 / email 254 / message 5000) → `400`.
 
 ## Conventions
 

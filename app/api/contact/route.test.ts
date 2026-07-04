@@ -16,9 +16,19 @@ vi.mock("@/components/email-templates/client", () => ({
 
 import { POST } from "./route";
 
-/** Build a minimal NextRequest-like object exposing json(). */
-function makeRequest(body: unknown, opts: { throwOnJson?: boolean } = {}) {
+/**
+ * Build a minimal NextRequest-like object exposing json() and headers.
+ * Each call gets a unique client IP by default so the route's per-IP rate
+ * limiter never couples unrelated tests; pass opts.ip to share one.
+ */
+let ipCounter = 0;
+function makeRequest(
+  body: unknown,
+  opts: { throwOnJson?: boolean; ip?: string } = {},
+) {
+  const ip = opts.ip ?? `10.0.0.${++ipCounter}`;
   return {
+    headers: new Headers({ "x-forwarded-for": ip }),
     json: opts.throwOnJson
       ? vi.fn(() => Promise.reject(new SyntaxError("Unexpected token")))
       : vi.fn(() => Promise.resolve(body)),
@@ -89,6 +99,30 @@ describe("POST /api/contact", () => {
       expect(sendMock).not.toHaveBeenCalled();
     });
 
+    it("returns 400 when the email is not a valid address", async () => {
+      const res = await POST(
+        makeRequest({ name: "Jane", email: "not-an-email", message: "hi" }),
+      );
+      const json = await res.json();
+      expect(res.status).toBe(400);
+      expect(json.error).toBe("Please provide a valid email address");
+      expect(sendMock).not.toHaveBeenCalled();
+    });
+
+    it("returns 400 when a field exceeds its maximum length", async () => {
+      const res = await POST(
+        makeRequest({
+          name: "J".repeat(101),
+          email: "jane@example.com",
+          message: "hi",
+        }),
+      );
+      const json = await res.json();
+      expect(res.status).toBe(400);
+      expect(json.error).toBe("Input exceeds maximum length");
+      expect(sendMock).not.toHaveBeenCalled();
+    });
+
     it("returns 500 when Resend reports an error", async () => {
       sendMock.mockResolvedValue({ data: null, error: { message: "boom" } });
 
@@ -126,6 +160,32 @@ describe("POST /api/contact", () => {
       );
       expect(res.status).toBe(200);
       expect(sendMock).toHaveBeenCalledTimes(1);
+    });
+
+    it("fakes success without sending when the honeypot is filled", async () => {
+      const res = await POST(
+        makeRequest({ ...validBody, honeypot: "https://spam.example" }),
+      );
+      const json = await res.json();
+      expect(res.status).toBe(200);
+      expect(json).toEqual({ success: true });
+      expect(sendMock).not.toHaveBeenCalled();
+    });
+
+    it("returns 429 once an IP exceeds the rate limit", async () => {
+      sendMock.mockResolvedValue({ data: { id: "x" }, error: null });
+      const ip = "203.0.113.7";
+
+      for (let i = 0; i < 5; i++) {
+        const res = await POST(makeRequest(validBody, { ip }));
+        expect(res.status).toBe(200);
+      }
+
+      const res = await POST(makeRequest(validBody, { ip }));
+      const json = await res.json();
+      expect(res.status).toBe(429);
+      expect(json.error).toBe("Too many requests. Please try again later.");
+      expect(sendMock).toHaveBeenCalledTimes(5);
     });
   });
 });
