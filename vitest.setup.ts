@@ -219,6 +219,18 @@ vi.mock("next/og", () => ({
   },
 }));
 
+// --- @vercel/analytics & speed-insights ----------------------------------------
+// Script injectors with no renderable output; stub to nothing in jsdom.
+vi.mock("@vercel/analytics/next", () => ({
+  __esModule: true,
+  Analytics: () => null,
+}));
+
+vi.mock("@vercel/speed-insights/next", () => ({
+  __esModule: true,
+  SpeedInsights: () => null,
+}));
+
 // --- global fetch -------------------------------------------------------------
 // Default stub; behavior-specific tests override the implementation.
 beforeEach(() => {
