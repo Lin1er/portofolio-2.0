@@ -36,7 +36,8 @@ npm run test:watch # vitest watch mode
 npm run coverage   # vitest run --coverage — enforces the 80% gate
 ```
 
-No CI config is in-repo yet. Verify changes by running `npm run test` (and
+CI (`.github/workflows/ci.yml`) runs lint, the coverage gate, and the build on
+every push/PR to `main`. Locally, verify changes by running `npm run test` (and
 `npm run coverage` for the gate), plus `npm run build` for release checks.
 
 ## Testing
@@ -50,7 +51,8 @@ Vitest + React Testing Library, jsdom, **London/mockist** isolation. See
   Negative cases must cover **all** validation logic.
 - **Shared mock layer** lives in `vitest.setup.ts` — mocks `framer-motion`
   (motion tags → plain DOM), `next/image`, `next-themes`, `next/font/google`,
-  `next/navigation`, `next/og`, and global `fetch`. `resend` is mocked locally
+  `next/navigation`, `next/og`, `@vercel/analytics`, `@vercel/speed-insights`,
+  and global `fetch`. `resend` is mocked locally
   in `app/api/contact/route.test.ts` for per-test control. Extend the shared
   layer there rather than re-mocking a boundary per file.
 - **Coverage gate** (`vitest.config.ts`): lines/statements/functions ≥ 80,
