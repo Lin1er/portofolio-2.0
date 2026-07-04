@@ -8,7 +8,6 @@ import {
   Instagram,
   ArrowUpRight,
   Mail,
-  Heart,
   MapPin,
 } from "lucide-react";
 import Link from "next/link";

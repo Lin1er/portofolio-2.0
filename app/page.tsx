@@ -5,7 +5,7 @@ import { AboutSection } from "@/components/sections/about";
 import { SkillsSection } from "@/components/sections/skills";
 import { ProjectsSection } from "@/components/sections/projects";
 import { ExperienceSection } from "@/components/sections/experience";
-import { TestimonialsSection } from "@/components/sections/testimonials";
+// import { TestimonialsSection } from "@/components/sections/testimonials";
 import { ContactSection } from "@/components/sections/contact";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { BackToTop } from "@/components/ui/back-to-top";
