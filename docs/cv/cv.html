@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>M. Ulinuha As Shiddiqy — CV</title>
+<style>
+  @page { size: A4; margin: 13mm 15mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.6pt; line-height: 1.42; color: #1f2430;
+  }
+  a { color: #3730a3; text-decoration: none; }
+
+  /* ---------- header ---------- */
+  header { border-bottom: 2.5px solid #4f46e5; padding-bottom: 8px; margin-bottom: 12px; }
+  h1 { font-size: 21pt; font-weight: 700; letter-spacing: .2px; color: #111827; }
+  .role { font-size: 11pt; font-weight: 600; color: #4f46e5; margin-top: 2px; }
+  .contact { margin-top: 6px; font-size: 8.8pt; color: #4b5563; }
+  .contact span + span::before { content: "  ·  "; color: #9ca3af; }
+
+  /* ---------- sections ---------- */
+  section { margin-bottom: 11px; }
+  h2 {
+    font-size: 10.2pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.3px; color: #4f46e5; margin-bottom: 6px;
+    border-bottom: 1px solid #e5e7eb; padding-bottom: 2px;
+  }
+  p.summary { text-align: justify; }
+
+  /* ---------- entries ---------- */
+  .entry { margin-bottom: 8px; break-inside: avoid; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-title { font-weight: 700; font-size: 10pt; color: #111827; }
+  .entry-title .at { font-weight: 600; color: #4f46e5; }
+  .entry-date { font-size: 8.8pt; color: #6b7280; white-space: nowrap; padding-left: 12px; }
+  .entry-sub { font-size: 8.8pt; color: #6b7280; font-style: italic; }
+  ul { margin: 3px 0 0 14px; }
+  li { margin-bottom: 2px; padding-left: 2px; }
+  li::marker { color: #4f46e5; }
+  .tech { font-size: 8.6pt; color: #6b7280; margin-top: 2px; }
+  .tech b { color: #374151; font-weight: 600; }
+
+  /* ---------- skills ---------- */
+  .skills td { vertical-align: top; padding: 1.5px 0; font-size: 9.4pt; }
+  .skills td:first-child { font-weight: 700; color: #374151; width: 108px; white-space: nowrap; }
+
+  /* ---------- two-col compact rows ---------- */
+  .cols { display: flex; gap: 22px; }
+  .cols > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>M. Ulinuha As Shiddiqy</h1>
+  <div class="role">Software Engineer — Backend, Full-Stack &amp; Web3</div>
+  <div class="contact">
+    <span>Yogyakarta, Indonesia</span>
+    <span>+62 821-1539-4126</span>
+    <span><a href="mailto:m.ulinasidiki@gmail.com">m.ulinasidiki@gmail.com</a></span>
+    <span><a href="https://jameshub.fun">jameshub.fun</a></span>
+    <span><a href="https://github.com/Lin1er">github.com/Lin1er</a></span>
+    <span><a href="https://linkedin.com/in/ulinuha">linkedin.com/in/ulinuha</a></span>
+  </div>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p class="summary">
+    Software engineer and Information Technology student at Universitas Gadjah Mada with 3+ years of
+    hands-on experience shipping production systems: backend platforms serving 1,000+ users, AI-powered
+    products, and multi-chain dApps across EVM, Solana, and Sui. Shipped 20+ projects — from national-scale
+    competition platforms to live on-chain markets — with a track record of delivering end-to-end:
+    smart contracts, event-driven indexers, scalable APIs, and polished frontends. Comfortable owning a
+    product from architecture to deployment, and communicating it — including teaching smart-contract
+    development in public workshops.
+  </p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Backend AI Engineering Intern <span class="at">— FlyRank AI</span></div>
+      <div class="entry-date">2026 – Present</div>
+    </div>
+    <ul>
+      <li>Selected for the Backend AI Engineering Cohort, building backend AI systems, APIs, and automation workflows.</li>
+      <li>Developing real-world AI capstone projects focused on production-grade LLM integration.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Backend Engineer <span class="at">— UGM IT Event Platforms (Technocorner &amp; FindIT)</span></div>
+      <div class="entry-date">2025 – 2026</div>
+    </div>
+    <ul>
+      <li>Built backend systems for two of UGM's flagship national technology competitions, together serving 1,000+ participants (<a href="https://technocorner.id">technocorner.id</a>, <a href="https://find-it.id">find-it.id</a>).</li>
+      <li>Designed APIs for registration, team management, submissions, and judging; optimized PostgreSQL queries to keep the platforms responsive during registration traffic spikes.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> TypeScript, Node.js, Bun, Elysia.js, Express, PostgreSQL, JWT</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Freelance Full-Stack Developer <span class="at">— Self-employed</span></div>
+      <div class="entry-date">2023 – Present</div>
+    </div>
+    <ul>
+      <li>Delivered client systems end-to-end: a boarding-school management platform supporting 200+ students (QR-based permissions, role-based access control, parent notifications) and a digital library platform with barcode borrowing and overdue notifications.</li>
+      <li>Owned the full lifecycle — requirements, architecture, implementation, deployment, and maintenance.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Laravel, PHP, MySQL, Redis, Docker, React, Node.js, TailwindCSS</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Workshop Instructor, Sui Move <span class="at">— Tech Community</span></div>
+      <div class="entry-date">2025</div>
+    </div>
+    <ul>
+      <li>Led a technical workshop on Sui Move smart-contract development: blockchain fundamentals, object-centric on-chain programming, and hands-on building on the Sui ecosystem.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Selected Projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">RoastWager — Prediction &amp; Opinion Market dApp <span class="entry-sub">(live: <a href="https://roast-wager.vercel.app">roast-wager.vercel.app</a>)</span></div>
+    </div>
+    <ul>
+      <li>Built a full-stack prediction market on Monad end-to-end: smart-contract flows (create, vote, resolve, claim), an event-driven indexer with missed-block recovery, wallet integration, and optimistic UI for instant interactions.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Solidity, Foundry, Next.js, Hono, Supabase, wagmi, viem</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Wall of 0gents — AI-Agent Financialization Platform <span class="entry-sub">(live on 0G Mainnet: <a href="https://wall-of-0gents.vercel.app">wall-of-0gents.vercel.app</a>)</span></div>
+    </div>
+    <ul>
+      <li>Engineered backend services and Solidity contracts for a platform where intelligent NFTs (ERC-7857) are fractionalized into ERC-20 shares and earn inference revenue — 99/99 contract test cases passing.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Solidity, Foundry, ERC-7857, x402, Node.js, TypeScript</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">Tredie — Trend-Driven Perpetual Markets on Solana <span class="entry-sub">(live: <a href="https://tredie.vercel.app">tredie.vercel.app</a>)</span></div>
+    </div>
+    <ul>
+      <li>Built backend services for a protocol that auto-spawns markets from trending topics on X and Telegram: trend-polling pipelines, automated market creation, transaction builders, and webhook indexers decoding Anchor events.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Solana, Rust, Anchor, Node.js, Express, Privy, Helius</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">SuiStorage AI — Verifiable Marketplace for AI Training Data <span class="entry-sub">(live on Sui testnet)</span></div>
+    </div>
+    <ul>
+      <li>Built a marketplace where dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move contracts, and storage is decentralized on Walrus — working end-to-end purchase flow.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Sui, Move, Nautilus TEE, Walrus, Next.js, TypeScript</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">ClearContract — AI Legal-Tech Platform <span class="entry-sub">(live: <a href="https://clearcontract-safety.vercel.app">clearcontract-safety.vercel.app</a>)</span></div>
+    </div>
+    <ul>
+      <li>Built an LLM-powered contract analyzer that turns complex legal documents into plain-language insights: PDF parsing, bilingual support (EN/ID), and clause-level detection of hidden risks and red flags.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> Next.js, TypeScript, Google Gemini API, PDF.js, TailwindCSS</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title">GW Platform — Self-Hosted Google Workspace Management <span class="entry-sub">(in progress)</span></div>
+    </div>
+    <ul>
+      <li>Building an admin platform with TOTP MFA, JWT auth, role-based access control, audit logging, and a pluggable directory-engine abstraction over the Google Admin API; self-hosted with Docker Compose, Caddy, and automated backups.</li>
+    </ul>
+    <div class="tech"><b>Stack:</b> FastAPI, Python, PostgreSQL, Next.js, Docker</div>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="cols">
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Universitas Gadjah Mada</div>
+        <div class="entry-date">2025 – Present</div>
+      </div>
+      <div class="entry-sub">B.Eng. in Information Technology — Yogyakarta, Indonesia</div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">MAN Insan Cendekia East Lampung</div>
+        <div class="entry-date">2022 – 2025</div>
+      </div>
+      <div class="entry-sub">Selective national boarding school — Science major</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Achievements &amp; Leadership</h2>
+  <ul>
+    <li><b>Silver Medal, NASFIA National Research Competition (2024)</b> — IoT-based glucose-monitoring research: sensor pipelines integrated with machine-learning workflows on Raspberry Pi/ESP32.</li>
+    <li><b>2nd Place, Provincial Computer Science Competition (MIPA Expo, University of Lampung, 2023)</b> — algorithms and computational problem-solving.</li>
+    <li><b>10+ hackathons &amp; competitions</b> — shipped working products at international Web3 hackathons including Sui Overflow, ETHGlobal, Colosseum, and the APAC Stellar Hackathon.</li>
+    <li><b>Batch Leader (75+ students), MAN Insan Cendekia (2023–2025)</b> — led a student cohort across academic and extracurricular programs; also served as Chairman of Commission A, student council.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <table class="skills">
+    <tr><td>Languages</td><td>TypeScript, JavaScript, Python, Go, Rust, PHP, Solidity, Move, SQL</td></tr>
+    <tr><td>Backend</td><td>Node.js, Bun, Express, Hono, Elysia.js, Laravel, FastAPI, REST APIs, JWT/Auth, PostgreSQL, MySQL, Redis, Supabase</td></tr>
+    <tr><td>Frontend</td><td>React, Next.js, TailwindCSS, Framer Motion, shadcn/ui</td></tr>
+    <tr><td>Web3</td><td>Solidity, Foundry, Anchor, Sui Move, wagmi, viem, smart-contract architecture, event indexing</td></tr>
+    <tr><td>AI</td><td>LLM integration (Gemini, OpenAI), prompt engineering, AI-agent workflows</td></tr>
+    <tr><td>Tools</td><td>Docker, Git/GitHub, Linux, Vercel, CI &amp; testing (Vitest), IoT (ESP32/Arduino)</td></tr>
+  </table>
+</section>
+
+</body>
+</html>
