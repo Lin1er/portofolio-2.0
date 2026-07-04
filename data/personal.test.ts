@@ -13,6 +13,7 @@ describe("personalInfo", () => {
   describe("positive case", () => {
     it("exposes non-empty core identity fields", () => {
       expect(personalInfo.name.length).toBeGreaterThan(0);
+      expect(personalInfo.shortName.length).toBeGreaterThan(0);
       expect(personalInfo.role.length).toBeGreaterThan(0);
       expect(personalInfo.bio.length).toBeGreaterThan(0);
     });

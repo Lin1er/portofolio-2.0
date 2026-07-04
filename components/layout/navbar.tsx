@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { MagneticButton } from "@/components/ui/magnetic-button";
@@ -14,6 +14,16 @@ export function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  // Close the mobile menu with Escape.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
   return (
     <>
       <motion.header
@@ -23,8 +33,12 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4"
       >
         <nav className="max-w-6xl mx-auto flex items-center justify-between bg-(--card)/80 backdrop-blur-md border border-(--border) rounded-full px-4 md:px-6 py-3">
-          <Link href="/" className="font-bold text-xl gradient-text">
-            {personalInfo.name}
+          <Link
+            href="/"
+            className="font-bold text-xl gradient-text whitespace-nowrap"
+          >
+            <span className="md:hidden">{personalInfo.shortName}</span>
+            <span className="hidden md:inline">{personalInfo.name}</span>
           </Link>
 
           {/* Desktop Navigation */}

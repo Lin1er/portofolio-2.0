@@ -71,7 +71,7 @@ function ProjectCard({
           type="button"
           onClick={() => onOpen(project)}
           aria-label={`View details for ${project.title}`}
-          className="flex flex-col h-full w-full text-left focus:outline-none"
+          className="flex flex-col h-full w-full text-left rounded-lg"
         >
           {/* Project Image */}
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-(--background)">

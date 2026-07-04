@@ -44,7 +44,7 @@ export function HeroSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1">
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="flex justify-center"
           >
             <div className="relative">
               {/* Decorative ring */}
@@ -196,7 +196,7 @@ export function HeroSection() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute bottom-10 -right-25 px-4 py-2 bg-(--card) border border-(--border) rounded-full shadow-lg"
+                className="absolute bottom-10 -right-2 lg:-right-25 px-4 py-2 bg-(--card) border border-(--border) rounded-full shadow-lg"
               >
                 <span className="text-sm font-medium">
                   Full Stack Developer

@@ -2,15 +2,22 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { animationConfig } from "@/data";
+
+const SESSION_KEY = "preloader-shown";
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    // Only block the first visit of a session; repeat visits fade the
+    // overlay out immediately instead of replaying the full loader.
+    const alreadyShown = sessionStorage.getItem(SESSION_KEY);
+    if (!alreadyShown) sessionStorage.setItem(SESSION_KEY, "1");
+    const timer = setTimeout(
+      () => setIsLoading(false),
+      alreadyShown ? 0 : animationConfig.preloaderDuration,
+    );
 
     return () => clearTimeout(timer);
   }, []);
@@ -40,7 +47,10 @@ export function Preloader() {
               <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 1.8, ease: "easeInOut" }}
+                transition={{
+                  duration: animationConfig.preloaderDuration / 1000 - 0.2,
+                  ease: "easeInOut",
+                }}
                 className="h-full bg-(--accent) rounded-full"
               />
             </div>

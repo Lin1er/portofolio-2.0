@@ -1,8 +1,9 @@
 // Personal Information
 export const personalInfo = {
   name: "M. Ulinuha As Shiddiqy",
+  shortName: "Ulinuha",
 
-  role: "Building scalable web, AI & multi-chain dApplications",
+  role: "Building scalable web, AI & multi-chain applications",
 
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
