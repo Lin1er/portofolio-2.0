@@ -4,4 +4,3 @@ export * from "./skills";
 export * from "./projects";
 export * from "./experience";
 export * from "./config";
-export * from "./testimonials";

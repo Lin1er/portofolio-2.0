@@ -12,7 +12,6 @@ Each file is one top-level block of the homepage, composed in order by
 | `projects.tsx` | `projects`, `projectCategories` (+ category filter state, `ProjectModal`) |
 | `skills.tsx` | `skills`, `skillCategories`, `techStackRow*` |
 | `experience.tsx` | `experiences` (homepage shows `siteConfig.homepage.experiencesLimit`) |
-| `testimonials.tsx` | `testimonials` (currently disabled in `app/page.tsx`) |
 | `contact.tsx` | `personalInfo`, `socialLinks`; POSTs to `/api/contact` |
 
 ## Conventions
@@ -39,4 +38,4 @@ Each file is one top-level block of the homepage, composed in order by
 
 - ✅ Keep content in `data/`; keep only layout + interaction here.
 - ✅ Honor `siteConfig.homepage` limits and section `id`s.
-- ❌ Don't hardcode projects/skills/experience/testimonials text.
+- ❌ Don't hardcode projects/skills/experience text.

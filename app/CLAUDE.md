@@ -41,7 +41,7 @@ metadata routes, and API handlers. See the root `CLAUDE.md` for global conventio
 ## Ordering the homepage
 
 `page.tsx` renders sections in visual order. To reorder/hide a section, edit the
-JSX in `page.tsx` (e.g. `<TestimonialsSection />` is currently commented out).
+JSX in `page.tsx`.
 Don't reorder by editing the section components themselves.
 
 ## Do / Don't

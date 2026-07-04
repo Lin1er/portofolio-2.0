@@ -14,7 +14,6 @@ change the site — components read from them and update automatically. This is 
 | `projects.ts` | `interface Project`, `projectCategories`, `projects[]`. |
 | `skills.ts` | `skills` (by category), `skillCategories`, `techStackRow1/2/3`. |
 | `experience.ts` | `interface Experience`, `experiences[]`. |
-| `testimonials.ts` | `interface Testimonial`, `testimonials[]`. |
 
 ## Conventions
 
@@ -25,7 +24,6 @@ change the site — components read from them and update automatically. This is 
   - `Experience.type`: `"education" | "work" | "achievement" | "organization"`;
     `Experience.icon`: `"graduation" | "briefcase" | "award" | "calendar" | "users"`
     (icon strings map to `lucide-react` icons in `experience.tsx` — only these are valid).
-  - `Testimonial.rating`: 1–5.
 - **`siteConfig` is authoritative** for site identity — SEO routes, layout, manifest,
   sitemap, robots, and OG images all read it. Change name/URL/keywords here, nowhere else.
 - **`homepage` limits** (`experiencesLimit`, `projectsLimit`) control how many items the
@@ -55,6 +53,6 @@ change the site — components read from them and update automatically. This is 
 
 Each `data/*.ts` has a co-located `*.test.ts` asserting its **contract**, not
 its values: union membership (`Project.status`/`category`, `Experience.type`/`icon`),
-`Testimonial.rating` 1–5, skill levels 0–100, URL/email shapes, positive
+skill levels 0–100, URL/email shapes, positive
 homepage limits. When you add a new field or union value, extend the matching
 test's `negative case` block so invalid data fails the suite. Run `npm run test data/`.
