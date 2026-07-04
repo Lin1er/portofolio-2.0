@@ -282,6 +282,8 @@ Found during execution and quarantined per R7 (source not modified).
 |----|-----------|---------|----------------|
 | BUG-1 | `app/api/contact/route.ts:13` | The required-field guard uses `!field`, so whitespace-only values (`"   "`) are truthy and bypass validation — a blank message still sends an email. | `app/api/contact/route.test.ts` → "edge case › rejects whitespace-only fields" (`it.skip`) |
 
+**Update (2026-07-04):** BUG-1 fixed — the route now trims string fields (and rejects non-string fields) before the required-field check. The quarantined test is un-skipped and passing.
+
 **Coverage achieved:** statements 94.13%, branches 83.6%, functions 90.99%, lines 94.87% (gate: 80/80/80 + branches 70). 121 tests pass, 1 skipped (BUG-1).
 
 ---

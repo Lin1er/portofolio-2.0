@@ -108,11 +108,7 @@ describe("POST /api/contact", () => {
   });
 
   describe("edge case", () => {
-    // BUG: the required-field guard uses `!field`, so whitespace-only values
-    // (" ") are truthy and bypass validation — a blank message still sends an
-    // email. Fixing requires editing production source, which is out of scope
-    // for this test suite, so this expected-behavior test is quarantined.
-    it.skip("rejects whitespace-only fields", async () => {
+    it("rejects whitespace-only fields", async () => {
       sendMock.mockResolvedValue({ data: { id: "x" }, error: null });
 
       const res = await POST(
