@@ -32,37 +32,6 @@ export const personalInfo = {
   resumeUrl: "/resume/CV_M_Ulinuha_As_Shiddiqy.pdf",
 };
 
-// Why Hire Me - Unique Selling Points
-export const whyHireMe = [
-  {
-    icon: "rocket",
-    title: "Fast Execution",
-    description:
-      "Able to quickly learn, adapt, and ship across unfamiliar technologies — from backend systems to smart contracts and AI integrations.",
-  },
-
-  {
-    icon: "code",
-    title: "Full-Stack Engineering",
-    description:
-      "Hands-on experience building end-to-end systems, from backend APIs and databases to frontend interfaces and blockchain integrations.",
-  },
-
-  {
-    icon: "users",
-    title: "Leadership & Communication",
-    description:
-      "Experienced leading teams, coordinating communities, and delivering technical workshops with strong collaboration and communication skills.",
-  },
-
-  {
-    icon: "trophy",
-    title: "Proven Impact",
-    description:
-      "Built systems used by 1000+ users, contributed to national-scale platforms, and recognized through research and technology competitions.",
-  },
-];
-
 // Social Links
 export const socialLinks = [
   {
@@ -89,14 +58,6 @@ export const navItems = [
   { name: "Skills", href: "/#skills" },
   { name: "Experience", href: "/#experience" },
   { name: "Contact", href: "/#contact" },
-];
-
-// Stats for About Section
-export const stats = [
-  { label: "Years Building", value: 3, suffix: "+" },
-  { label: "Projects Shipped", value: 20, suffix: "+" },
-  { label: "Users Served", value: 1000, suffix: "+" },
-  { label: "Hackathons & Competitions", value: 10, suffix: "+" },
 ];
 
 // Fun Facts

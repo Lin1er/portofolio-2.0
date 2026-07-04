@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { AboutSection } from "./about";
-import { stats } from "@/data";
+import { funFacts } from "@/data";
 
 describe("AboutSection", () => {
   describe("positive case", () => {
@@ -10,11 +10,11 @@ describe("AboutSection", () => {
       expect(container.querySelector("#about")).not.toBeNull();
     });
 
-    it("renders each stat label", () => {
+    it("renders each fun fact label", () => {
       render(<AboutSection />);
-      for (const stat of stats) {
+      for (const fact of funFacts) {
         expect(
-          screen.getAllByText(new RegExp(stat.label, "i")).length,
+          screen.getAllByText(new RegExp(fact.label, "i")).length,
         ).toBeGreaterThan(0);
       }
     });

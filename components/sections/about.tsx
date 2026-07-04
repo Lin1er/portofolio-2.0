@@ -1,70 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { BentoCard } from "@/components/ui/bento-card";
-import {
-  MapPin,
-  Calendar,
-  Code2,
-  Rocket,
-  Briefcase,
-  FolderGit2,
-  Users,
-  Trophy,
-} from "lucide-react";
-import { personalInfo, stats as statsData, funFacts, whyHireMe } from "@/data";
-
-// Animated counter component
-function AnimatedCounter({
-  target,
-  duration = 2,
-}: {
-  target: number;
-  duration?: number;
-}) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const increment = target / (duration * 60);
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-          setCount(target);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 1000 / 60);
-      return () => clearInterval(timer);
-    }
-  }, [isInView, target, duration]);
-
-  return <span ref={ref}>{count}</span>;
-}
-
-const iconMap: Record<string, typeof Calendar> = {
-  "Years Coding": Calendar,
-  "Projects Built": FolderGit2,
-  "Happy Clients": Briefcase,
-  "Lines of Code": Code2,
-};
-
-const whyHireMeIconMap: Record<string, typeof Rocket> = {
-  rocket: Rocket,
-  code: Code2,
-  users: Users,
-  trophy: Trophy,
-};
-
-const stats = statsData.map((stat) => ({
-  ...stat,
-  icon: iconMap[stat.label] || Code2,
-}));
+import { MapPin, Calendar, Rocket } from "lucide-react";
+import { personalInfo, funFacts } from "@/data";
 
 export function AboutSection() {
   return (
@@ -138,63 +77,8 @@ export function AboutSection() {
             </div>
           </BentoCard>
 
-          {/* Why Hire Me Section */}
-          <BentoCard colSpan={3} delay={0.45}>
-            <h3 className="font-semibold mb-6">Why Work With Me?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {whyHireMe.map((item, index) => {
-                const Icon = whyHireMeIconMap[item.icon] || Rocket;
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="p-4 bg-(--background) rounded-xl border border-(--border) hover:border-(--accent)/50 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-(--accent)/10 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-(--accent)" />
-                    </div>
-                    <h4 className="font-semibold mb-2">{item.title}</h4>
-                    <p className="text-sm text-(--muted) leading-relaxed">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </BentoCard>
-
-          {/* Stats Section */}
-          <BentoCard colSpan={3} delay={0.5}>
-            <h3 className="font-semibold mb-6">By The Numbers</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center mb-3">
-                    <stat.icon className="w-5 h-5 text-(--accent)" />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
-                    <AnimatedCounter target={stat.value} />
-                    {stat.suffix}
-                  </div>
-                  <span className="text-sm text-(--muted)">{stat.label}</span>
-                </motion.div>
-              ))}
-            </div>
-          </BentoCard>
-
           {/* Fun facts */}
-          <BentoCard colSpan={3} delay={0.6}>
+          <BentoCard colSpan={3} delay={0.5}>
             <h3 className="font-semibold mb-4">Fun Facts About Me</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {funFacts.map((fact) => (

@@ -8,7 +8,7 @@ Each file is one top-level block of the homepage, composed in order by
 | Section | Data source (`@/data`) |
 |---------|------------------------|
 | `hero.tsx` | `personalInfo`, `siteConfig` |
-| `about.tsx` | `personalInfo` (`aboutMe`, `whyHireMe`, `stats`, `funFacts`) |
+| `about.tsx` | `personalInfo` (`aboutMe`, `funFacts`) |
 | `projects.tsx` | `projects`, `projectCategories` (+ category filter state, `ProjectModal`) |
 | `skills.tsx` | `skills`, `skillCategories`, `techStackRow*` |
 | `experience.tsx` | `experiences` (homepage shows `siteConfig.homepage.experiencesLimit`) |

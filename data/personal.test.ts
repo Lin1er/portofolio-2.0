@@ -3,9 +3,7 @@ import {
   personalInfo,
   socialLinks,
   navItems,
-  stats,
   funFacts,
-  whyHireMe,
 } from "./personal";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,20 +63,18 @@ describe("navItems", () => {
   });
 });
 
-describe("stats / funFacts / whyHireMe", () => {
+describe("funFacts", () => {
   describe("positive case", () => {
-    it("are non-empty arrays", () => {
-      expect(stats.length).toBeGreaterThan(0);
+    it("is a non-empty array", () => {
       expect(funFacts.length).toBeGreaterThan(0);
-      expect(whyHireMe.length).toBeGreaterThan(0);
     });
   });
 
   describe("negative case", () => {
-    it("gives every stat a numeric value", () => {
-      for (const s of stats) {
-        expect(typeof s.value).toBe("number");
-        expect(s.label.length).toBeGreaterThan(0);
+    it("gives every fun fact an emoji and a label", () => {
+      for (const fact of funFacts) {
+        expect(fact.emoji.length).toBeGreaterThan(0);
+        expect(fact.label.length).toBeGreaterThan(0);
       }
     });
   });

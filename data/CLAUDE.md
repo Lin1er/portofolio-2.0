@@ -10,7 +10,7 @@ change the site — components read from them and update automatically. This is 
 |------|--------------------|
 | `index.ts` | Barrel: `export * from` every file below. **Import from `@/data`.** |
 | `config.ts` | `siteConfig` (name, title, url, keywords, author, theme, `homepage` limits), `animationConfig`. Drives all SEO. |
-| `personal.ts` | `personalInfo`, `aboutMe`, `whyHireMe`, `socialLinks`, `navItems`, `stats`, `funFacts`. |
+| `personal.ts` | `personalInfo`, `aboutMe`, `socialLinks`, `navItems`, `funFacts`. |
 | `projects.ts` | `interface Project`, `projectCategories`, `projects[]`. |
 | `skills.ts` | `skills` (by category), `skillCategories`, `techStackRow1/2/3`. |
 | `experience.ts` | `interface Experience`, `experiences[]`. |
