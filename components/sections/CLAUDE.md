@@ -9,7 +9,7 @@ Each file is one top-level block of the homepage, composed in order by
 |---------|------------------------|
 | `hero.tsx` | `personalInfo`, `siteConfig` |
 | `about.tsx` | `personalInfo` (`aboutMe`, `funFacts`) |
-| `projects.tsx` | `projects`, `projectCategories` (+ category filter state, `ProjectModal`) |
+| `projects.tsx` | `projects` (featured, capped by `siteConfig.homepage.projectsLimit`) via `ProjectsGrid`; links to `/projects` |
 | `skills.tsx` | `skills`, `skillCategories`, `techStackRow*` |
 | `experience.tsx` | `experiences` (homepage shows `siteConfig.homepage.experiencesLimit`) |
 | `contact.tsx` | `personalInfo`, `socialLinks`; POSTs to `/api/contact` |

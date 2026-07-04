@@ -6,7 +6,7 @@ folder-scoped `CLAUDE.md` inside the directory you are editing.
 ## What this is
 
 A personal portfolio site for **M. Ulinuha As Shiddiqy** (live: `jameshub.fun`).
-Single-page marketing site + a `/experiences` sub-page, built for aggressive SEO
+Single-page marketing site + `/projects` and `/experiences` sub-pages, built for aggressive SEO
 (dynamic Open Graph images, JSON-LD structured data, sitemap/robots/manifest) and
 smooth motion. All displayed content is data-driven — you edit `data/*.ts`, and
 the UI updates itself.
@@ -77,7 +77,7 @@ data/*.ts  ──(barrel)──▶  data/index.ts  ──▶  components/**  ─
 
 1. **Content lives in `data/`** as typed exports (single source of truth).
 2. Everything is re-exported from `data/index.ts`; components import from `@/data`.
-3. **Pages are Server Components** — `app/page.tsx` and `app/experiences/page.tsx`
+3. **Pages are Server Components** — `app/page.tsx`, `app/projects/page.tsx`, and `app/experiences/page.tsx`
    own metadata + JSON-LD, then render section/content components.
 4. **Interactive UI is client** — nearly every component under `components/` is
    `"use client"` (Framer Motion, hooks). SEO/metadata never lives in a client file.

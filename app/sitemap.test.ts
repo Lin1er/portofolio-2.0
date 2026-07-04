@@ -12,9 +12,10 @@ describe("sitemap", () => {
       }
     });
 
-    it("includes the home and experiences routes", () => {
+    it("includes the home, projects, and experiences routes", () => {
       const urls = sitemap().map((e) => e.url);
       expect(urls).toContain(siteConfig.url);
+      expect(urls).toContain(`${siteConfig.url}/projects`);
       expect(urls).toContain(`${siteConfig.url}/experiences`);
     });
   });

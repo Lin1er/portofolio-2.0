@@ -16,6 +16,7 @@ metadata routes, and API handlers. See the root `CLAUDE.md` for global conventio
 | `opengraph-image.tsx` / `twitter-image.tsx` | Dynamic 1200×630 social images via `next/og`. |
 | `not-found.tsx` | Custom 404 (client). |
 | `manifest.ts`, `icon.png`, `apple-icon.png`, `favicon.ico`, `logo.png` | PWA / icon assets. |
+| `projects/` | `/projects` sub-page (all projects + filters). |
 | `experiences/` | `/experiences` sub-page (see below). |
 | `api/` | Route handlers — see `app/api/CLAUDE.md`. |
 

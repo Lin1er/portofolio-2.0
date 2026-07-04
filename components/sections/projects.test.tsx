@@ -2,7 +2,11 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ProjectsSection } from "./projects";
-import { projects, socialLinks } from "@/data";
+import { projects, siteConfig, socialLinks } from "@/data";
+
+const featured = projects
+  .filter((p) => p.featured)
+  .slice(0, siteConfig.homepage.projectsLimit);
 
 describe("ProjectsSection", () => {
   describe("positive case", () => {
@@ -11,7 +15,7 @@ describe("ProjectsSection", () => {
       expect(container.querySelector("#projects")).not.toBeNull();
     });
 
-    it("renders a card per project by default (filter = all)", () => {
+    it("renders only the featured projects capped by the homepage limit", () => {
       render(<ProjectsSection />);
       // Each card is a button labelled "View details for <title>".
       const cards = screen
@@ -19,7 +23,16 @@ describe("ProjectsSection", () => {
         .filter((b) =>
           b.getAttribute("aria-label")?.startsWith("View details for"),
         );
-      expect(cards.length).toBe(projects.length);
+      expect(cards.length).toBe(featured.length);
+      expect(cards.length).toBeLessThanOrEqual(
+        siteConfig.homepage.projectsLimit,
+      );
+    });
+
+    it("links to the /projects page for the full list", () => {
+      render(<ProjectsSection />);
+      const viewAll = screen.getByRole("link", { name: /View All Projects/i });
+      expect(viewAll).toHaveAttribute("href", "/projects");
     });
 
     it("links to the GitHub profile in the footer CTA", () => {
@@ -33,31 +46,12 @@ describe("ProjectsSection", () => {
   });
 
   describe("edge case", () => {
-    it("filters the visible cards when a category is selected", async () => {
-      render(<ProjectsSection />);
-      const backend = projects.filter((p) => p.category === "backend");
-      const web3 = projects.filter((p) => p.category === "web3");
-      // Preconditions so the assertion is meaningful.
-      expect(backend.length).toBeGreaterThan(0);
-      expect(web3.length).toBeGreaterThan(0);
-
-      await userEvent.click(screen.getByRole("button", { name: /^Backend/i }));
-
-      // A backend project stays; a web3 project disappears.
-      expect(
-        screen.getByLabelText(`View details for ${backend[0].title}`),
-      ).toBeInTheDocument();
-      expect(
-        screen.queryByLabelText(`View details for ${web3[0].title}`),
-      ).toBeNull();
-    });
-
     it("opens the project detail modal when a card is clicked", async () => {
       render(<ProjectsSection />);
       expect(screen.queryByRole("dialog")).toBeNull();
 
       await userEvent.click(
-        screen.getByLabelText(`View details for ${projects[0].title}`),
+        screen.getByLabelText(`View details for ${featured[0].title}`),
       );
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();

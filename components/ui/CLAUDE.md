@@ -9,7 +9,8 @@ Small, reusable building blocks and motion effects consumed by `sections/` and
 |------|---------|
 | `section-wrapper.tsx` | `SectionWrapper` — standard scroll-reveal `motion.section` (fade in on `whileInView`, `once: true`). Reuse for consistent reveals. |
 | `bento-card.tsx` | Grid/bento card container used by sections. |
-| `project-modal.tsx` | Click-to-open project detail modal (used by `projects` section). |
+| `projects-grid.tsx` | Filterable project card grid + detail modal (homepage section passes a featured slice; `/projects` passes the full list with `showFilters`). |
+| `project-modal.tsx` | Click-to-open project detail modal (used by `ProjectsGrid`). |
 | `marquee.tsx` | Scrolling tech-stack rows (fed by `techStackRow*`). |
 | `animated-text.tsx` | Text reveal/typing animation. |
 | `magnetic-button.tsx` | Cursor-follow magnetic button effect. |
