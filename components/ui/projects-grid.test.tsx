@@ -9,7 +9,6 @@ const makeProject = (overrides: Partial<Project>): Project => ({
   description: "A fixture project",
   image: "/assets/fixture.png",
   tags: ["TypeScript"],
-  status: "completed",
   category: "backend",
   ...overrides,
 });

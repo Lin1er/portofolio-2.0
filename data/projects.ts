@@ -6,8 +6,9 @@ export interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
-  status: "completed" | "in-progress" | "on-hold";
   category: "backend" | "frontend" | "fullstack" | "web3" | "other";
+  /** Slug of a deep case study at /projects/<slug>, if one exists. */
+  caseStudySlug?: string;
 }
 
 export const projectCategories = [
@@ -39,7 +40,123 @@ export const projects: Project[] = [
     github: "https://github.com/Lin1er/RoastWager",
     live: "https://roast-wager.vercel.app",
     featured: true,
-    status: "completed",
+    category: "web3",
+    caseStudySlug: "roastwager",
+  },
+
+  {
+    title: "SoroSense",
+    description:
+      "Contributed to a non-custodial stablecoin yield optimizer on Stellar that steers deposits toward the safest audited pools. A Sentinel keeper monitors pools 24/7 and can freeze unsafe ones, while an allocation keeper proposes reallocations that only execute with the user's wallet signature — funds never leave the user's control. Soroban (Rust) vault on Stellar testnet. Built for the APAC Stellar Hackathon (DeFi & Ecosystem Composability track).",
+    image: "/assets/sorosense.png",
+    tags: [
+      "Stellar",
+      "Soroban",
+      "Rust",
+      "Next.js",
+      "Hono",
+      "Mastra",
+      "TypeScript",
+    ],
+    github: "https://github.com/AncungAulia/sorosense",
+    live: "https://app.sorosense.xyz",
+    featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "Technocorner",
+    description:
+      "Built backend systems for a national-scale technology event platform serving 1000+ participants. Developed scalable APIs for registration, team management, and competition workflows with optimized database performance during traffic spikes.",
+    image: "/assets/technocorner.png",
+    tags: [
+      "Node.js",
+      "Bun",
+      "TypeScript",
+      "Elysia.js",
+      "PostgreSQL",
+      "JWT",
+      "REST API",
+    ],
+    live: "https://technocorner.id",
+    featured: true,
+    category: "backend",
+  },
+
+  {
+    title: "SuiStorage AI",
+    description:
+      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
+    image: "/assets/suistorage.jpg",
+    tags: [
+      "Sui",
+      "Move",
+      "Nautilus TEE",
+      "Walrus",
+      "Next.js",
+      "TypeScript",
+    ],
+    featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "ClearContract",
+    description:
+      "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
+    image: "/assets/clearcontract.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google Gemini API",
+      "shadcn/ui",
+      "PDF.js",
+    ],
+    github: "https://github.com/lin1er/Contract-Analyzer",
+    live: "https://clearcontract-safety.vercel.app",
+    featured: true,
+    category: "fullstack",
+  },
+
+  {
+    title: "Owlighting Garage",
+    description:
+      "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
+    image:
+      "https://github.com/Lin1er/owlighting-garage/blob/main/public/screenshoot.png?raw=true",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "React 19",
+      "Framer Motion",
+      "TailwindCSS",
+      "Vercel",
+    ],
+    github: "https://github.com/Lin1er/owlighting-garage",
+    live: "https://owlighting-garage.vercel.app",
+    featured: true,
+    category: "frontend",
+  },
+
+  {
+    title: "Tredie",
+    description:
+      "Built backend services for a Solana-based perpetual market protocol where new markets auto-spawn from trending topics on X and Telegram. Implemented trend polling pipelines, automated market creation, transaction builders, and webhook indexers for decoding Anchor events.",
+    image: "/assets/tredie.png",
+    tags: [
+      "Solana",
+      "Rust",
+      "Anchor",
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "Privy",
+      "Helius",
+    ],
+    github: "https://github.com/AncungAulia/tredie",
+    live: "https://tredie.vercel.app",
+    featured: true,
     category: "web3",
   },
 
@@ -61,47 +178,6 @@ export const projects: Project[] = [
     github: "https://github.com/Lexirieru/wall-of-0gents",
     live: "https://wall-of-0gents.vercel.app",
     featured: true,
-    status: "completed",
-    category: "web3",
-  },
-
-  {
-    title: "Tredie",
-    description:
-      "Built backend services for a Solana-based perpetual market protocol where new markets auto-spawn from trending topics on X and Telegram. Implemented trend polling pipelines, automated market creation, transaction builders, and webhook indexers for decoding Anchor events.",
-    image: "/assets/tredie.png",
-    tags: [
-      "Solana",
-      "Rust",
-      "Anchor",
-      "Node.js",
-      "TypeScript",
-      "Express",
-      "Privy",
-      "Helius",
-    ],
-    github: "https://github.com/AncungAulia/tredie",
-    live: "https://tredie.vercel.app",
-    featured: true,
-    status: "completed",
-    category: "web3",
-  },
-
-  {
-    title: "SuiStorage AI",
-    description:
-      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
-    image: "/assets/suistorage.jpg",
-    tags: [
-      "Sui",
-      "Move",
-      "Nautilus TEE",
-      "Walrus",
-      "Next.js",
-      "TypeScript",
-    ],
-    featured: true,
-    status: "completed",
     category: "web3",
   },
 
@@ -121,48 +197,7 @@ export const projects: Project[] = [
     github: "https://github.com/AncungAulia/tends",
     live: "https://tends.fun",
     featured: true,
-    status: "completed",
     category: "web3",
-  },
-
-  {
-    title: "ClearContract",
-    description:
-      "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
-    image: "/assets/clearcontract.png",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Google Gemini API",
-      "shadcn/ui",
-      "PDF.js",
-    ],
-    github: "https://github.com/lin1er/Contract-Analyzer",
-    live: "https://clearcontract-safety.vercel.app",
-    featured: true,
-    status: "completed",
-    category: "fullstack",
-  },
-
-  {
-    title: "Technocorner",
-    description:
-      "Built backend systems for a national-scale technology event platform serving 1000+ participants. Developed scalable APIs for registration, team management, and competition workflows with optimized database performance during traffic spikes.",
-    image: "/assets/technocorner.png",
-    tags: [
-      "Node.js",
-      "Bun",
-      "TypeScript",
-      "Elysia.js",
-      "PostgreSQL",
-      "JWT",
-      "REST API",
-    ],
-    live: "https://technocorner.id",
-    featured: true,
-    status: "completed",
-    category: "backend",
   },
 
   {
@@ -180,7 +215,6 @@ export const projects: Project[] = [
     ],
     live: "https://find-it.id",
     featured: true,
-    status: "completed",
     category: "backend",
   },
 
@@ -198,29 +232,7 @@ export const projects: Project[] = [
       "RBAC",
     ],
     featured: true,
-    status: "in-progress",
     category: "fullstack",
-  },
-
-  {
-    title: "Owlighting Garage",
-    description:
-      "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
-    image:
-      "https://github.com/Lin1er/owlighting-garage/blob/main/public/screenshoot.png?raw=true",
-    tags: [
-      "Next.js 16",
-      "TypeScript",
-      "React 19",
-      "Framer Motion",
-      "TailwindCSS",
-      "Vercel",
-    ],
-    github: "https://github.com/Lin1er/owlighting-garage",
-    live: "https://owlighting-garage.vercel.app",
-    featured: true,
-    status: "completed",
-    category: "frontend",
   },
 
   {
@@ -232,7 +244,6 @@ export const projects: Project[] = [
     tags: ["Go", "Bubble Tea", "SQLite", "TUI", "CLI"],
     github: "https://github.com/Lin1er/Productivity-Booster",
     featured: true,
-    status: "in-progress",
     category: "other",
   },
 
@@ -248,7 +259,6 @@ export const projects: Project[] = [
       "Computer Vision",
     ],
     featured: false,
-    status: "in-progress",
     category: "other",
   },
 
@@ -268,7 +278,6 @@ export const projects: Project[] = [
       "Android App",
     ],
     featured: false,
-    status: "in-progress",
     category: "fullstack",
   },
 
@@ -287,7 +296,6 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/Lin1er/Elibrary",
     featured: false,
-    status: "completed",
     category: "fullstack",
   },
 
@@ -305,7 +313,6 @@ export const projects: Project[] = [
     github: "https://github.com/Lin1er/portofolio-2.0",
     live: "https://ulinuha.vercel.app",
     featured: false,
-    status: "completed",
     category: "frontend",
   },
 ];

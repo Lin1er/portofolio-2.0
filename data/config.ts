@@ -22,6 +22,8 @@ export const siteConfig = {
     "Blockchain Developer",
     "Smart Contract Developer",
     "Solana Developer",
+    "Stellar Developer",
+    "Soroban Developer",
     "EVM Developer",
     "dApp Developer",
     "AI Engineer",

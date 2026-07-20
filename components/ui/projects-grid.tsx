@@ -4,33 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BentoCard } from "@/components/ui/bento-card";
 import { ProjectModal } from "@/components/ui/project-modal";
-import {
-  ArrowUpRight,
-  Clock,
-  CheckCircle2,
-  PauseCircle,
-  Filter,
-} from "lucide-react";
+import { ArrowUpRight, Filter } from "lucide-react";
 import Image from "next/image";
 import { projectCategories, type Project } from "@/data";
-
-const statusConfig = {
-  completed: {
-    label: "Completed",
-    icon: CheckCircle2,
-    className: "bg-green-500/80 text-white border-green-500/20",
-  },
-  "in-progress": {
-    label: "In Progress",
-    icon: Clock,
-    className: "bg-yellow-500/80 text-white border-yellow-500/20",
-  },
-  "on-hold": {
-    label: "On Hold",
-    icon: PauseCircle,
-    className: "bg-gray-500/80 text-white border-gray-500/20",
-  },
-};
 
 const categoryColors = {
   backend: "bg-blue-500/20 text-blue-400 border-blue-500/30",
@@ -49,9 +25,6 @@ function ProjectCard({
   index: number;
   onOpen: (project: Project) => void;
 }) {
-  const status = statusConfig[project.status];
-  const StatusIcon = status.icon;
-
   return (
     <motion.div
       layout
@@ -83,14 +56,6 @@ function ProjectCard({
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-
-            {/* Status Badge */}
-            <div
-              className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium border flex items-center gap-1 ${status.className}`}
-            >
-              <StatusIcon className="w-3 h-3" />
-              {status.label}
-            </div>
 
             {/* Category Badge */}
             <div

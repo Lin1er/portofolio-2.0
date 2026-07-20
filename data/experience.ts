@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
     type: "work",
     title: "Backend AI Engineering Intern",
     organization: "FlyRank AI",
-    period: "2026 - Present",
+    period: "Jul 2026 - Present",
     description:
       "Selected for the Backend AI Engineering Cohort, focused on building backend AI systems, APIs, automation workflows, and real-world AI capstone projects.",
     icon: "briefcase",

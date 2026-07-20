@@ -4,33 +4,8 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  X,
-  Github,
-  ExternalLink,
-  CheckCircle2,
-  Clock,
-  PauseCircle,
-} from "lucide-react";
+import { X, Github, ExternalLink, BookOpen } from "lucide-react";
 import type { Project } from "@/data";
-
-const statusConfig = {
-  completed: {
-    label: "Completed",
-    icon: CheckCircle2,
-    className: "bg-green-500/80 text-white border-green-500/20",
-  },
-  "in-progress": {
-    label: "In Progress",
-    icon: Clock,
-    className: "bg-yellow-500/80 text-white border-yellow-500/20",
-  },
-  "on-hold": {
-    label: "On Hold",
-    icon: PauseCircle,
-    className: "bg-gray-500/80 text-white border-gray-500/20",
-  },
-};
 
 const categoryColors = {
   backend: "bg-blue-500/20 text-blue-400 border-blue-500/30",
@@ -105,20 +80,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 className="object-cover"
               />
 
-              {/* Status & Category badges */}
+              {/* Category badge */}
               <div
                 className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-medium border capitalize ${categoryColors[project.category]}`}
               >
                 {project.category}
-              </div>
-              <div
-                className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium border flex items-center gap-1 ${statusConfig[project.status].className}`}
-              >
-                {(() => {
-                  const Icon = statusConfig[project.status].icon;
-                  return <Icon className="w-3 h-3" />;
-                })()}
-                {statusConfig[project.status].label}
               </div>
             </div>
 
@@ -148,8 +114,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
 
               {/* Action buttons */}
-              {(project.github || project.live) && (
+              {(project.github || project.live || project.caseStudySlug) && (
                 <div className="flex flex-wrap gap-3">
+                  {project.caseStudySlug && (
+                    <Link
+                      href={`/projects/${project.caseStudySlug}`}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-(--accent) text-(--accent-foreground) hover:opacity-90 transition-opacity text-sm font-medium"
+                    >
+                      <BookOpen className="w-4 h-4" />
+                      Read Case Study
+                    </Link>
+                  )}
                   {project.github && (
                     <Link
                       href={project.github}

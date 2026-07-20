@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { projects, projectCategories } from "./projects";
 
-const VALID_STATUS = ["completed", "in-progress", "on-hold"];
 const VALID_CATEGORY = ["backend", "frontend", "fullstack", "web3", "other"];
 const URL_RE = /^https?:\/\/.+/;
 
@@ -26,12 +25,6 @@ describe("projects", () => {
   });
 
   describe("negative case", () => {
-    it("uses only status values in the Project union", () => {
-      for (const p of projects) {
-        expect(VALID_STATUS).toContain(p.status);
-      }
-    });
-
     it("uses only category values in the Project union", () => {
       for (const p of projects) {
         expect(VALID_CATEGORY).toContain(p.category);
@@ -57,6 +50,15 @@ describe("projects", () => {
     it("keeps featured as a boolean when provided", () => {
       for (const p of projects) {
         if (p.featured !== undefined) expect(typeof p.featured).toBe("boolean");
+      }
+    });
+
+    it("keeps caseStudySlug a non-empty string when provided", () => {
+      for (const p of projects) {
+        if (p.caseStudySlug !== undefined) {
+          expect(typeof p.caseStudySlug).toBe("string");
+          expect(p.caseStudySlug.length).toBeGreaterThan(0);
+        }
       }
     });
 

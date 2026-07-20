@@ -54,22 +54,22 @@ export function ProjectsPageContent() {
               <div className="text-sm text-(--muted) mt-1">Total Projects</div>
             </div>
             <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
-              <div className="text-3xl font-bold text-green-500">
-                {projects.filter((p) => p.status === "completed").length}
-              </div>
-              <div className="text-sm text-(--muted) mt-1">Completed</div>
-            </div>
-            <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
-              <div className="text-3xl font-bold text-yellow-500">
-                {projects.filter((p) => p.status === "in-progress").length}
-              </div>
-              <div className="text-sm text-(--muted) mt-1">In Progress</div>
-            </div>
-            <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
               <div className="text-3xl font-bold text-orange-500">
                 {projects.filter((p) => p.category === "web3").length}
               </div>
               <div className="text-sm text-(--muted) mt-1">Web3 dApps</div>
+            </div>
+            <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
+              <div className="text-3xl font-bold text-purple-500">
+                {projects.filter((p) => p.category === "fullstack").length}
+              </div>
+              <div className="text-sm text-(--muted) mt-1">Full-Stack Apps</div>
+            </div>
+            <div className="text-center p-6 bg-(--card) border border-(--border) rounded-2xl">
+              <div className="text-3xl font-bold text-blue-500">
+                {projects.filter((p) => p.category === "backend").length}
+              </div>
+              <div className="text-sm text-(--muted) mt-1">Backend Systems</div>
             </div>
           </motion.div>
         </div>

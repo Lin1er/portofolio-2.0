@@ -11,7 +11,6 @@ const project: Project = {
   tags: ["Next.js", "TypeScript"],
   github: "https://github.com/example/test",
   live: "https://test.example.com",
-  status: "completed",
   category: "web3",
 };
 
