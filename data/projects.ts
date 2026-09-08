@@ -64,6 +64,39 @@ export const projects: Project[] = [
   },
 
   {
+    title: "SuiStorage AI",
+    description:
+      "A verifiable marketplace for AI training data on Sui. Six Move modules — dataset, listing, license, access, attestation and admin — enforce who may read what, while dataset quality is cryptographically attested inside a Nautilus TEE and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
+    image: "/assets/suistorage.jpg",
+    tags: [
+      "Sui",
+      "Move",
+      "Nautilus TEE",
+      "Walrus",
+      "Next.js",
+      "TypeScript",
+    ],
+    featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "TerraChain",
+    description:
+      "A solo build: an on-chain territory game on Celo, five Solidity contracts end to end. TileRegistry holds territory state, BattleResolver settles occupation on-chain, YieldManager and ClaimManager run the occupation yield with a 70/30 split, and GeoToken is the $GEO reward asset — with the raid and reclaim UI on top.",
+    image: "/assets/terrachain.png",
+    tags: [
+      "Celo",
+      "Solidity",
+      "Foundry",
+      "Next.js",
+      "TypeScript",
+    ],
+    featured: true,
+    category: "web3",
+  },
+
+  {
     title: "Sterish",
     description:
       "An audited skill marketplace for AI agents on Stellar — an on-chain registry, a multi-stage audit pipeline, and pay-per-use licensing. I built the off-chain half: replaced the mock chain client with real Soroban reads against the registry, wrote an event indexer and a REST API against a frozen spec, and implemented the x402 pay-per-use flow end to end — 402, pay in USDC, license minted, 200. I also own the deployment: Docker Compose, automatic TLS through Caddy, and a Cloudflare Tunnel onto my own hardware. 42 tests, ten of them against live testnet. Contracts written by a teammate.",
@@ -79,40 +112,6 @@ export const projects: Project[] = [
       "Caddy",
     ],
     github: "https://github.com/Lin1er/sterish",
-    featured: true,
-    category: "web3",
-  },
-
-  {
-    title: "SoroSense",
-    description:
-      "A non-custodial stablecoin yield optimizer on Stellar that steers deposits toward audited pools, with a keeper that can freeze an unsafe one. I wrote the Soroban vault contract — deposits and share accounting, NAV views, keeper-driven allocation into yield pools, freeze and pause guards, consent gating, and admin-governed upgradeability — plus the deploy and testnet faucet scripts. Share-inflation is blocked by a virtual offset and covered by its own test. Vault live on Stellar testnet; frontend and backend by teammates. Built for the APAC Stellar Hackathon (DeFi & Ecosystem Composability track).",
-    image: "/assets/sorosense.png",
-    tags: [
-      "Stellar",
-      "Soroban",
-      "Rust",
-      "TypeScript",
-    ],
-    github: "https://github.com/AncungAulia/sorosense",
-    live: "https://app.sorosense.xyz",
-    featured: true,
-    category: "web3",
-  },
-
-  {
-    title: "SuiStorage AI",
-    description:
-      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
-    image: "/assets/suistorage.jpg",
-    tags: [
-      "Sui",
-      "Move",
-      "Nautilus TEE",
-      "Walrus",
-      "Next.js",
-      "TypeScript",
-    ],
     featured: true,
     category: "web3",
   },
@@ -134,6 +133,40 @@ export const projects: Project[] = [
     live: "https://technocorner.id",
     featured: true,
     category: "backend",
+  },
+
+  {
+    title: "SoroSense",
+    description:
+      "A non-custodial stablecoin yield optimizer on Stellar that steers deposits toward audited pools, with a keeper that can freeze an unsafe one. I wrote the Soroban vault contract — deposits and share accounting, NAV views, keeper-driven allocation into yield pools, freeze and pause guards, consent gating, and admin-governed upgradeability — plus the deploy and testnet faucet scripts. Share-inflation is blocked by a virtual offset and covered by its own test. Vault live on Stellar testnet; frontend and backend by teammates. Built for the APAC Stellar Hackathon (DeFi & Ecosystem Composability track).",
+    image: "/assets/sorosense.png",
+    tags: [
+      "Stellar",
+      "Soroban",
+      "Rust",
+      "TypeScript",
+    ],
+    github: "https://github.com/AncungAulia/sorosense",
+    live: "https://app.sorosense.xyz",
+    featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "HELM",
+    description:
+      "An autonomous agent wallet on Sui: grant an AI agent a capped budget, a scope and an expiry, and it trades against real DeepBook orders without per-action approval — bounded by an on-chain Move policy and revocable at any time. Built as three Move packages, including sui-session-keys, a reusable delegated-authority primitive that stands on its own with a TypeScript SDK and two independent consumer examples. Built for Sui Overflow 2026.",
+    image: "/assets/helm.png",
+    tags: [
+      "Sui",
+      "Move",
+      "DeepBook",
+      "Session Keys",
+      "Walrus",
+      "TypeScript",
+    ],
+    featured: true,
+    category: "web3",
   },
 
   {
@@ -209,21 +242,6 @@ export const projects: Project[] = [
     github: "https://github.com/AncungAulia/tends",
     live: "https://tends.fun",
     featured: true,
-    category: "web3",
-  },
-
-  {
-    title: "TerraChain",
-    description:
-      "A solo build: an on-chain territory game on Celo. Wrote the BattleResolver contract that settles occupation on-chain, a yield publisher, and the $GEO claim flow — including the raid and reclaim UI and a 70/30 occupation yield split.",
-    image: "/assets/terrachain.png",
-    tags: [
-      "Celo",
-      "Solidity",
-      "Next.js",
-      "TypeScript",
-    ],
-    featured: false,
     category: "web3",
   },
 

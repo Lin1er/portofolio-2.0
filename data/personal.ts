@@ -3,7 +3,7 @@ export const personalInfo = {
   name: "M. Ulinuha As Shiddiqy",
   shortName: "Ulinuha",
 
-  role: "Blockchain Engineer — Soroban contracts, and the backends around them",
+  role: "Smart Contract Engineer — Soroban, Solidity, Move",
 
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
@@ -15,17 +15,17 @@ export const personalInfo = {
   yearsOfExperience: 3,
 
   bio:
-    "Information Technology student at Universitas Gadjah Mada who writes Soroban smart contracts on Stellar and the backend systems around them — indexers, APIs, and the deployments that keep them running. Eleven Soroban contracts authored solo and live on Stellar testnet, alongside work on EVM, Solana, and Sui.",
+    "Information Technology student at Universitas Gadjah Mada who writes smart contracts in three languages — Rust on Soroban, Solidity on EVM, Move on Sui — and the backend systems around them: indexers, APIs, and the deployments that keep them running.",
 
   aboutMe: {
     intro:
       "I'm an Information Technology student at Universitas Gadjah Mada. Most of my work is smart contracts and the infrastructure around them — I like problems where the money is on-chain, the guarantees have to be provable, and getting it wrong is expensive.",
 
     passion:
-      "Stellar is the ecosystem I've gone deepest in: a solo-authored workspace of eleven Soroban contracts for fractionalising real-world assets, a yield vault, and the off-chain half of two other Stellar products — RPC indexers, a published TypeScript SDK, and x402 pay-per-use in USDC. Outside Stellar I've shipped on EVM (Solidity, Foundry), Solana, and Sui, and I've taught SUI Move fundamentals in a community workshop.",
+      "I write contracts across three ecosystems. On Stellar: a solo-authored workspace of eleven Soroban contracts for fractionalising real-world assets, plus a yield vault. On EVM: the Solidity behind a prediction market on Monad and a five-contract territory game on Celo, both mine end to end. On Sui: Move packages for a verifiable data marketplace and an autonomous agent wallet, including a reusable delegated-authority session-key primitive. Around all of it I build the off-chain half — RPC indexers, a published TypeScript SDK, and x402 pay-per-use in USDC.",
 
     currentFocus:
-      "Currently focused on Soroban contract security — I self-audited my own Stellar workspace and remediated two HIGH and five MEDIUM findings — plus the backend AI systems and self-hosted infrastructure I run alongside it. Everything on-chain so far is testnet; nothing has gone to mainnet yet.",
+      "Currently focused on smart contract security — I self-audited my own Soroban workspace and remediated two HIGH and five MEDIUM findings, each with its own regression test — plus the backend AI systems and self-hosted infrastructure I run alongside it. Everything on-chain so far is testnet; nothing has gone to mainnet yet.",
   },
 
   availability: "Open to internships, freelance, and engineering opportunities",

@@ -22,17 +22,17 @@ export const skills = {
   ],
 
   web3: [
+    { name: "Smart Contracts", level: 88 },
     { name: "Soroban (Stellar)", level: 88 },
+    { name: "Solidity", level: 85 },
     { name: "Rust", level: 84 },
-    { name: "Smart Contracts", level: 85 },
-    { name: "Stellar SDK", level: 82 },
+    { name: "Sui Move", level: 80 },
+    { name: "Foundry", level: 82 },
     { name: "Blockchain Architecture", level: 82 },
-    { name: "Solidity", level: 80 },
-    { name: "Foundry", level: 78 },
+    { name: "Stellar SDK", level: 82 },
     { name: "wagmi", level: 82 },
     { name: "viem", level: 80 },
     { name: "Anchor", level: 70 },
-    { name: "SUI Move", level: 65 },
   ],
 
   ai: [
@@ -75,13 +75,13 @@ export const techStackRow2 = [
 
 export const techStackRow3 = [
   { name: "Soroban", icon: "⭐" },
-  { name: "Rust", icon: "🦀" },
-  { name: "Stellar SDK", icon: "🛰️" },
   { name: "Solidity", icon: "💎" },
+  { name: "Sui Move", icon: "🌊" },
+  { name: "Rust", icon: "🦀" },
   { name: "Foundry", icon: "⚒️" },
+  { name: "Stellar SDK", icon: "🛰️" },
   { name: "wagmi", icon: "🐶" },
   { name: "viem", icon: "🔷" },
-  { name: "SUI Move", icon: "🌊" },
   { name: "Anchor", icon: "⚓" },
   { name: "Go", icon: "🐹" },
   { name: "Python", icon: "🐍" },
