@@ -22,6 +22,25 @@ export const projectCategories = [
 
 export const projects: Project[] = [
   {
+    title: "Tove Heritage",
+    description:
+      "Sole author of the Soroban contract workspace behind a platform for fractional ownership of artworks on Stellar. Eleven Rust contracts: a SEP-41 fraction token, a book-build offering escrow, a passkey smart wallet built on OpenZeppelin's CustomAccountInterface with secp256r1 and ed25519 verifiers, KYC gating, an emergency freeze, and admin-gated upgradeability behind an invariant gate. Nine contracts deployed to Stellar testnet, settling in Circle's USDC Stellar Asset Contract. 220 tests, plus CI that verifies canonical WASM determinism and runs an end-to-end smoke against testnet. I also self-audited the workspace and remediated two HIGH and five MEDIUM findings, each with its own regression test. Private repository — walkthrough on request.",
+    image: "/assets/tove-heritage.png",
+    tags: [
+      "Stellar",
+      "Soroban",
+      "Rust",
+      "SEP-41",
+      "Passkey / WebAuthn",
+      "OpenZeppelin",
+      "USDC",
+      "GitHub Actions",
+    ],
+    featured: true,
+    category: "web3",
+  },
+
+  {
     title: "RoastWager",
     description:
       "Built a full-stack prediction and opinion market dApp on Monad with an end-to-end on-chain/off-chain architecture. Implemented smart contract flows (create, vote, resolve, claim), an event-driven indexer, wallet integration, and optimistic UI patterns for fast user interactions.",
@@ -45,21 +64,55 @@ export const projects: Project[] = [
   },
 
   {
+    title: "Sterish",
+    description:
+      "An audited skill marketplace for AI agents on Stellar — an on-chain registry, a multi-stage audit pipeline, and pay-per-use licensing. I built the off-chain half: replaced the mock chain client with real Soroban reads against the registry, wrote an event indexer and a REST API against a frozen spec, and implemented the x402 pay-per-use flow end to end — 402, pay in USDC, license minted, 200. I also own the deployment: Docker Compose, automatic TLS through Caddy, and a Cloudflare Tunnel onto my own hardware. 42 tests, ten of them against live testnet. Contracts written by a teammate.",
+    image: "/assets/sterish.png",
+    tags: [
+      "Stellar",
+      "Soroban",
+      "Python",
+      "Rust",
+      "x402",
+      "USDC",
+      "Docker",
+      "Caddy",
+    ],
+    github: "https://github.com/Lin1er/sterish",
+    featured: true,
+    category: "web3",
+  },
+
+  {
     title: "SoroSense",
     description:
-      "Contributed to a non-custodial stablecoin yield optimizer on Stellar that steers deposits toward the safest audited pools. A Sentinel keeper monitors pools 24/7 and can freeze unsafe ones, while an allocation keeper proposes reallocations that only execute with the user's wallet signature — funds never leave the user's control. Soroban (Rust) vault on Stellar testnet. Built for the APAC Stellar Hackathon (DeFi & Ecosystem Composability track).",
+      "A non-custodial stablecoin yield optimizer on Stellar that steers deposits toward audited pools, with a keeper that can freeze an unsafe one. I wrote the Soroban vault contract — deposits and share accounting, NAV views, keeper-driven allocation into yield pools, freeze and pause guards, consent gating, and admin-governed upgradeability — plus the deploy and testnet faucet scripts. Share-inflation is blocked by a virtual offset and covered by its own test. Vault live on Stellar testnet; frontend and backend by teammates. Built for the APAC Stellar Hackathon (DeFi & Ecosystem Composability track).",
     image: "/assets/sorosense.png",
     tags: [
       "Stellar",
       "Soroban",
       "Rust",
-      "Next.js",
-      "Hono",
-      "Mastra",
       "TypeScript",
     ],
     github: "https://github.com/AncungAulia/sorosense",
     live: "https://app.sorosense.xyz",
+    featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "SuiStorage AI",
+    description:
+      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
+    image: "/assets/suistorage.jpg",
+    tags: [
+      "Sui",
+      "Move",
+      "Nautilus TEE",
+      "Walrus",
+      "Next.js",
+      "TypeScript",
+    ],
     featured: true,
     category: "web3",
   },
@@ -84,72 +137,33 @@ export const projects: Project[] = [
   },
 
   {
-    title: "SuiStorage AI",
+    title: "Sterun",
     description:
-      "Built a verifiable marketplace for AI training data on Sui — dataset quality is cryptographically attested inside a Nautilus TEE, access is enforced by Move smart contracts, and files live on Walrus decentralized storage. Live on Sui testnet with seeded datasets and a working end-to-end purchase flow.",
-    image: "/assets/suistorage.jpg",
+      "Race records on Stellar that cannot be sold or handed on — a finish is minted as a non-transferable on-chain record and stays verifiable by anyone, without a wallet. I am the sole author of @sterun/sdk, a TypeScript client over @stellar/stellar-sdk that ships a frozen RaceRecord JSON Schema and needs no signer on the read path. I also wrote most of the backend: a Soroban RPC keeper, an event indexer that survives a rebuild, participant and file routes, and the production deployment. Contracts written by a teammate.",
+    image: "/assets/sterun.png",
     tags: [
-      "Sui",
-      "Move",
-      "Nautilus TEE",
-      "Walrus",
-      "Next.js",
+      "Stellar",
+      "Stellar SDK",
       "TypeScript",
+      "Fastify",
+      "PostgreSQL",
+      "Docker",
     ],
+    github: "https://github.com/AncungAulia/sterun",
     featured: true,
     category: "web3",
   },
 
   {
-    title: "ClearContract",
-    description:
-      "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
-    image: "/assets/clearcontract.png",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Google Gemini API",
-      "shadcn/ui",
-      "PDF.js",
-    ],
-    github: "https://github.com/lin1er/Contract-Analyzer",
-    live: "https://clearcontract-safety.vercel.app",
-    featured: true,
-    category: "fullstack",
-  },
-
-  {
-    title: "Owlighting Garage",
-    description:
-      "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
-    image:
-      "https://github.com/Lin1er/owlighting-garage/blob/main/public/screenshoot.png?raw=true",
-    tags: [
-      "Next.js 16",
-      "TypeScript",
-      "React 19",
-      "Framer Motion",
-      "TailwindCSS",
-      "Vercel",
-    ],
-    github: "https://github.com/Lin1er/owlighting-garage",
-    live: "https://owlighting-garage.vercel.app",
-    featured: true,
-    category: "frontend",
-  },
-
-  {
     title: "Tredie",
     description:
-      "Built backend services for a Solana-based perpetual market protocol where new markets auto-spawn from trending topics on X and Telegram. Implemented trend polling pipelines, automated market creation, transaction builders, and webhook indexers for decoding Anchor events.",
+      "A Solana-based perpetual market protocol where new markets auto-spawn from trending topics on X and Telegram. I worked on stabilising the platform after the backend moved to self-hosting: fixed a Bun idle timeout that was cutting off long admin operations, hardened the admin proxy against non-JSON responses, repaired topic-market rendering and image fallbacks, and removed the access-code gate.",
     image: "/assets/tredie.png",
     tags: [
       "Solana",
-      "Rust",
-      "Anchor",
       "Node.js",
       "TypeScript",
+      "Bun",
       "Express",
       "Privy",
       "Helius",
@@ -163,17 +177,15 @@ export const projects: Project[] = [
   {
     title: "Wall of 0gents",
     description:
-      "Contributed to an AI-agent financialization platform on 0G Mainnet where intelligent NFTs can be fractionalized into ERC-20 shares and generate inference revenue. Worked on backend services and Solidity smart contracts, achieving 99/99 passing test cases.",
+      "An AI-agent financialization platform on 0G where intelligent NFTs can be fractionalized into ERC-20 shares and generate inference revenue. I worked on the backend and on mainnet readiness: environment and secret hygiene, guard rails for ephemeral data paths, coherence checks for 0G-Compute, and pinning verified on-chain compute providers. Smart contracts by a teammate.",
     image: "/assets/wall-of-0gents.png",
     tags: [
-      "Solidity",
       "0G Chain",
       "ERC-7857",
       "x402",
       "Node.js",
       "TypeScript",
-      "Smart Contracts",
-      "Foundry",
+      "Ops",
     ],
     github: "https://github.com/Lexirieru/wall-of-0gents",
     live: "https://wall-of-0gents.vercel.app",
@@ -184,19 +196,34 @@ export const projects: Project[] = [
   {
     title: "Tends",
     description:
-      "Contributed to an AI-agent-managed real-world-asset portfolio platform on Mantle — users deposit and an autonomous agent rebalances RWA portfolios. Shipped as a live MVP with deployed contracts on Mantle Sepolia and an agent-driven trading backend.",
+      "An AI-agent-managed real-world-asset portfolio platform on Mantle, where users deposit and an autonomous agent rebalances the portfolio. I worked on the chain and agent plumbing: batched contract reads through Multicall3 with an RPC fallback to cut throttling, routed the LLM gateway onto OpenRouter, and fixed deployment sizing on Fly.io after the API was OOM-killed.",
     image: "/assets/tends-rwa.jpg",
     tags: [
       "Mantle",
       "Solidity",
       "AI Agents",
-      "Next.js",
+      "Multicall3",
       "TypeScript",
-      "Foundry",
+      "Fly.io",
     ],
     github: "https://github.com/AncungAulia/tends",
     live: "https://tends.fun",
     featured: true,
+    category: "web3",
+  },
+
+  {
+    title: "TerraChain",
+    description:
+      "A solo build: an on-chain territory game on Celo. Wrote the BattleResolver contract that settles occupation on-chain, a yield publisher, and the $GEO claim flow — including the raid and reclaim UI and a 70/30 occupation yield split.",
+    image: "/assets/terrachain.png",
+    tags: [
+      "Celo",
+      "Solidity",
+      "Next.js",
+      "TypeScript",
+    ],
+    featured: false,
     category: "web3",
   },
 
@@ -219,6 +246,25 @@ export const projects: Project[] = [
   },
 
   {
+    title: "ClearContract",
+    description:
+      "Built an AI-powered legal-tech platform that transforms complex contracts into simplified insights. Implemented PDF parsing, bilingual support (EN/ID), and LLM-based clause analysis to identify hidden risks and contract red flags.",
+    image: "/assets/clearcontract.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google Gemini API",
+      "shadcn/ui",
+      "PDF.js",
+    ],
+    github: "https://github.com/lin1er/Contract-Analyzer",
+    live: "https://clearcontract-safety.vercel.app",
+    featured: true,
+    category: "fullstack",
+  },
+
+  {
     title: "GW Platform",
     description:
       "Building a self-hosted Google Workspace management platform: TOTP MFA, JWT auth, role-based access control, audit logging, and a pluggable directory-engine abstraction over the Google Admin API. Deployed on a homeserver with Docker Compose, Caddy, and automated backups.",
@@ -233,6 +279,26 @@ export const projects: Project[] = [
     ],
     featured: true,
     category: "fullstack",
+  },
+
+  {
+    title: "Owlighting Garage",
+    description:
+      "Designed and developed a modern automotive service website with interactive product showcases, WhatsApp booking integration, and mobile-first performance optimization.",
+    image:
+      "https://github.com/Lin1er/owlighting-garage/blob/main/public/screenshoot.png?raw=true",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "React 19",
+      "Framer Motion",
+      "TailwindCSS",
+      "Vercel",
+    ],
+    github: "https://github.com/Lin1er/owlighting-garage",
+    live: "https://owlighting-garage.vercel.app",
+    featured: true,
+    category: "frontend",
   },
 
   {
@@ -311,7 +377,7 @@ export const projects: Project[] = [
       "TypeScript",
     ],
     github: "https://github.com/Lin1er/portofolio-2.0",
-    live: "https://ulinuha.vercel.app",
+    live: "https://jameshub.fun",
     featured: false,
     category: "frontend",
   },

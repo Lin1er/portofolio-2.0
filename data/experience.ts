@@ -22,6 +22,16 @@ export const experiences: Experience[] = [
 
   {
     type: "work",
+    title: "Smart Contract Engineer (Soroban)",
+    organization: "Tove Heritage",
+    period: "Jun 2026 - Jul 2026",
+    description:
+      "Sole author of the Stellar contract layer for a real-world-asset platform: eleven Soroban contracts covering a SEP-41 fraction token, a book-build offering escrow, a passkey smart wallet, KYC gating, and gated upgradeability. Nine deployed to testnet with USDC settlement, 220 tests, and CI that verifies canonical WASM determinism. Self-audited the workspace and remediated two HIGH and five MEDIUM findings.",
+    icon: "briefcase",
+  },
+
+  {
+    type: "work",
     title: "Freelance Full-Stack Developer",
     organization: "Self-employed",
     period: "2023 - Present",

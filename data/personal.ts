@@ -3,7 +3,7 @@ export const personalInfo = {
   name: "M. Ulinuha As Shiddiqy",
   shortName: "Ulinuha",
 
-  role: "Full-Stack Engineer — from API to on-chain",
+  role: "Blockchain Engineer — Soroban contracts, and the backends around them",
 
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
@@ -15,17 +15,17 @@ export const personalInfo = {
   yearsOfExperience: 3,
 
   bio:
-    "Information Technology student at Universitas Gadjah Mada with hands-on experience building backend systems, AI-powered applications, and multi-chain blockchain products. Focused on designing scalable APIs, smart contracts, and production-oriented software across modern web stacks.",
+    "Information Technology student at Universitas Gadjah Mada who writes Soroban smart contracts on Stellar and the backend systems around them — indexers, APIs, and the deployments that keep them running. Eleven Soroban contracts authored solo and live on Stellar testnet, alongside work on EVM, Solana, and Sui.",
 
   aboutMe: {
     intro:
-      "I'm an Information Technology student at Universitas Gadjah Mada passionate about backend engineering, AI systems, and blockchain infrastructure. I enjoy solving technical problems and building products that bridge ideas into real-world applications.",
+      "I'm an Information Technology student at Universitas Gadjah Mada. Most of my work is smart contracts and the infrastructure around them — I like problems where the money is on-chain, the guarantees have to be provable, and getting it wrong is expensive.",
 
     passion:
-      "My experience spans full-stack development, backend services, and smart contract systems across EVM, Solana, and SUI ecosystems. I've contributed to hackathon-scale products, production-ready platforms, and developer communities — including teaching SUI Move fundamentals in workshops.",
+      "Stellar is the ecosystem I've gone deepest in: a solo-authored workspace of eleven Soroban contracts for fractionalising real-world assets, a yield vault, and the off-chain half of two other Stellar products — RPC indexers, a published TypeScript SDK, and x402 pay-per-use in USDC. Outside Stellar I've shipped on EVM (Solidity, Foundry), Solana, and Sui, and I've taught SUI Move fundamentals in a community workshop.",
 
     currentFocus:
-      "Currently focused on backend AI engineering, distributed systems, and blockchain infrastructure while continuously building full-stack products and experimenting with emerging technologies.",
+      "Currently focused on Soroban contract security — I self-audited my own Stellar workspace and remediated two HIGH and five MEDIUM findings — plus the backend AI systems and self-hosted infrastructure I run alongside it. Everything on-chain so far is testnet; nothing has gone to mainnet yet.",
   },
 
   availability: "Open to internships, freelance, and engineering opportunities",

@@ -3,10 +3,10 @@ export const siteConfig = {
   name: "M. Ulinuha As Shiddiqy",
 
   title:
-    "M. Ulinuha As Shiddiqy – Full-Stack Engineer, Backend & Web3 Developer",
+    "M. Ulinuha As Shiddiqy – Blockchain Engineer, Soroban & Backend Developer",
 
   description:
-    "Full-Stack Engineer focused on backend systems, AI-powered applications, and blockchain infrastructure. Building scalable APIs, smart contracts, dApps, and event-driven systems across Solana, EVM, and modern web stacks.",
+    "Blockchain Engineer writing Soroban smart contracts on Stellar and the backend systems around them — eleven contracts authored solo and live on testnet, plus RPC indexers, APIs, and self-hosted deployments. Also ships on EVM, Solana, and Sui.",
 
   url: "https://jameshub.fun",
 
@@ -15,6 +15,12 @@ export const siteConfig = {
   keywords: [
     "M Ulinuha As Shiddiqy",
     "Ulinuha",
+    "Soroban Smart Contract Developer",
+    "Stellar Smart Contract Developer",
+    "Rust Smart Contract Developer",
+    "SEP-41",
+    "Stellar Soroban Rust",
+    "Web3 Backend Engineer",
     "Full Stack Engineer",
     "Backend Developer",
     "Web3 Developer",
