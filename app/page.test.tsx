@@ -23,6 +23,8 @@ describe("Home page", () => {
       expect(container.querySelector("#about")).not.toBeNull();
       expect(container.querySelector("#projects")).not.toBeNull();
       expect(container.querySelector("#contact")).not.toBeNull();
+      expect(container.querySelector("#skills")).not.toBeNull();
+      expect(container.querySelector("#experience")).not.toBeNull();
     });
   });
 });

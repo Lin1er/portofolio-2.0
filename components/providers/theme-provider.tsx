@@ -8,8 +8,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
-      enableSystem
+      defaultTheme="light"
+      forcedTheme="light"
       disableTransitionOnChange={false}
     >
       {/* Honor the OS "reduce motion" preference for all framer-motion animations. */}

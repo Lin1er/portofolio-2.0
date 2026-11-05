@@ -1,62 +1,107 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ProjectsGrid } from "@/components/ui/projects-grid";
-import { Github, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { projects, siteConfig, socialLinks } from "@/data";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { SectionHead } from "@/components/ui/section-head";
+import { homeContent, projects, siteConfig, type Project } from "@/data";
 
-// Curated homepage slice: featured projects, capped by the config limit.
-const featuredProjects = projects
-  .filter((project) => project.featured)
-  .slice(0, siteConfig.homepage.projectsLimit);
+/** Case study first, then the live app, then the repo, then the full list. */
+export function projectHref(project: Project) {
+  if (project.caseStudySlug) return `/projects/${project.caseStudySlug}`;
+  return project.live ?? project.github ?? "/projects";
+}
+
+function WorkRow({ project, index }: { project: Project; index: number }) {
+  const work = homeContent.work;
+  const href = projectHref(project);
+  const external = href.startsWith("http");
+  const [lead, ...rest] = project.tags;
+
+  return (
+    <motion.li
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.55, delay: index * 0.04 }}
+    >
+      <Link
+        href={href}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className="group relative flex items-center gap-4 overflow-hidden border-b-2 border-ink px-5 py-6 md:gap-6 md:px-8 md:py-8"
+      >
+        {/* Orange wipe */}
+        <span
+          aria-hidden
+          className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100"
+        />
+        <span className="label relative w-8 shrink-0 self-start pt-2 md:w-12">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="relative min-w-0 flex-1 text-[clamp(38px,6.6vw,96px)] font-bold uppercase leading-[0.9] tracking-[-0.06em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-4 md:group-hover:translate-x-8">
+          {project.title}
+        </span>
+
+        {/* Preview card pops up on hover */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-[380px] top-1/2 hidden aspect-[4/3] w-[230px] translate-y-[10%] rotate-6 overflow-hidden border-2 border-ink opacity-0 shadow-[6px_6px_0_var(--ink)] transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1/2 group-hover:-rotate-3 group-hover:opacity-100 xl:block"
+        >
+          <Image
+            src={project.image}
+            alt=""
+            fill
+            sizes="230px"
+            className="object-cover"
+          />
+        </span>
+
+        <span className="label relative hidden w-[260px] shrink-0 flex-col gap-1 text-[12px] md:flex">
+          <span>
+            {work.categoryLabels[project.category]}
+            {lead ? ` / ${lead}` : ""}
+          </span>
+          <span>{rest.slice(0, 2).join(" · ")}</span>
+        </span>
+        <ArrowRight
+          aria-hidden
+          className="relative size-9 shrink-0 transition-transform duration-500 group-hover:-rotate-45 md:size-12"
+          strokeWidth={2.5}
+        />
+      </Link>
+    </motion.li>
+  );
+}
 
 export function ProjectsSection() {
+  const work = homeContent.work;
+  const rows = work.entries
+    .map((title) => projects.find((p) => p.title === title))
+    .filter((p): p is Project => Boolean(p))
+    .slice(0, siteConfig.homepage.projectsLimit);
+
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
+    <section id="projects" aria-label={work.title}>
+      <SectionHead index={work.index} title={work.title} note={work.note} />
+      <ol>
+        {rows.map((project, i) => (
+          <WorkRow key={project.title} project={project} index={i} />
+        ))}
+      </ol>
+      <div className="flex flex-col gap-3 bg-ink px-5 py-5 text-concrete md:flex-row md:items-center md:gap-6 md:px-8">
+        <span className="label text-accent">{work.alsoLabel} →</span>
+        <span className="text-[15px] font-bold uppercase tracking-[0.04em]">
+          {work.also}
+        </span>
+        <span className="label text-accent md:ml-auto">{work.disclaimer}</span>
+        <Link
+          href={work.more.href}
+          className="label inline-flex items-center gap-2 border-2 border-concrete px-4 py-2 transition-colors hover:bg-accent hover:text-ink"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-(--muted) max-w-2xl">
-            A selection of projects I&apos;ve worked on. Each one taught me
-            something new. Click any card to see the full details.
-          </p>
-        </motion.div>
-
-        <ProjectsGrid items={featuredProjects} />
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-8 flex flex-wrap justify-center gap-3"
-        >
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity"
-          >
-            View All Projects
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-          <Link
-            href={
-              socialLinks.find((link) => link.name === "GitHub")?.href || "#"
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-(--card) border border-(--border) rounded-full hover:border-(--accent) transition-colors"
-          >
-            <Github className="w-5 h-5" />
-            View More on GitHub
-          </Link>
-        </motion.div>
+          {work.more.label}
+          <ArrowRight className="size-4" aria-hidden />
+        </Link>
       </div>
     </section>
   );

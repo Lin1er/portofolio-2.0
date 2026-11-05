@@ -6,14 +6,14 @@ All UI components. Organized by role; each subfolder has its own `CLAUDE.md`.
 
 - `sections/` — full homepage sections (Hero, About, Projects, …). One per page block.
 - `ui/` — reusable primitives & motion effects (buttons, cards, marquee, preloader…).
-- `layout/` — site chrome: `navbar`, `footer`.
+- `layout/` — site chrome: `topbar` (homepage), `navbar` + `footer` (sub-pages).
 - `providers/` — React context providers (theme).
 - `email-templates/` — JSX rendered into emails by Resend (not rendered in the browser).
 
 ## Conventions
 
 - **Named exports**, PascalCase component names, one primary component per file.
-  Filenames are kebab-case (`back-to-top.tsx`, `section-wrapper.tsx`).
+  Filenames are kebab-case (`section-head.tsx`, `project-modal.tsx`).
 - **`"use client"` at the top** of essentially every component here — they use
   hooks, Framer Motion, or browser APIs. (Email templates are the exception: they
   are plain JSX rendered server-side, no directive needed.)

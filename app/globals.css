@@ -1,36 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
-  /* Custom colors */
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
+  /* Brutalist v4 palette */
+  --color-accent: #ff3d00;
+  --color-accent-hover: #ff5a26;
+  --color-concrete: #e9e7e2;
+  --color-ink: #0a0a0a;
+  --color-ash: #bdbab3;
 }
 
-/* Light mode (default) */
-:root {
-  --background: #fafafa;
-  --foreground: #0a0a0a;
-  --card: #ffffff;
-  --card-hover: #f5f5f5;
-  --border: #e5e5e5;
-  --muted: #737373;
-  --accent: #6366f1;
-  --accent-foreground: #ffffff;
-}
-
-/* Dark mode */
+/* One palette for both modes: the v4 design is concrete, ink and orange. */
+:root,
 .dark {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --card: #171717;
-  --card-hover: #262626;
-  --border: #262626;
-  --muted: #a3a3a3;
-  --accent: #818cf8;
+  --background: #e9e7e2;
+  --foreground: #0a0a0a;
+  --card: #f2f0ec;
+  --card-hover: #e0ddd6;
+  --border: #0a0a0a;
+  --muted: #5e5a53;
+  --accent: #ff3d00;
   --accent-foreground: #0a0a0a;
+  --concrete: #e9e7e2;
+  --ink: #0a0a0a;
+  --ash: #bdbab3;
 }
 
 * {
@@ -52,7 +47,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -82,15 +77,12 @@ body {
 
 /* Gradient text - monochrome accent */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 /* Glow effect */
 .glow {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 /* Grid pattern background */
@@ -113,4 +105,102 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   opacity: 0.03;
   pointer-events: none;
+}
+
+/* ---- Brutalist v4 motion utilities ---------------------------------------- */
+
+/* Endless marquee: the track holds the items twice and slides by half. */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 28s) linear infinite;
+}
+
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.1;
+  }
+}
+
+.blink {
+  animation: blink 1.04s steps(1, end) infinite;
+}
+
+/* Inverting light bar that sweeps across the hero name. */
+@keyframes scan {
+  0% {
+    transform: translateX(-30vw);
+  }
+  30%,
+  100% {
+    transform: translateX(130vw);
+  }
+}
+
+.scan-bar {
+  animation: scan 3.7s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+}
+
+/* Hard offset shadow that "presses" on hover. */
+.press {
+  box-shadow: 6px 6px 0 var(--ink);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.press:hover {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .blink,
+  .scan-bar {
+    animation: none;
+  }
+}
+
+/* Small uppercase label used across the v4 layout. */
+@utility label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Hero name stays visible by default; it only hides while the intro plays,
+   then rises in once the overlay lifts. */
+.hero-name {
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-intro="playing"] .hero-name {
+  transform: translateY(105%);
+}
+
+/* The head script marks skipped intros "done" before paint, so the
+   server-rendered overlay never flashes on repeat visits. */
+html[data-intro="done"] [data-preloader] {
+  display: none;
 }

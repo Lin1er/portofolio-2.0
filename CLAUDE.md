@@ -19,7 +19,7 @@ the UI updates itself.
 | Language   | TypeScript 5 (strict) |
 | Styling    | Tailwind CSS 4 (CSS-first config in `app/globals.css`, no `tailwind.config`) |
 | Animation  | Framer Motion (`framer-motion`) |
-| Theming    | `next-themes` (dark default, system-aware) |
+| Theming    | `next-themes`, forced light: one concrete / ink / orange palette (brutalist v4) |
 | Icons      | `lucide-react` |
 | Email      | Resend + React Email (contact form) |
 | Hosting    | Vercel (push to `main` = prod deploy) |
@@ -124,7 +124,7 @@ data/*.ts  ──(barrel)──▶  data/index.ts  ──▶  components/**  ─
 - `components/` — all React components. → `components/CLAUDE.md`
 - `components/sections/` — homepage page-sections. → `components/sections/CLAUDE.md`
 - `components/ui/` — reusable UI primitives & effects. → `components/ui/CLAUDE.md`
-- `components/layout/` — navbar / footer. → `components/layout/CLAUDE.md`
+- `components/layout/` — homepage `topbar`; `navbar` / `footer` for sub-pages. → `components/layout/CLAUDE.md`
 - `components/providers/` — context providers. → `components/providers/CLAUDE.md`
 - `components/email-templates/` — Resend email JSX. → `components/email-templates/CLAUDE.md`
 - `data/` — typed content, single source of truth. → `data/CLAUDE.md`

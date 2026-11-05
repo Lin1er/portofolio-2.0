@@ -3,7 +3,7 @@ export const personalInfo = {
   name: "M. Ulinuha As Shiddiqy",
   shortName: "Ulinuha",
 
-  role: "Smart Contract Engineer — Soroban, Solidity, Move",
+  role: "Backend + AI Engineer — and smart contracts",
 
   email: "m.ulinasidiki@gmail.com",
   phone: "+62 821-1539-4126",
@@ -15,7 +15,7 @@ export const personalInfo = {
   yearsOfExperience: 3,
 
   bio:
-    "Information Technology student at Universitas Gadjah Mada who writes smart contracts in three languages — Rust on Soroban, Solidity on EVM, Move on Sui — and the backend systems around them: indexers, APIs, and the deployments that keep them running.",
+    "Information Technology student at Universitas Gadjah Mada building backend and AI systems — APIs, automation, and the self-hosted infra under them — plus smart contracts in Rust on Soroban, Solidity on EVM, and Move on Sui.",
 
   aboutMe: {
     intro:
@@ -54,10 +54,10 @@ export const socialLinks = [
 
 // Navigation Items
 export const navItems = [
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Experience", href: "/#experience" },
+  { name: "Log", href: "/#experience" },
+  { name: "Work", href: "/#projects" },
+  { name: "Manifesto", href: "/#about" },
+  { name: "Stack", href: "/#skills" },
   { name: "Contact", href: "/#contact" },
 ];
 

@@ -1,288 +1,186 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { BentoCard } from "@/components/ui/bento-card";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import {
-  Mail,
-  MapPin,
-  Send,
-  Github,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Loader2,
-} from "lucide-react";
 import { useState } from "react";
-import { personalInfo, socialLinks as socialData } from "@/data";
+import { ArrowUpRight, Loader2 } from "lucide-react";
+import { homeContent, personalInfo, socialLinks } from "@/data";
 
-// Map social links with icons
-const iconMap: Record<string, typeof Github> = {
-  GitHub: Github,
-  LinkedIn: Linkedin,
-  Twitter: Twitter,
-  Instagram: Instagram,
-};
+type Status = "idle" | "sending" | "success" | "error";
 
-const socialLinks = socialData.map((link) => ({
-  ...link,
-  icon: iconMap[link.name] || Github,
-}));
+const EMPTY = { name: "", email: "", message: "", honeypot: "" };
 
-export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-    honeypot: "", // Spam protection - hidden field
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+const field =
+  "w-full border-2 border-ink bg-concrete px-4 py-3 text-base font-medium text-ink placeholder:text-muted focus:bg-white focus:outline-none";
 
-  const handleSubmit = async (e: React.FormEvent) => {
+function ContactForm() {
+  const f = homeContent.contact.form;
+  const [data, setData] = useState(EMPTY);
+  const [status, setStatus] = useState<Status>("idle");
+
+  const update =
+    (key: keyof typeof EMPTY) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setData((d) => ({ ...d, [key]: e.target.value }));
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Spam check - if honeypot is filled, silently reject
-    if (formData.honeypot) {
-      setStatus("success"); // Pretend success to fool bots
+    // Bots fill the hidden field: pretend it worked and send nothing.
+    if (data.honeypot) {
+      setStatus("success");
       return;
     }
-    
-    setIsLoading(true);
-    setStatus("idle");
-
+    setStatus("sending");
     try {
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "", honeypot: "" });
-      } else {
-        setStatus("error");
-      }
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("success");
+      setData(EMPTY);
     } catch {
       setStatus("error");
-    } finally {
-      setIsLoading(false);
     }
   };
+
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
+    <form
+      onSubmit={onSubmit}
+      className="grid gap-4 border-t-2 border-ink px-5 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto] md:items-end md:px-8"
+    >
+      <p className="label md:col-span-4">{f.title}</p>
+      <label className="flex flex-col gap-2">
+        <span className="label text-[12px]">{f.name.label}</span>
+        <input
+          required
+          name="name"
+          value={data.name}
+          onChange={update("name")}
+          placeholder={f.name.placeholder}
+          className={field}
+        />
+      </label>
+      <label className="flex flex-col gap-2">
+        <span className="label text-[12px]">{f.email.label}</span>
+        <input
+          required
+          type="email"
+          name="email"
+          value={data.email}
+          onChange={update("email")}
+          placeholder={f.email.placeholder}
+          className={field}
+        />
+      </label>
+      <label className="flex flex-col gap-2">
+        <span className="label text-[12px]">{f.message.label}</span>
+        <textarea
+          required
+          name="message"
+          rows={1}
+          value={data.message}
+          onChange={update("message")}
+          placeholder={f.message.placeholder}
+          className={`${field} min-h-[52px] resize-y`}
+        />
+      </label>
+      {/* Honeypot: hidden from people, tempting for bots. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        value={data.honeypot}
+        onChange={update("honeypot")}
+        className="hidden"
+      />
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="press label inline-flex h-[52px] items-center justify-center gap-2 border-2 border-ink bg-ink px-7 text-accent hover:bg-concrete hover:text-ink disabled:opacity-60"
+      >
+        {status === "sending" ? (
+          <>
+            <Loader2 className="size-4 animate-spin" aria-hidden />
+            {f.sending}
+          </>
+        ) : (
+          f.submit
+        )}
+      </button>
+      {(status === "success" || status === "error") && (
+        <p role="status" className="label md:col-span-4">
+          {status === "success" ? f.success : f.error}
+        </p>
+      )}
+    </form>
+  );
+}
+
+export function ContactSection() {
+  const c = homeContent.contact;
+
+  return (
+    <section id="contact" aria-label={c.index} className="bg-accent text-ink">
+      <div className="flex flex-col gap-5 px-5 pt-16 md:px-8">
+        <span className="label">{c.index}</span>
+        {/* Hover swaps SAY HI. for HIRE ME. */}
+        <a
+          href={`mailto:${personalInfo.email}`}
+          aria-label={`${c.headline} ${personalInfo.email}`}
+          className="group block h-[0.8em] overflow-hidden text-[25vw] font-bold leading-[0.8] tracking-[-0.07em]"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Let&apos;s <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-(--muted) max-w-2xl mx-auto">
-            Have a project in mind or just want to say hi? I&apos;d love to hear
-            from you!
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Contact Info */}
-          <BentoCard delay={0.1}>
-            <div className="flex flex-col h-full justify-between">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-(--accent)/10 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-(--accent)" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-(--muted)">Email</p>
-                      <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="font-medium hover:text-(--accent) transition-colors"
-                      >
-                        {personalInfo.email}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-(--accent)/10 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-(--accent)" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-(--muted)">Location</p>
-                      <p className="font-medium">{personalInfo.location}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <p className="text-sm text-(--muted) mb-3">Find me on</p>
-                <div className="flex gap-2">
-                  {socialLinks.map((social) => (
-                    <MagneticButton key={social.name}>
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-(--background) flex items-center justify-center hover:bg-(--accent) hover:text-(--accent-foreground) transition-colors"
-                      >
-                        <social.icon className="w-4 h-4" />
-                      </a>
-                    </MagneticButton>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </BentoCard>
-
-          {/* Contact Form */}
-          <BentoCard colSpan={2} delay={0.2}>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Honeypot field - hidden from users, visible to bots */}
-              <input
-                type="text"
-                name="website"
-                value={formData.honeypot}
-                onChange={(e) =>
-                  setFormData({ ...formData, honeypot: e.target.value })
-                }
-                className="absolute -left-[9999px] opacity-0 h-0 w-0"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-(--background) border border-(--border) rounded-lg focus:outline-none focus:border-(--accent) transition-colors"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-(--background) border border-(--border) rounded-lg focus:outline-none focus:border-(--accent) transition-colors"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  rows={5}
-                  className="w-full px-4 py-3 bg-(--background) border border-(--border) rounded-lg focus:outline-none focus:border-(--accent) transition-colors resize-none"
-                  placeholder="Hi! I'd like to talk about..."
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full md:w-auto px-8 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-
-              {/* Status Messages */}
-              {status === "success" && (
-                <p className="text-green-500 text-sm mt-2">
-                  ✓ Message sent successfully! I&apos;ll get back to you soon.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-red-500 text-sm mt-2">
-                  ✗ Failed to send message. Please try again or email me
-                  directly.
-                </p>
-              )}
-            </form>
-          </BentoCard>
-
-          {/* Availability Card */}
-          <BentoCard colSpan={3} delay={0.3}>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="relative">
-                  <div className="w-3 h-3 bg-green-500 rounded-full" />
-                  <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">
-                    Currently Available for Opportunities
-                  </h3>
-                  <p className="text-(--muted) text-sm">
-                    Open to freelance projects, collaborations, and internship
-                    opportunities.
-                  </p>
-                </div>
-              </div>
-              <MagneticButton>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="px-6 py-3 bg-(--accent) text-(--accent-foreground) rounded-full font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
-                >
-                  Let&apos;s Work Together
-                </a>
-              </MagneticButton>
-            </div>
-          </BentoCard>
-        </div>
+          <span className="flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1/2">
+            <span>{c.headline}</span>
+            <span aria-hidden className="text-concrete">
+              {c.hoverHeadline}
+            </span>
+          </span>
+        </a>
       </div>
+
+      <div className="grid border-t-2 border-ink md:grid-cols-[minmax(0,1fr)_repeat(3,minmax(220px,auto))]">
+        <a
+          href={`mailto:${personalInfo.email}`}
+          className="flex flex-col gap-2 border-b-2 border-ink px-5 py-6 transition-colors hover:bg-ink hover:text-accent md:border-b-0 md:border-r-2 md:px-8"
+        >
+          <span className="label text-[12px]">{c.emailLabel}</span>
+          <span className="flex items-center gap-2 break-all text-[clamp(22px,3vw,44px)] font-bold uppercase tracking-[-0.04em]">
+            {personalInfo.email}
+            <ArrowUpRight className="size-[0.8em] shrink-0" aria-hidden />
+          </span>
+        </a>
+        {socialLinks.map((link, i) => (
+          <a
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex flex-col justify-center gap-2 border-b-2 border-ink px-5 py-6 transition-colors hover:bg-ink hover:text-accent md:border-b-0 md:px-7 ${
+              i < socialLinks.length - 1 ? "md:border-r-2" : ""
+            }`}
+          >
+            <span className="label text-[12px]">{link.name}</span>
+            <span className="flex items-center gap-1 text-[22px] font-bold uppercase tracking-[-0.02em]">
+              {link.username}
+              <ArrowUpRight className="size-5" aria-hidden />
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <ContactForm />
+
+      <footer className="label flex flex-col gap-2 bg-ink px-5 py-5 text-[12px] text-concrete md:flex-row md:justify-between md:px-8">
+        <span>
+          © {new Date().getFullYear()} {personalInfo.name}
+        </span>
+        <span>{homeContent.footer.builtIn}</span>
+        <a href="#top" className="text-accent hover:underline">
+          {homeContent.footer.backToTop} ↑
+        </a>
+      </footer>
     </section>
   );
 }

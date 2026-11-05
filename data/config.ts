@@ -3,10 +3,10 @@ export const siteConfig = {
   name: "M. Ulinuha As Shiddiqy",
 
   title:
-    "M. Ulinuha As Shiddiqy – Smart Contract Engineer, Soroban · Solidity · Move",
+    "M. Ulinuha As Shiddiqy – Backend + AI Engineer, Smart Contracts on Soroban · Solidity · Move",
 
   description:
-    "Smart Contract Engineer writing Rust on Soroban, Solidity on EVM, and Move on Sui — eleven Soroban contracts authored solo and live on Stellar testnet, a prediction market on Monad, a five-contract game on Celo — plus the backend around them: RPC indexers, APIs, and self-hosted deployments.",
+    "Backend + AI engineer from Yogyakarta: backend AI intern at FlyRank AI, freelance full-stack since 2023, backend for a 1,000+ user national tech event — plus smart contracts in Rust on Soroban, Solidity on EVM, and Move on Sui, and the self-hosted infra that runs it all.",
 
   url: "https://jameshub.fun",
 
@@ -58,19 +58,34 @@ export const siteConfig = {
   },
 
   theme: {
-    accentColor: "#6366f1",
-    defaultMode: "dark" as const,
+    accentColor: "#FF3D00",
+    defaultMode: "light" as const,
   },
 
   homepage: {
-    experiencesLimit: 4,
-    projectsLimit: 6,
+    experiencesLimit: 5,
+    projectsLimit: 7,
   },
 };
 
 // Animation Configuration
 export const animationConfig = {
-  preloaderDuration: 1600,
+  // Longest possible intro (slow load hitting maxMs): used as an upper bound.
+  preloaderDuration: 10400,
+  // Intro timeline (ms). The counter follows the real page load but always
+  // runs at least `minMs` (fast loads still get the show) and gives up waiting
+  // at `maxMs` (slow loads don't stall at 99%). Once ready it finishes to 100
+  // over `finishMs`, then the curtain, each greeting, the last greeting's
+  // hold, and the overlay lifting away.
+  intro: {
+    minMs: 2600,
+    maxMs: 6000,
+    finishMs: 1000,
+    curtainMs: 750,
+    greetingMs: 1100,
+    holdMs: 1400,
+    exitMs: 900,
+  },
   scrollRevealOffset: "-100px",
   staggerDelay: 0.08,
 };

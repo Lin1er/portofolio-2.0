@@ -4,8 +4,9 @@ Persistent layout components rendered around the page content. Both `"use client
 
 ## Files
 
-- `navbar.tsx` — top navigation. Links come from `navItems` (`@/data`), which anchor
-  to section `id`s on the homepage. Includes the theme toggle.
+- `topbar.tsx` — homepage grid topbar with a full-screen menu (`navItems`), closes on Escape.
+- `navbar.tsx` — top navigation for sub-pages. Links come from `navItems` (`@/data`), which anchor
+  to section `id`s on the homepage.
 - `footer.tsx` — site footer: socials (`socialLinks` from `@/data`), copyright.
 
 ## Conventions
