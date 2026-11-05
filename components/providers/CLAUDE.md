@@ -6,7 +6,7 @@ Client-side React context providers mounted in `app/layout.tsx`.
 
 - `theme-provider.tsx` — wraps `next-themes` `ThemeProvider`. Config: `attribute="class"`,
   `defaultTheme="dark"`, `enableSystem`. This is what makes `dark:` / theme tokens and
-  the `theme-toggle` work. Also mounts framer-motion's `MotionConfig`
+  the theme work (now forced to light: the v4 palette is the same in both modes). Also mounts framer-motion's `MotionConfig`
   (`reducedMotion="user"`) so OS-level "reduce motion" is honored site-wide.
 
 ## Conventions

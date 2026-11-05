@@ -1,22 +1,33 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { AboutSection } from "./about";
-import { funFacts } from "@/data";
+import { homeContent } from "@/data";
+
+const { manifesto } = homeContent;
 
 describe("AboutSection", () => {
   describe("positive case", () => {
-    it("renders the about section anchor", () => {
+    it("renders the #about anchor with the manifesto text", () => {
       const { container } = render(<AboutSection />);
-      expect(container.querySelector("#about")).not.toBeNull();
+      const section = container.querySelector("#about")!;
+      expect(section).not.toBeNull();
+      expect(section.querySelector("p")).toHaveTextContent(manifesto.text);
     });
 
-    it("renders each fun fact label", () => {
+    it("renders every note", () => {
       render(<AboutSection />);
-      for (const fact of funFacts) {
-        expect(
-          screen.getAllByText(new RegExp(fact.label, "i")).length,
-        ).toBeGreaterThan(0);
+      for (const note of manifesto.notes) {
+        expect(screen.getByText(note.title)).toBeInTheDocument();
+        expect(screen.getByText(note.body)).toBeInTheDocument();
       }
+    });
+  });
+
+  describe("edge case", () => {
+    it("keeps the decorative tapes out of the accessibility tree", () => {
+      const { container } = render(<AboutSection />);
+      const tapes = container.querySelectorAll('[aria-hidden="true"] [data-testid="ticker-track"]');
+      expect(tapes).toHaveLength(2);
     });
   });
 });

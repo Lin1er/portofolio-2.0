@@ -21,11 +21,11 @@ Each file is one top-level block of the homepage, composed in order by
   from `@/data`.
 - Respect the display limits in `siteConfig.homepage` (`experiencesLimit`,
   `projectsLimit`) rather than slicing arbitrarily.
-- Wrap scroll-revealed blocks in the shared motion pattern / `SectionWrapper`
-  (`@/components/ui/section-wrapper`) and give the section an `id` so the navbar
-  anchor links work (`navItems` in `@/data`).
-- Reusable card/effect pieces come from `@/components/ui` (e.g. `BentoCard`,
-  `ProjectModal`, `Marquee`). Extract there if a piece becomes reusable.
+- Open a section with `SectionHead` (`@/components/ui/section-head`) and give it
+  an `id` so the menu anchor links work (`navItems` in `@/data`). Homepage copy
+  lives in `homeContent` (`data/home.ts`).
+- Reusable card/effect pieces come from `@/components/ui` (e.g. `Ticker`,
+  `SectionHead`). Extract there if a piece becomes reusable.
 
 ## Adding a section
 

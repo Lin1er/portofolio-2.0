@@ -1,99 +1,63 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
-import { BentoCard } from "@/components/ui/bento-card";
-import { MapPin, Calendar, Rocket } from "lucide-react";
-import { personalInfo, funFacts } from "@/data";
+import { Ticker } from "@/components/ui/ticker";
+import { homeContent } from "@/data";
+
+const tape =
+  "border-y-2 border-ink py-3 text-[clamp(22px,2.6vw,36px)] font-bold tracking-[-0.03em]";
 
 export function AboutSection() {
+  const m = homeContent.manifesto;
+  const words = m.text.split(" ");
+
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <p className="text-(--muted) max-w-2xl">
-            Get to know me better - my journey, passion, and what drives me as a
-            developer.
-          </p>
-        </motion.div>
+    <section
+      id="about"
+      aria-label={m.index}
+      className="relative overflow-hidden bg-ink text-concrete"
+    >
+      {/* Two crossing tapes */}
+      <div aria-hidden className="absolute -left-[5%] top-14 w-[110%] -rotate-[4deg]">
+        <Ticker items={homeContent.ticker} className={`${tape} bg-ink text-accent`} />
+      </div>
+      <div aria-hidden className="absolute -left-[5%] top-10 w-[110%] rotate-[3deg]">
+        <Ticker
+          items={homeContent.ticker}
+          reverse
+          duration={34}
+          className={`${tape} bg-accent text-ink`}
+        />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Main intro card */}
-          <BentoCard colSpan={2} delay={0.1}>
-            <div className="flex flex-col h-full">
-              <h3 className="text-xl font-semibold mb-4">Hello there! 👋</h3>
-              <p className="text-(--muted) leading-relaxed mb-4">
-                {personalInfo.aboutMe.intro}
-              </p>
-              <p className="text-(--muted) leading-relaxed">
-                {personalInfo.aboutMe.passion}
-              </p>
-            </div>
-          </BentoCard>
-
-          {/* Location card */}
-          <BentoCard delay={0.2}>
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-(--accent)" />
-              </div>
-              <h3 className="font-semibold mb-1">Based in</h3>
-              <p className="text-(--muted)">{personalInfo.location}</p>
-            </div>
-          </BentoCard>
-
-          {/* Experience card */}
-          <BentoCard delay={0.3}>
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center mb-4">
-                <Calendar className="w-6 h-6 text-(--accent)" />
-              </div>
-              <h3 className="font-semibold mb-1">Experience</h3>
-              <p className="text-(--muted)">
-                {personalInfo.yearsOfExperience}+ Years Coding
-              </p>
-            </div>
-          </BentoCard>
-
-          {/* Current focus card */}
-          <BentoCard colSpan={2} delay={0.4}>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-(--accent)/10 flex items-center justify-center shrink-0">
-                <Rocket className="w-6 h-6 text-(--accent)" />
-              </div>
-              <div className="sm:mt-5">
-                <h3 className="font-semibold mb-2">Current Focus</h3>
-                <p className="text-(--muted) leading-relaxed">
-                  {personalInfo.aboutMe.currentFocus}
-                </p>
-              </div>
-            </div>
-          </BentoCard>
-
-          {/* Fun facts */}
-          <BentoCard colSpan={3} delay={0.5}>
-            <h3 className="font-semibold mb-4">Fun Facts About Me</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {funFacts.map((fact) => (
-                <motion.div
-                  key={fact.label}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center justify-center p-4 bg-(--background) rounded-xl"
-                >
-                  <span className="text-2xl mb-2">{fact.emoji}</span>
-                  <span className="text-sm text-(--muted)">{fact.label}</span>
-                </motion.div>
-              ))}
-            </div>
-          </BentoCard>
-        </div>
+      <div className="flex flex-col gap-10 px-5 pb-24 pt-[200px] md:px-8">
+        <span className="label text-accent">{m.index}</span>
+        <p className="max-w-[1376px] text-[clamp(40px,6.1vw,88px)] font-bold uppercase leading-[0.94] tracking-[-0.05em]">
+          {words.map((word, i) => (
+            <Fragment key={`${word}-${i}`}>
+              <motion.span
+                className="inline-block"
+                initial={{ opacity: 0.12 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-120px" }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+              >
+                {word}
+              </motion.span>{" "}
+            </Fragment>
+          ))}
+        </p>
+        <ul className="grid gap-8 border-t-2 border-concrete/20 pt-6 md:grid-cols-2 lg:grid-cols-4">
+          {m.notes.map((note) => (
+            <li key={note.title} className="flex flex-col gap-2.5 pr-6">
+              <span className="label text-[12px] text-accent">{note.title}</span>
+              <span className="max-w-[320px] leading-relaxed text-ash">
+                {note.body}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

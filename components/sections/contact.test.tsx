@@ -1,6 +1,9 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ContactSection } from "./contact";
+import { homeContent, personalInfo, socialLinks } from "@/data";
+
+const { contact } = homeContent;
 
 function fill() {
   // fireEvent.change sets the full value in one event, which is deterministic
@@ -18,18 +21,20 @@ function fill() {
 
 function submit() {
   const form = screen
-    .getByRole("button", { name: /send message/i })
+    .getByRole("button", { name: new RegExp(contact.form.submit, "i") })
     .closest("form")!;
   fireEvent.submit(form);
 }
 
 describe("ContactSection", () => {
   describe("positive case", () => {
-    it("renders the heading and form fields", () => {
+    it("renders the headline, email, socials and form fields", () => {
       render(<ContactSection />);
-      expect(
-        screen.getByRole("heading", { name: /Connect/i }),
-      ).toBeInTheDocument();
+      expect(screen.getByText(contact.headline)).toBeInTheDocument();
+      expect(screen.getByText(personalInfo.email)).toBeInTheDocument();
+      for (const link of socialLinks) {
+        expect(screen.getByText(link.username)).toBeInTheDocument();
+      }
       expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
@@ -56,7 +61,7 @@ describe("ContactSection", () => {
         message: "Hello there",
       });
       expect(
-        await screen.findByText(/Message sent successfully/i),
+        await screen.findByText(new RegExp(contact.form.success.slice(0, 20))),
       ).toBeInTheDocument();
     });
   });
@@ -70,7 +75,7 @@ describe("ContactSection", () => {
       fill();
       submit();
       expect(
-        await screen.findByText(/Failed to send message/i),
+        await screen.findByText(new RegExp(contact.form.error.slice(0, 20))),
       ).toBeInTheDocument();
     });
 
@@ -80,7 +85,7 @@ describe("ContactSection", () => {
       fill();
       submit();
       expect(
-        await screen.findByText(/Failed to send message/i),
+        await screen.findByText(new RegExp(contact.form.error.slice(0, 20))),
       ).toBeInTheDocument();
     });
   });
@@ -102,7 +107,7 @@ describe("ContactSection", () => {
 
       expect(fetchMock).not.toHaveBeenCalled();
       expect(
-        await screen.findByText(/Message sent successfully/i),
+        await screen.findByText(new RegExp(contact.form.success.slice(0, 20))),
       ).toBeInTheDocument();
     });
   });

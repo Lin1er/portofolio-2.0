@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -56,7 +55,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <ThemeToggle />
 
             {/* Desktop CTA */}
             <MagneticButton>

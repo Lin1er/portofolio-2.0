@@ -44,7 +44,10 @@ describe("siteConfig", () => {
 
 describe("animationConfig", () => {
   describe("positive case", () => {
-    it("exposes a positive preloader duration and stagger delay", () => {
+    it("exposes a positive preloader duration, stagger delay and intro timeline", () => {
+      for (const ms of Object.values(animationConfig.intro)) {
+        expect(ms).toBeGreaterThan(0);
+      }
       expect(animationConfig.preloaderDuration).toBeGreaterThan(0);
       expect(animationConfig.staggerDelay).toBeGreaterThan(0);
     });

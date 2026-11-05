@@ -184,6 +184,7 @@ vi.mock("next-themes", () => ({
 // --- next/font/google ---------------------------------------------------------
 vi.mock("next/font/google", () => ({
   Geist: () => ({ className: "font-geist-sans", variable: "--font-geist-sans" }),
+  Inter: () => ({ className: "font-inter", variable: "--font-inter" }),
   Geist_Mono: () => ({
     className: "font-geist-mono",
     variable: "--font-geist-mono",

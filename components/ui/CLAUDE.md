@@ -7,17 +7,13 @@ Small, reusable building blocks and motion effects consumed by `sections/` and
 
 | File | Purpose |
 |------|---------|
-| `section-wrapper.tsx` | `SectionWrapper` — standard scroll-reveal `motion.section` (fade in on `whileInView`, `once: true`). Reuse for consistent reveals. |
 | `bento-card.tsx` | Grid/bento card container used by sections. |
-| `projects-grid.tsx` | Filterable project card grid + detail modal (homepage section passes a featured slice; `/projects` passes the full list with `showFilters`). |
+| `projects-grid.tsx` | Filterable project card grid + detail modal (used by `/projects` with `showFilters`). |
 | `project-modal.tsx` | Click-to-open project detail modal (used by `ProjectsGrid`). |
-| `marquee.tsx` | Scrolling tech-stack rows (fed by `techStackRow*`). |
-| `animated-text.tsx` | Text reveal/typing animation. |
 | `magnetic-button.tsx` | Cursor-follow magnetic button effect. |
-| `preloader.tsx` | Intro loader (duration from `animationConfig.preloaderDuration`). |
-| `scroll-progress.tsx` | Top scroll-progress bar. |
-| `back-to-top.tsx` | Floating back-to-top button. |
-| `theme-toggle.tsx` | Light/dark toggle (uses `next-themes`). |
+| `preloader.tsx` | First-visit intro: counter 000→100, orange curtain with the greetings, then lifts away. Counter follows the real page load, held for at least `minMs` and never waiting past `maxMs` (`animationConfig.intro`); sets `<html data-intro="playing|done">` (the hero name hides while playing). |
+| `ticker.tsx` | `Ticker` — endless CSS marquee (items rendered twice, slides by half). |
+| `section-head.tsx` | `SectionHead` — orange index, giant title that rises into view, optional note. |
 | `dev-banner.tsx` | Optional "in development" banner (import commented out in layout). |
 
 ## Conventions
