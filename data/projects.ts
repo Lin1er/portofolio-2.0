@@ -25,7 +25,7 @@ export const projects: Project[] = [
     title: "Tove Heritage",
     description:
       "Sole author of the Soroban contract workspace behind a platform for fractional ownership of artworks on Stellar. Eleven Rust contracts: a SEP-41 fraction token, a book-build offering escrow, a passkey smart wallet built on OpenZeppelin's CustomAccountInterface with secp256r1 and ed25519 verifiers, KYC gating, an emergency freeze, and admin-gated upgradeability behind an invariant gate. Nine contracts deployed to Stellar testnet, settling in Circle's USDC Stellar Asset Contract. 220 tests, plus CI that verifies canonical WASM determinism and runs an end-to-end smoke against testnet. I also self-audited the workspace and remediated two HIGH and five MEDIUM findings, each with its own regression test. Private repository — walkthrough on request.",
-    image: "/assets/tove-heritage.png",
+    image: "/assets/tove-heritage.jpg",
     tags: [
       "Stellar",
       "Soroban",
@@ -36,6 +36,7 @@ export const projects: Project[] = [
       "USDC",
       "GitHub Actions",
     ],
+    live: "https://toveheritage.org",
     featured: true,
     category: "web3",
   },
@@ -80,27 +81,12 @@ export const projects: Project[] = [
     category: "web3",
   },
 
-  {
-    title: "TerraChain",
-    description:
-      "A solo build: an on-chain territory game on Celo, five Solidity contracts end to end. TileRegistry holds territory state, BattleResolver settles occupation on-chain, YieldManager and ClaimManager run the occupation yield with a 70/30 split, and GeoToken is the $GEO reward asset — with the raid and reclaim UI on top.",
-    image: "/assets/terrachain.png",
-    tags: [
-      "Celo",
-      "Solidity",
-      "Foundry",
-      "Next.js",
-      "TypeScript",
-    ],
-    featured: true,
-    category: "web3",
-  },
 
   {
     title: "Sterish",
     description:
       "An audited skill marketplace for AI agents on Stellar — an on-chain registry, a multi-stage audit pipeline, and pay-per-use licensing. I built the off-chain half: replaced the mock chain client with real Soroban reads against the registry, wrote an event indexer and a REST API against a frozen spec, and implemented the x402 pay-per-use flow end to end — 402, pay in USDC, license minted, 200. I also own the deployment: Docker Compose, automatic TLS through Caddy, and a Cloudflare Tunnel onto my own hardware. 42 tests, ten of them against live testnet. Contracts written by a teammate.",
-    image: "/assets/sterish.png",
+    image: "/assets/sterish.jpg",
     tags: [
       "Stellar",
       "Soroban",
@@ -112,6 +98,7 @@ export const projects: Project[] = [
       "Caddy",
     ],
     github: "https://github.com/Lin1er/sterish",
+    live: "https://sterish.xyz",
     featured: true,
     category: "web3",
   },
@@ -173,7 +160,7 @@ export const projects: Project[] = [
     title: "Sterun",
     description:
       "Race records on Stellar that cannot be sold or handed on — a finish is minted as a non-transferable on-chain record and stays verifiable by anyone, without a wallet. I am the sole author of @sterun/sdk, a TypeScript client over @stellar/stellar-sdk that ships a frozen RaceRecord JSON Schema and needs no signer on the read path. I also wrote most of the backend: a Soroban RPC keeper, an event indexer that survives a rebuild, participant and file routes, and the production deployment. Contracts written by a teammate.",
-    image: "/assets/sterun.png",
+    image: "/assets/sterun.jpg",
     tags: [
       "Stellar",
       "Stellar SDK",
@@ -183,6 +170,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     github: "https://github.com/AncungAulia/sterun",
+    live: "https://sterun.xyz",
     featured: true,
     category: "web3",
   },
@@ -282,22 +270,6 @@ export const projects: Project[] = [
     category: "fullstack",
   },
 
-  {
-    title: "GW Platform",
-    description:
-      "Building a self-hosted Google Workspace management platform: TOTP MFA, JWT auth, role-based access control, audit logging, and a pluggable directory-engine abstraction over the Google Admin API. Deployed on a homeserver with Docker Compose, Caddy, and automated backups.",
-    image: "/assets/gw-platform.jpg",
-    tags: [
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Next.js",
-      "Docker",
-      "RBAC",
-    ],
-    featured: true,
-    category: "fullstack",
-  },
 
   {
     title: "Owlighting Garage",

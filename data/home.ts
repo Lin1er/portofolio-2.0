@@ -81,11 +81,11 @@ export const homeContent = {
     // Titles from `projects`, in display order: backend & AI first.
     entries: [
       "Technocorner",
-      "GW Platform",
       "ClearContract",
       "Tove Heritage",
       "RoastWager",
       "SuiStorage AI",
+      "Sterish",
       "FindIT",
     ],
     alsoLabel: "Also",
