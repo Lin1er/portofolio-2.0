@@ -139,22 +139,6 @@ export const projects: Project[] = [
     category: "web3",
   },
 
-  {
-    title: "HELM",
-    description:
-      "An autonomous agent wallet on Sui: grant an AI agent a capped budget, a scope and an expiry, and it trades against real DeepBook orders without per-action approval — bounded by an on-chain Move policy and revocable at any time. Built as three Move packages, including sui-session-keys, a reusable delegated-authority primitive that stands on its own with a TypeScript SDK and two independent consumer examples. Built for Sui Overflow 2026.",
-    image: "/assets/helm.png",
-    tags: [
-      "Sui",
-      "Move",
-      "DeepBook",
-      "Session Keys",
-      "Walrus",
-      "TypeScript",
-    ],
-    featured: true,
-    category: "web3",
-  },
 
   {
     title: "Sterun",
